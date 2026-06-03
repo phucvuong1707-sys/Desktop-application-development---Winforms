@@ -14,4 +14,49 @@
       <ProjectReference Include="..\DTO\DTO.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="FormDashboard.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormManageProduct.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormSell.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormGuest.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormIntoWarehouse.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormCheckInventory.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormSupplier.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormGuarantee.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormTradeIn.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormManageShift.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormReport.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormStaff.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormSetting.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="FormPromotion.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

@@ -691,11 +691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\GUI\\GUI.csproj",
+      "projectUniqueName": "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\GUI\\GUI.csproj",
       "projectName": "GUI",
-      "projectPath": "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\GUI\\GUI.csproj",
+      "projectPath": "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\GUI\\GUI.csproj",
       "packagesPath": "C:\\Users\\MinhTrieu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\GUI\\obj\\",
+      "outputPath": "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\GUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -717,11 +717,11 @@
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "projectReferences": {
-            "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\BUS\\BUS.csproj": {
-              "projectPath": "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\BUS\\BUS.csproj"
+            "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\BUS\\BUS.csproj": {
+              "projectPath": "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\BUS\\BUS.csproj"
             },
-            "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\DTO\\DTO.csproj"
+            "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\DTO\\DTO.csproj"
             }
           }
         }

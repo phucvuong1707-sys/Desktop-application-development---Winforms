@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4IUIAJ7S1Og=",
+  "dgSpecHash": "CbNXWsPKe9E=",
   "success": true,
-  "projectFilePath": "C:\\Users\\MinhTrieu\\UEH\\PTUDDesktop\\Desktop_Application_Development\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\MinhTrieu\\RiderProjects\\Desktop-application-development---Winforms\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MinhTrieu\\.nuget\\packages\\bouncycastle.cryptography\\2.6.2\\bouncycastle.cryptography.2.6.2.nupkg.sha512",
     "C:\\Users\\MinhTrieu\\.nuget\\packages\\dapper\\2.1.79\\dapper.2.1.79.nupkg.sha512",
