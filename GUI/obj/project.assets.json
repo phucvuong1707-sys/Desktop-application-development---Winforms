@@ -685,23 +685,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\tytri\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\PC\\.nuget\\packages\\": {},
+>>>>>>> 6afe1f632f227c5803032a2963d271947b81fbfa
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\GUI\\GUI.csproj",
       "projectName": "GUI",
       "projectPath": "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\GUI\\GUI.csproj",
       "packagesPath": "C:\\Users\\tytri\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\GUI\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\GUI\\GUI.csproj",
+      "projectName": "GUI",
+      "projectPath": "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\GUI\\GUI.csproj",
+      "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\GUI\\obj\\",
+>>>>>>> 6afe1f632f227c5803032a2963d271947b81fbfa
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\tytri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 6afe1f632f227c5803032a2963d271947b81fbfa
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -716,11 +732,19 @@
         "net9.0-windows7.0": {
           "targetAlias": "net9.0-windows",
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\BUS\\BUS.csproj": {
               "projectPath": "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\BUS\\BUS.csproj"
             },
             "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\DTO\\DTO.csproj": {
               "projectPath": "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\DTO\\DTO.csproj"
+=======
+            "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\BUS\\BUS.csproj": {
+              "projectPath": "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\BUS\\BUS.csproj"
+            },
+            "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\DTO\\DTO.csproj"
+>>>>>>> 6afe1f632f227c5803032a2963d271947b81fbfa
             }
           }
         }

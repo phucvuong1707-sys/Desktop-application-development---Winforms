@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "jFR7HnxkVtI=",
   "success": true,
   "projectFilePath": "C:\\Users\\tytri\\Source\\Repos\\Desktop-application-development---Winforms\\DTO\\DTO.csproj",
+=======
+  "dgSpecHash": "GxE0pN5rZNI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PC\\RiderProjects\\Desktop-application-development---Winforms\\DTO\\DTO.csproj",
+>>>>>>> 6afe1f632f227c5803032a2963d271947b81fbfa
   "expectedPackageFiles": [],
   "logs": []
 }

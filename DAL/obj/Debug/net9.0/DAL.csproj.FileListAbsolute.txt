@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DAL.deps.json
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DAL.dll
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DAL.pdb
@@ -14,3 +15,21 @@ C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\obj\D
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\refint\DAL.dll
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.pdb
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\ref\DAL.dll
+=======
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DAL.deps.json
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DAL.dll
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DAL.pdb
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DTO.dll
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\bin\Debug\net9.0\DTO.pdb
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.csproj.AssemblyReference.cache
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.AssemblyInfoInputs.cache
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.AssemblyInfo.cs
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.sourcelink.json
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.csproj.Up2Date
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.dll
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\refint\DAL.dll
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\DAL.pdb
+C:\Users\PC\RiderProjects\Desktop-application-development---Winforms\DAL\obj\Debug\net9.0\ref\DAL.dll
+>>>>>>> 6afe1f632f227c5803032a2963d271947b81fbfa
