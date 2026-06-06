@@ -24,7 +24,6 @@ C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\bin\D
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\bin\Debug\net9.0-windows\DAL.pdb
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.csproj.AssemblyReference.cache
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.FormDashboard.resources
-C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\Desktop_Application_Development.FormGuest.resources
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\Desktop_Application_Development.FormReport.resources
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.csproj.GenerateResource.cache
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.GeneratedMSBuildEditorConfig.editorconfig
@@ -39,3 +38,5 @@ C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\D
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.genruntimeconfig.cache
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\ref\GUI.dll
 C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.FormSell.resources
+C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.FormGuest.resources
+C:\Users\tytri\Source\Repos\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.FormPromotion.resources
