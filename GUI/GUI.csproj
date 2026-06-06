@@ -36,9 +36,6 @@
       <Compile Update="FormSupplier.cs">
         <SubType>Form</SubType>
       </Compile>
-      <Compile Update="FormGuarantee.cs">
-        <SubType>Form</SubType>
-      </Compile>
       <Compile Update="FormTradeIn.cs">
         <SubType>Form</SubType>
       </Compile>
