@@ -171,6 +171,7 @@ partial class FormWarranty
         // 
         // dgvWarranty
         // 
+        dgvWarranty.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right));
         dgvWarranty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         dgvWarranty.Location = new System.Drawing.Point(12, 174);
         dgvWarranty.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -198,6 +199,7 @@ partial class FormWarranty
         // 
         // btnUpdateStatus
         // 
+        btnUpdateStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right));
         btnUpdateStatus.Location = new System.Drawing.Point(0, 649);
         btnUpdateStatus.Name = "btnUpdateStatus";
         btnUpdateStatus.Size = new System.Drawing.Size(338, 33);
@@ -239,6 +241,7 @@ partial class FormWarranty
         // 
         // btnCreateClaim
         // 
+        btnCreateClaim.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right));
         btnCreateClaim.Location = new System.Drawing.Point(6, 321);
         btnCreateClaim.Name = "btnCreateClaim";
         btnCreateClaim.Size = new System.Drawing.Size(338, 33);
@@ -265,8 +268,7 @@ partial class FormWarranty
         // 
         // FormWarranty
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
         ClientSize = new System.Drawing.Size(984, 701);
         Controls.Add(groupBox2);
         Controls.Add(dgvWarranty);
