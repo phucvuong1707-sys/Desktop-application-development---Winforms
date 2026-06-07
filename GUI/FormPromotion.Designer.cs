@@ -48,17 +48,17 @@ partial class FormPromotion
         groupBox2 = new GroupBox();
         btn_createPromotion = new Button();
         dgv_guest = new DataGridView();
+        btn_refresh = new Button();
+        btn_edit = new Button();
+        btn_disablePromotion = new Button();
+        mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
         col_PromotionCode = new DataGridViewTextBoxColumn();
-        col_Description = new DataGridViewTextBoxColumn();
+        col_description = new DataGridViewTextBoxColumn();
         col_DiscountPercentage = new DataGridViewTextBoxColumn();
         col_DiscountAmount = new DataGridViewTextBoxColumn();
         col_StartDate = new DataGridViewTextBoxColumn();
         col_EndDate = new DataGridViewTextBoxColumn();
         col_Status = new DataGridViewTextBoxColumn();
-        btn_refresh = new Button();
-        btn_edit = new Button();
-        btn_disablePromotion = new Button();
-        mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
         groupBox3.SuspendLayout();
         groupBox2.SuspendLayout();
         ((ISupportInitialize)dgv_guest).BeginInit();
@@ -137,6 +137,7 @@ partial class FormPromotion
         btn_save.TabIndex = 6;
         btn_save.Text = "Lưu";
         btn_save.UseVisualStyleBackColor = true;
+        btn_save.Click += btn_save_Click_1;
         // 
         // btn_cancel
         // 
@@ -218,14 +219,48 @@ partial class FormPromotion
         // dgv_guest
         // 
         dgv_guest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgv_guest.Columns.AddRange(new DataGridViewColumn[] { col_PromotionCode, col_Description, col_DiscountPercentage, col_DiscountAmount, col_StartDate, col_EndDate, col_Status });
-        dgv_guest.Location = new Point(4, 146);
+        dgv_guest.Columns.AddRange(new DataGridViewColumn[] { col_PromotionCode, col_description, col_DiscountPercentage, col_DiscountAmount, col_StartDate, col_EndDate, col_Status });
+        dgv_guest.Location = new Point(0, 143);
         dgv_guest.Margin = new Padding(1);
         dgv_guest.Name = "dgv_guest";
         dgv_guest.RowHeadersWidth = 51;
         dgv_guest.Size = new Size(880, 319);
         dgv_guest.TabIndex = 1;
         dgv_guest.CellContentClick += dgv_Guest_CellContentClick;
+        // 
+        // btn_refresh
+        // 
+        btn_refresh.Location = new Point(503, 45);
+        btn_refresh.Name = "btn_refresh";
+        btn_refresh.Size = new Size(140, 54);
+        btn_refresh.TabIndex = 5;
+        btn_refresh.Text = "Làm mới";
+        btn_refresh.UseVisualStyleBackColor = true;
+        // 
+        // btn_edit
+        // 
+        btn_edit.Location = new Point(180, 45);
+        btn_edit.Name = "btn_edit";
+        btn_edit.Size = new Size(140, 54);
+        btn_edit.TabIndex = 3;
+        btn_edit.Text = "Sửa";
+        btn_edit.UseVisualStyleBackColor = true;
+        // 
+        // btn_disablePromotion
+        // 
+        btn_disablePromotion.Location = new Point(338, 45);
+        btn_disablePromotion.Name = "btn_disablePromotion";
+        btn_disablePromotion.Size = new Size(140, 54);
+        btn_disablePromotion.TabIndex = 4;
+        btn_disablePromotion.Text = "Tắt KM";
+        btn_disablePromotion.UseVisualStyleBackColor = true;
+        // 
+        // mySqlCommand1
+        // 
+        mySqlCommand1.CacheAge = 0;
+        mySqlCommand1.Connection = null;
+        mySqlCommand1.EnableCaching = false;
+        mySqlCommand1.Transaction = null;
         // 
         // col_PromotionCode
         // 
@@ -234,12 +269,12 @@ partial class FormPromotion
         col_PromotionCode.Name = "col_PromotionCode";
         col_PromotionCode.Width = 125;
         // 
-        // col_Description
+        // col_description
         // 
-        col_Description.HeaderText = "Mô tả";
-        col_Description.MinimumWidth = 6;
-        col_Description.Name = "col_Description";
-        col_Description.Width = 125;
+        col_description.HeaderText = "Mô tả";
+        col_description.MinimumWidth = 6;
+        col_description.Name = "col_description";
+        col_description.Width = 125;
         // 
         // col_DiscountPercentage
         // 
@@ -275,40 +310,6 @@ partial class FormPromotion
         col_Status.MinimumWidth = 6;
         col_Status.Name = "col_Status";
         col_Status.Width = 125;
-        // 
-        // btn_refresh
-        // 
-        btn_refresh.Location = new Point(503, 45);
-        btn_refresh.Name = "btn_refresh";
-        btn_refresh.Size = new Size(140, 54);
-        btn_refresh.TabIndex = 5;
-        btn_refresh.Text = "Làm mới";
-        btn_refresh.UseVisualStyleBackColor = true;
-        // 
-        // btn_edit
-        // 
-        btn_edit.Location = new Point(180, 45);
-        btn_edit.Name = "btn_edit";
-        btn_edit.Size = new Size(140, 54);
-        btn_edit.TabIndex = 3;
-        btn_edit.Text = "Sửa";
-        btn_edit.UseVisualStyleBackColor = true;
-        // 
-        // btn_disablePromotion
-        // 
-        btn_disablePromotion.Location = new Point(338, 45);
-        btn_disablePromotion.Name = "btn_disablePromotion";
-        btn_disablePromotion.Size = new Size(140, 54);
-        btn_disablePromotion.TabIndex = 4;
-        btn_disablePromotion.Text = "Tắt KM";
-        btn_disablePromotion.UseVisualStyleBackColor = true;
-        // 
-        // mySqlCommand1
-        // 
-        mySqlCommand1.CacheAge = 0;
-        mySqlCommand1.Connection = null;
-        mySqlCommand1.EnableCaching = false;
-        mySqlCommand1.Transaction = null;
         // 
         // FormPromotion
         // 
@@ -351,7 +352,7 @@ partial class FormPromotion
     private DateTimePicker dtp_startDate;
     private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
     private DataGridViewTextBoxColumn col_PromotionCode;
-    private DataGridViewTextBoxColumn col_Description;
+    private DataGridViewTextBoxColumn col_description;
     private DataGridViewTextBoxColumn col_DiscountPercentage;
     private DataGridViewTextBoxColumn col_DiscountAmount;
     private DataGridViewTextBoxColumn col_StartDate;
