@@ -31,28 +31,28 @@ partial class FormGuest
     /// </summary>
     private void InitializeComponent()
     {
-        groupBox1 = new System.Windows.Forms.GroupBox();
-        btn_search = new System.Windows.Forms.Button();
-        btn_delete = new System.Windows.Forms.Button();
-        btn_update = new System.Windows.Forms.Button();
-        btn_add = new System.Windows.Forms.Button();
-        cbo_Rank = new System.Windows.Forms.ComboBox();
-        txt_Phone = new System.Windows.Forms.TextBox();
-        txt_GuestName = new System.Windows.Forms.TextBox();
-        txt_GuestID = new System.Windows.Forms.TextBox();
-        label4 = new System.Windows.Forms.Label();
-        label3 = new System.Windows.Forms.Label();
-        label2 = new System.Windows.Forms.Label();
-        label1 = new System.Windows.Forms.Label();
+        groupBox1 = new GroupBox();
+        btn_search = new Button();
+        btn_delete = new Button();
+        btn_update = new Button();
+        btn_add = new Button();
+        cbo_Rank = new ComboBox();
+        txt_Phone = new TextBox();
+        txt_GuestName = new TextBox();
+        txt_GuestID = new TextBox();
+        label4 = new Label();
+        label3 = new Label();
+        label2 = new Label();
+        label1 = new Label();
         mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-        dgv_Guest = new System.Windows.Forms.DataGridView();
-        col_CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        col_customer_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        col_PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        col_RewardPoints = new System.Windows.Forms.DataGridViewTextBoxColumn();
-        col_MembershipTier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        dgv_Guest = new DataGridView();
+        col_CustomerID = new DataGridViewTextBoxColumn();
+        col_customer_name = new DataGridViewTextBoxColumn();
+        col_PhoneNumber = new DataGridViewTextBoxColumn();
+        col_RewardPoints = new DataGridViewTextBoxColumn();
+        col_MembershipTier = new DataGridViewTextBoxColumn();
         groupBox1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize)dgv_Guest).BeginInit();
+        ((ISupportInitialize)dgv_Guest).BeginInit();
         SuspendLayout();
         // 
         // groupBox1
@@ -69,45 +69,51 @@ partial class FormGuest
         groupBox1.Controls.Add(label3);
         groupBox1.Controls.Add(label2);
         groupBox1.Controls.Add(label1);
-        groupBox1.Location = new System.Drawing.Point(27, 35);
+        groupBox1.Location = new Point(13, 17);
+        groupBox1.Margin = new Padding(1, 1, 1, 1);
         groupBox1.Name = "groupBox1";
-        groupBox1.Size = new System.Drawing.Size(1072, 304);
+        groupBox1.Padding = new Padding(1, 1, 1, 1);
+        groupBox1.Size = new Size(713, 177);
         groupBox1.TabIndex = 0;
         groupBox1.TabStop = false;
         groupBox1.Text = "groupBox1";
         // 
         // btn_search
         // 
-        btn_search.Location = new System.Drawing.Point(535, 246);
+        btn_search.Location = new Point(252, 120);
+        btn_search.Margin = new Padding(1, 1, 1, 1);
         btn_search.Name = "btn_search";
-        btn_search.Size = new System.Drawing.Size(117, 41);
+        btn_search.Size = new Size(55, 20);
         btn_search.TabIndex = 12;
         btn_search.Text = "Tìm Kiếm";
         btn_search.UseVisualStyleBackColor = true;
         // 
         // btn_delete
         // 
-        btn_delete.Location = new System.Drawing.Point(369, 246);
+        btn_delete.Location = new Point(174, 120);
+        btn_delete.Margin = new Padding(1, 1, 1, 1);
         btn_delete.Name = "btn_delete";
-        btn_delete.Size = new System.Drawing.Size(117, 41);
+        btn_delete.Size = new Size(55, 20);
         btn_delete.TabIndex = 10;
         btn_delete.Text = "Xóa";
         btn_delete.UseVisualStyleBackColor = true;
         // 
         // btn_update
         // 
-        btn_update.Location = new System.Drawing.Point(198, 246);
+        btn_update.Location = new Point(93, 120);
+        btn_update.Margin = new Padding(1, 1, 1, 1);
         btn_update.Name = "btn_update";
-        btn_update.Size = new System.Drawing.Size(117, 41);
+        btn_update.Size = new Size(55, 20);
         btn_update.TabIndex = 9;
         btn_update.Text = "Sửa";
         btn_update.UseVisualStyleBackColor = true;
         // 
         // btn_add
         // 
-        btn_add.Location = new System.Drawing.Point(37, 246);
+        btn_add.Location = new Point(17, 120);
+        btn_add.Margin = new Padding(1, 1, 1, 1);
         btn_add.Name = "btn_add";
-        btn_add.Size = new System.Drawing.Size(117, 41);
+        btn_add.Size = new Size(55, 20);
         btn_add.TabIndex = 8;
         btn_add.Text = "Thêm";
         btn_add.UseVisualStyleBackColor = true;
@@ -115,65 +121,73 @@ partial class FormGuest
         // cbo_Rank
         // 
         cbo_Rank.FormattingEnabled = true;
-        cbo_Rank.Location = new System.Drawing.Point(131, 184);
+        cbo_Rank.Location = new Point(62, 90);
+        cbo_Rank.Margin = new Padding(1, 1, 1, 1);
         cbo_Rank.Name = "cbo_Rank";
-        cbo_Rank.Size = new System.Drawing.Size(151, 49);
+        cbo_Rank.Size = new Size(73, 28);
         cbo_Rank.TabIndex = 7;
         // 
         // txt_Phone
         // 
-        txt_Phone.Location = new System.Drawing.Point(131, 125);
+        txt_Phone.Location = new Point(62, 61);
+        txt_Phone.Margin = new Padding(1, 1, 1, 1);
         txt_Phone.Name = "txt_Phone";
-        txt_Phone.Size = new System.Drawing.Size(125, 47);
+        txt_Phone.Size = new Size(61, 27);
         txt_Phone.TabIndex = 6;
         // 
         // txt_GuestName
         // 
-        txt_GuestName.Location = new System.Drawing.Point(131, 83);
+        txt_GuestName.Location = new Point(62, 40);
+        txt_GuestName.Margin = new Padding(1, 1, 1, 1);
         txt_GuestName.Name = "txt_GuestName";
-        txt_GuestName.Size = new System.Drawing.Size(125, 47);
+        txt_GuestName.Size = new Size(61, 27);
         txt_GuestName.TabIndex = 5;
         // 
         // txt_GuestID
         // 
-        txt_GuestID.Location = new System.Drawing.Point(131, 45);
+        txt_GuestID.Location = new Point(62, 22);
+        txt_GuestID.Margin = new Padding(1, 1, 1, 1);
         txt_GuestID.Name = "txt_GuestID";
-        txt_GuestID.Size = new System.Drawing.Size(125, 47);
+        txt_GuestID.Size = new Size(61, 27);
         txt_GuestID.TabIndex = 4;
         // 
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new System.Drawing.Point(37, 184);
+        label4.Location = new Point(17, 90);
+        label4.Margin = new Padding(1, 0, 1, 0);
         label4.Name = "label4";
-        label4.Size = new System.Drawing.Size(101, 41);
+        label4.Size = new Size(51, 20);
         label4.TabIndex = 3;
         label4.Text = "HẠNG";
         // 
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new System.Drawing.Point(37, 128);
+        label3.Location = new Point(17, 62);
+        label3.Margin = new Padding(1, 0, 1, 0);
         label3.Name = "label3";
-        label3.Size = new System.Drawing.Size(71, 41);
+        label3.Size = new Size(36, 20);
         label3.TabIndex = 2;
         label3.Text = "SĐT";
         // 
         // label2
         // 
         label2.AutoSize = true;
-        label2.Location = new System.Drawing.Point(37, 83);
+        label2.Location = new Point(17, 40);
+        label2.Margin = new Padding(1, 0, 1, 0);
         label2.Name = "label2";
-        label2.Size = new System.Drawing.Size(110, 41);
+        label2.Size = new Size(56, 20);
         label2.TabIndex = 1;
         label2.Text = "Tên KH";
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new System.Drawing.Point(37, 45);
+        label1.Location = new Point(17, 22);
+        label1.Margin = new Padding(1, 0, 1, 0);
         label1.Name = "label1";
-        label1.Size = new System.Drawing.Size(106, 41);
+        label1.Size = new Size(54, 20);
         label1.TabIndex = 0;
         label1.Text = "Mã KH";
         // 
@@ -186,12 +200,13 @@ partial class FormGuest
         // 
         // dgv_Guest
         // 
-        dgv_Guest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgv_Guest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { col_CustomerID, col_customer_name, col_PhoneNumber, col_RewardPoints, col_MembershipTier });
-        dgv_Guest.Location = new System.Drawing.Point(27, 358);
+        dgv_Guest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgv_Guest.Columns.AddRange(new DataGridViewColumn[] { col_CustomerID, col_customer_name, col_PhoneNumber, col_RewardPoints, col_MembershipTier });
+        dgv_Guest.Location = new Point(30, 217);
+        dgv_Guest.Margin = new Padding(1, 1, 1, 1);
         dgv_Guest.Name = "dgv_Guest";
         dgv_Guest.RowHeadersWidth = 51;
-        dgv_Guest.Size = new System.Drawing.Size(1072, 287);
+        dgv_Guest.Size = new Size(696, 300);
         dgv_Guest.TabIndex = 1;
         // 
         // col_CustomerID
@@ -231,17 +246,17 @@ partial class FormGuest
         // 
         // FormGuest
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
-        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(1500, 938);
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(1320, 647);
         Controls.Add(dgv_Guest);
         Controls.Add(groupBox1);
-        Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+        Name = "FormGuest";
         Text = "FormGuest";
         Load += FormGuest_Load;
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize)dgv_Guest).EndInit();
+        ((ISupportInitialize)dgv_Guest).EndInit();
         ResumeLayout(false);
     }
 
