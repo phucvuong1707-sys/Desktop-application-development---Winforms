@@ -8,14 +8,14 @@ namespace GUI
         public FormSell()
         {
             InitializeComponent();
-            btn_Payment.Click += btn_Payment_Click;
-            btn_Print.Click += btn_Print_Click;
-            btn_CancelInvoice.Click += btn_CancelInvoice_Click;
-            btnTodayInvoice.Click += btnTodayInvoice_Click;
-            btn_Customer.Click += btn_Customer_Click;
-            btn_Promotion.Click += btn_Promotion_Click;
-            btn_ConfirmPayment.Click += btn_ConfirmPayment_Click;
-            cbo_PaymentMethod.SelectedIndex = 0;
+            btn_payment.Click += btn_Payment_Click;
+            btn_print.Click += btn_Print_Click;
+            btn_cancelInvoice.Click += btn_CancelInvoice_Click;
+            btn_todayInvoice.Click += btnTodayInvoice_Click;
+            btn_customer.Click += btn_Customer_Click;
+            btn_promotion.Click += btn_Promotion_Click;
+            btn_confirmPayment.Click += btn_ConfirmPayment_Click;
+            cbo_paymentMethod.SelectedIndex = 0;
         }
 
         // Thanh toán
@@ -49,7 +49,7 @@ namespace GUI
 
             if (result == DialogResult.Yes)
             {
-                dgv_Cart.Rows.Clear();
+                dgv_cart.Rows.Clear();
 
                 lbl_SubTotal.Text = "Tạm tính: 0 VNĐ";
                 lbl_Discount.Text = "Giảm giá: 0 VNĐ";
@@ -98,7 +98,7 @@ namespace GUI
         // Xác nhận thanh toán
         private void btn_ConfirmPayment_Click(object sender, EventArgs e)
         {
-            string paymentMethod = cbo_PaymentMethod.Text;
+            string paymentMethod = cbo_paymentMethod.Text;
 
             MessageBox.Show(
                 $"Thanh toán thành công!\nPhương thức: {paymentMethod}",
@@ -108,6 +108,16 @@ namespace GUI
         }
 
         private void dgv_Cart_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btn_Print_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grp_Action_Enter(object sender, EventArgs e)
         {
 
         }

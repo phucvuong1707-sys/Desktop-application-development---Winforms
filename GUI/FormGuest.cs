@@ -22,19 +22,19 @@ namespace GUI
         private void FormGuest_Load(object sender, EventArgs e)
         {
             // Hiển thị cột tự động đầy đủ chiều rộng
-            dgv_Guest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_guest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Chỉ cho phép chọn nguyên dòng
-            dgv_Guest.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_guest.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
             // Không cho chọn nhiều dòng
-            dgv_Guest.MultiSelect = false;
+            dgv_guest.MultiSelect = false;
 
             // Không cho người dùng tự thêm dòng
-            dgv_Guest.AllowUserToAddRows = false;
+            dgv_guest.AllowUserToAddRows = false;
 
             // Chỉ đọc dữ liệu
-            dgv_Guest.ReadOnly = true;
+            dgv_guest.ReadOnly = true;
         }
 
         // ==========================
@@ -46,14 +46,14 @@ namespace GUI
             isAdding = true;
 
             // Xóa dữ liệu cũ trên form
-            txt_PhoneNumber.Clear();
-            txt_FullName.Clear();
-            txt_Address.Clear();
+            txt_phoneNumber.Clear();
+            txt_fullName.Clear();
+            txt_address.Clear();
 
-            cbo_CustomerType.SelectedIndex = -1;
+            cbo_customerType.SelectedIndex = -1;
 
             // Đưa con trỏ vào ô SĐT
-            txt_PhoneNumber.Focus();
+            txt_phoneNumber.Focus();
         }
 
         // ==========================
@@ -62,8 +62,8 @@ namespace GUI
         private void btn_Save_Click(object sender, EventArgs e)
         {
             // Kiểm tra dữ liệu bắt buộc
-            if (string.IsNullOrWhiteSpace(txt_PhoneNumber.Text) ||
-                string.IsNullOrWhiteSpace(txt_FullName.Text))
+            if (string.IsNullOrWhiteSpace(txt_phoneNumber.Text) ||
+                string.IsNullOrWhiteSpace(txt_fullName.Text))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
                 return;
@@ -72,10 +72,10 @@ namespace GUI
             // Nếu đang thêm khách hàng
             if (isAdding)
             {
-                dgv_Guest.Rows.Add(
-                    txt_PhoneNumber.Text,      // SĐT
-                    txt_FullName.Text,         // Họ tên
-                    cbo_CustomerType.Text,    // Loại khách
+                dgv_guest.Rows.Add(
+                    txt_phoneNumber.Text,      // SĐT
+                    txt_fullName.Text,         // Họ tên
+                    cbo_customerType.Text,    // Loại khách
                     0,                         // Điểm tích lũy
                     0,                         // Tổng mua
                     DateTime.Now.ToString("dd/MM/yyyy")
@@ -88,9 +88,9 @@ namespace GUI
                 // Nếu đang sửa khách hàng
                 if (selectedRow >= 0)
                 {
-                    dgv_Guest.Rows[selectedRow].Cells[0].Value = txt_PhoneNumber.Text;
-                    dgv_Guest.Rows[selectedRow].Cells[1].Value = txt_FullName.Text;
-                    dgv_Guest.Rows[selectedRow].Cells[2].Value = cbo_CustomerType.Text;
+                    dgv_guest.Rows[selectedRow].Cells[0].Value = txt_phoneNumber.Text;
+                    dgv_guest.Rows[selectedRow].Cells[1].Value = txt_fullName.Text;
+                    dgv_guest.Rows[selectedRow].Cells[2].Value = cbo_customerType.Text;
 
                     MessageBox.Show("Cập nhật khách hàng thành công!");
                 }
@@ -103,24 +103,24 @@ namespace GUI
         private void btn_Edit_Click(object sender, EventArgs e)
         {
             // Kiểm tra đã chọn dòng chưa
-            if (dgv_Guest.CurrentRow == null)
+            if (dgv_guest.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng cần sửa!");
                 return;
             }
 
             // Lưu vị trí dòng đang chọn
-            selectedRow = dgv_Guest.CurrentRow.Index;
+            selectedRow = dgv_guest.CurrentRow.Index;
 
             // Đổ dữ liệu lên form
-            txt_PhoneNumber.Text =
-                dgv_Guest.Rows[selectedRow].Cells[0].Value?.ToString();
+            txt_phoneNumber.Text =
+                dgv_guest.Rows[selectedRow].Cells[0].Value?.ToString();
 
-            txt_FullName.Text =
-                dgv_Guest.Rows[selectedRow].Cells[1].Value?.ToString();
+            txt_fullName.Text =
+                dgv_guest.Rows[selectedRow].Cells[1].Value?.ToString();
 
-            cbo_CustomerType.Text =
-                dgv_Guest.Rows[selectedRow].Cells[2].Value?.ToString();
+            cbo_customerType.Text =
+                dgv_guest.Rows[selectedRow].Cells[2].Value?.ToString();
 
             // Chuyển sang chế độ sửa
             isAdding = false;
@@ -131,11 +131,11 @@ namespace GUI
         // ==========================
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            txt_PhoneNumber.Clear();
-            txt_FullName.Clear();
-            txt_Address.Clear();
+            txt_phoneNumber.Clear();
+            txt_fullName.Clear();
+            txt_address.Clear();
 
-            cbo_CustomerType.SelectedIndex = -1;
+            cbo_customerType.SelectedIndex = -1;
 
             MessageBox.Show("Đã hủy thao tác!");
         }
@@ -146,17 +146,17 @@ namespace GUI
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             // Xóa ô tìm kiếm
-            txt_Search.Clear();
+            txt_search.Clear();
 
             // Xóa dữ liệu trên form
-            txt_PhoneNumber.Clear();
-            txt_FullName.Clear();
-            txt_Address.Clear();
+            txt_phoneNumber.Clear();
+            txt_fullName.Clear();
+            txt_address.Clear();
 
-            cbo_CustomerType.SelectedIndex = -1;
+            cbo_customerType.SelectedIndex = -1;
 
             // Bỏ chọn DataGridView
-            dgv_Guest.ClearSelection();
+            dgv_guest.ClearSelection();
 
             MessageBox.Show("Đã làm mới!");
         }
@@ -166,14 +166,14 @@ namespace GUI
         // ==========================
         private void btn_PurchaseHistory_Click(object sender, EventArgs e)
         {
-            if (dgv_Guest.CurrentRow == null)
+            if (dgv_guest.CurrentRow == null)
             {
                 MessageBox.Show("Vui lòng chọn khách hàng!");
                 return;
             }
 
             string customerName =
-                dgv_Guest.CurrentRow.Cells[1].Value?.ToString();
+                dgv_guest.CurrentRow.Cells[1].Value?.ToString();
 
             MessageBox.Show(
                 "Hiển thị lịch sử mua của khách hàng: "
@@ -193,14 +193,14 @@ namespace GUI
             selectedRow = e.RowIndex;
 
             // Hiển thị dữ liệu lên form
-            txt_PhoneNumber.Text =
-                dgv_Guest.Rows[e.RowIndex].Cells[0].Value?.ToString();
+            txt_phoneNumber.Text =
+                dgv_guest.Rows[e.RowIndex].Cells[0].Value?.ToString();
 
-            txt_FullName.Text =
-                dgv_Guest.Rows[e.RowIndex].Cells[1].Value?.ToString();
+            txt_fullName.Text =
+                dgv_guest.Rows[e.RowIndex].Cells[1].Value?.ToString();
 
-            cbo_CustomerType.Text =
-                dgv_Guest.Rows[e.RowIndex].Cells[2].Value?.ToString();
+            cbo_customerType.Text =
+                dgv_guest.Rows[e.RowIndex].Cells[2].Value?.ToString();
         }
 
         // ==========================
@@ -208,9 +208,9 @@ namespace GUI
         // ==========================
         private void txt_Search_TextChanged(object sender, EventArgs e)
         {
-            string keyword = txt_Search.Text.ToLower();
+            string keyword = txt_search.Text.ToLower();
 
-            foreach (DataGridViewRow row in dgv_Guest.Rows)
+            foreach (DataGridViewRow row in dgv_guest.Rows)
             {
                 if (row.IsNewRow)
                     continue;

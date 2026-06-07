@@ -8,137 +8,241 @@ namespace GUI
         public FormPromotion()
         {
             InitializeComponent();
-
-            // Đăng ký các sự kiện (Events) cho nút bấm nếu chưa đăng ký bên Designer
-            btn_Add.Click += new EventHandler(btn_Add_Click);
-            btn_Update.Click += new EventHandler(btn_Update_Click);
-            btn_Delete.Click += new EventHandler(btn_Delete_Click);
         }
 
+        // ===========================
+        // FORM LOAD
+        // ===========================
         private void FormPromotion_Load(object sender, EventArgs e)
         {
-            // Code load dữ liệu từ Database lên dgv_Promotion khi mở Form
-            // Ví dụ: dgv_Promotion.DataSource = promotionBUS.GetAll();
+            // Gắn sự kiện cho các nút
+            btn_createPromotion.Click += btn_CreatePromotion_Click;
+            btn_save.Click += btn_Save_Click;
+            btn_edit.Click += btn_Edit_Click;
+            btn_disablePromotion.Click += btn_DisablePromotion_Click;
+            btn_refresh.Click += btn_Refresh_Click;
+
+            // Sự kiện chọn dòng DataGridView
+            dgv_guest.CellClick += dgv_Guest_CellClick;
         }
 
-        // ==========================================
-        // 1. CHỨC NĂNG THÊM (Add)
-        // ==========================================
-        private void btn_Add_Click(object sender, EventArgs e)
+        // ==================================================
+        // NÚT + TẠO KHUYẾN MÃI
+        // Xóa dữ liệu đang nhập để tạo mới
+        // ==================================================
+        private void btn_CreatePromotion_Click(object sender, EventArgs e)
         {
-            // Kiểm tra dữ liệu đầu vào cơ bản
-            if (string.IsNullOrWhiteSpace(txt_PromotionID.Text) || string.IsNullOrWhiteSpace(txt_PromotionName.Text))
+            txt_promotionCode.Clear();
+            txt_description.Clear();
+            txt_discountValue.Clear();
+
+            dtp_startDate.Value = DateTime.Now;
+            dtp_endDate.Value = DateTime.Now.AddDays(7);
+
+            txt_promotionCode.Focus();
+        }
+
+        // ==================================================
+        // NÚT LƯU
+        // Thêm khuyến mãi vào DataGridView
+        // ==================================================
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra mã KM
+            if (string.IsNullOrWhiteSpace(txt_promotionCode.Text))
             {
-                MessageBox.Show("Vui lòng nhập Mã Khuyến Mãi và Tên Chương Trình!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Vui lòng nhập mã khuyến mãi!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            if (dt_Start.Value > dt_End.Value)
+            string discountPercent = "";
+            string discountAmount = "";
+
+            // Phân biệt giảm % và giảm tiền
+            if (decimal.TryParse(txt_discountValue.Text, out decimal value))
             {
-                MessageBox.Show("Ngày bắt đầu không thể lớn hơn ngày kết thúc!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (value <= 100)
+                {
+                    discountPercent = value + "%";
+                }
+                else
+                {
+                    discountAmount = value.ToString("N0");
+                }
             }
 
-            // TODO: Viết code Insert vào Database ở đây
-            // Ví dụ: promotionBUS.Insert(txt_PromotionID.Text, txt_PromotionName.Text, num_Discount.Value, dt_Start.Value, dt_End.Value);
-
-            // Hiển thị tạm lên DataGridView (Nếu không dùng DataSource)
-            dgv_Promotion.Rows.Add(
-                txt_PromotionID.Text,
-                txt_PromotionName.Text,
-                num_Discount.Value,
-                dt_Start.Value.ToString("dd/MM/yyyy"),
-                dt_End.Value.ToString("dd/MM/yyyy")
+            dgv_guest.Rows.Add(
+                txt_promotionCode.Text,
+                txt_description.Text,
+                discountPercent,
+                discountAmount,
+                dtp_startDate.Value.ToShortDateString(),
+                dtp_endDate.Value.ToShortDateString(),
+                "Đang hoạt động"
             );
 
-            MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ClearFields();
+            MessageBox.Show(
+                "Lưu khuyến mãi thành công!",
+                "Thông báo",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
-        // ==========================================
-        // 2. CHỨC NĂNG SỬA (Update)
-        // ==========================================
-        private void btn_Update_Click(object sender, EventArgs e)
+        // ==================================================
+        // NÚT SỬA
+        // Cập nhật dòng đang chọn
+        // ==================================================
+        private void btn_Edit_Click(object sender, EventArgs e)
         {
-            if (dgv_Promotion.CurrentRow == null || dgv_Promotion.CurrentRow.IsNewRow)
+            if (dgv_guest.CurrentRow == null)
             {
-                MessageBox.Show("Vui lòng chọn một chương trình khuyến mãi để sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn khuyến mãi cần sửa!");
                 return;
             }
 
-            // TODO: Viết code Update vào Database ở đây dựa vào txt_PromotionID.Text
+            DataGridViewRow row = dgv_guest.CurrentRow;
 
-            // Cập nhật lại thông tin trên lưới DataGridView
-            DataGridViewRow row = dgv_Promotion.CurrentRow;
-            row.Cells[0].Value = txt_PromotionID.Text;
-            row.Cells[1].Value = txt_PromotionName.Text;
-            row.Cells[2].Value = num_Discount.Value;
-            row.Cells[3].Value = dt_Start.Value.ToString("dd/MM/yyyy");
-            row.Cells[4].Value = dt_End.Value.ToString("dd/MM/yyyy");
+            row.Cells["col_PromotionCode"].Value =
+                txt_promotionCode.Text;
 
-            MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            row.Cells["col_Description"].Value =
+                txt_description.Text;
+
+            if (decimal.TryParse(txt_discountValue.Text, out decimal value))
+            {
+                if (value <= 100)
+                {
+                    row.Cells["col_DiscountPercentage"].Value =
+                        value + "%";
+
+                    row.Cells["col_DiscountAmount"].Value = "";
+                }
+                else
+                {
+                    row.Cells["col_DiscountPercentage"].Value = "";
+
+                    row.Cells["col_DiscountAmount"].Value =
+                        value.ToString("N0");
+                }
+            }
+
+            row.Cells["col_StartDate"].Value =
+                dtp_startDate.Value.ToShortDateString();
+
+            row.Cells["col_EndDate"].Value =
+                dtp_endDate.Value.ToShortDateString();
+
+            MessageBox.Show(
+                "Cập nhật thành công!",
+                "Thông báo",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
 
-        // ==========================================
-        // 3. CHỨC NĂNG XÓA (Delete)
-        // ==========================================
-        private void btn_Delete_Click(object sender, EventArgs e)
+        // ==================================================
+        // NÚT TẮT KHUYẾN MÃI
+        // Chuyển trạng thái sang ngừng hoạt động
+        // ==================================================
+        private void btn_DisablePromotion_Click(object sender, EventArgs e)
         {
-            if (dgv_Promotion.CurrentRow == null || dgv_Promotion.CurrentRow.IsNewRow)
+            if (dgv_guest.CurrentRow == null)
             {
-                MessageBox.Show("Vui lòng chọn một chương trình khuyến mãi để xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn khuyến mãi!");
                 return;
             }
 
-            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn xóa khuyến mãi này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
+            dgv_guest.CurrentRow.Cells["col_Status"].Value =
+                "Ngừng hoạt động";
+
+            MessageBox.Show(
+                "Khuyến mãi đã được tắt!",
+                "Thông báo",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+
+        // ==================================================
+        // NÚT LÀM MỚI
+        // Reset form nhập liệu
+        // ==================================================
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            txt_promotionCode.Clear();
+            txt_description.Clear();
+            txt_discountValue.Clear();
+
+            dtp_startDate.Value = DateTime.Now;
+            dtp_endDate.Value = DateTime.Now;
+
+            dgv_guest.ClearSelection();
+        }
+
+        // ==================================================
+        // CLICK DÒNG TRONG DATAGRIDVIEW
+        // Đổ dữ liệu lên form bên phải
+        // ==================================================
+        private void dgv_Guest_CellClick(
+            object sender,
+            DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            DataGridViewRow row =
+                dgv_guest.Rows[e.RowIndex];
+
+            txt_promotionCode.Text =
+                row.Cells["col_PromotionCode"].Value?.ToString();
+
+            txt_description.Text =
+                row.Cells["col_Description"].Value?.ToString();
+
+            string percent =
+                row.Cells["col_DiscountPercentage"].Value?.ToString();
+
+            string amount =
+                row.Cells["col_DiscountAmount"].Value?.ToString();
+
+            if (!string.IsNullOrEmpty(percent))
             {
-                // TODO: Viết code Delete khỏi Database ở đây dựa vào txt_PromotionID.Text
+                txt_discountValue.Text =
+                    percent.Replace("%", "");
+            }
+            else
+            {
+                txt_discountValue.Text = amount;
+            }
 
-                // Xóa dòng đang chọn trên DataGridView
-                dgv_Promotion.Rows.RemoveAt(dgv_Promotion.CurrentRow.Index);
+            if (DateTime.TryParse(
+                row.Cells["col_StartDate"].Value?.ToString(),
+                out DateTime startDate))
+            {
+                dtp_startDate.Value = startDate;
+            }
 
-                MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ClearFields();
+            if (DateTime.TryParse(
+                row.Cells["col_EndDate"].Value?.ToString(),
+                out DateTime endDate))
+            {
+                dtp_endDate.Value = endDate;
             }
         }
 
-        // ==========================================
-        // 4. SỰ KIỆN CLICK VÀO DATAGRIDVIEW 
-        // (Đẩy dữ liệu từ dòng được chọn lên các TextBox phía trên)
-        // ==========================================
-        private void dgv_Promotion_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // Không dùng nữa nhưng Designer đã tạo sẵn
+        private void dgv_Guest_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
-            // Đảm bảo click vào dòng hợp lệ
-            if (e.RowIndex >= 0 && e.RowIndex < dgv_Promotion.Rows.Count - 1)
-            {
-                DataGridViewRow row = dgv_Promotion.Rows[e.RowIndex];
-
-                txt_PromotionID.Text = row.Cells[0].Value?.ToString();
-                txt_PromotionName.Text = row.Cells[1].Value?.ToString();
-
-                if (decimal.TryParse(row.Cells[2].Value?.ToString(), out decimal discount))
-                    num_Discount.Value = discount;
-
-                if (DateTime.TryParse(row.Cells[3].Value?.ToString(), out DateTime startDate))
-                    dt_Start.Value = startDate;
-
-                if (DateTime.TryParse(row.Cells[4].Value?.ToString(), out DateTime endDate))
-                    dt_End.Value = endDate;
-            }
         }
 
-        // ==========================================
-        // Hàm hỗ trợ: Xóa trắng các ô nhập liệu sau khi thao tác xong
-        // ==========================================
-        private void ClearFields()
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
-            txt_PromotionID.Clear();
-            txt_PromotionName.Clear();
-            num_Discount.Value = 0;
-            dt_Start.Value = DateTime.Now;
-            dt_End.Value = DateTime.Now;
-            txt_PromotionID.Focus();
+
         }
     }
 }

@@ -31,243 +31,330 @@ partial class FormPromotion
     /// </summary>
     private void InitializeComponent()
     {
-        groupBox1 = new GroupBox();
+        groupBox3 = new GroupBox();
+        dtp_endDate = new DateTimePicker();
         label1 = new Label();
-        label2 = new Label();
-        label3 = new Label();
-        label4 = new Label();
+        dtp_startDate = new DateTimePicker();
+        txt_promotionCode = new TextBox();
+        txt_description = new TextBox();
+        txt_discountValue = new TextBox();
+        btn_save = new Button();
+        btn_cancel = new Button();
+        label6 = new Label();
         label5 = new Label();
-        txt_PromotionID = new TextBox();
-        txt_PromotionName = new TextBox();
-        num_Discount = new NumericUpDown();
-        dt_Start = new DateTimePicker();
-        dt_End = new DateTimePicker();
-        btn_Add = new Button();
-        btn_Update = new Button();
-        btn_Delete = new Button();
-        dgv_Promotion = new DataGridView();
-        col_Promotion = new DataGridViewTextBoxColumn();
-        col_PromotionName = new DataGridViewTextBoxColumn();
-        col_Discount = new DataGridViewTextBoxColumn();
-        col_Start = new DataGridViewTextBoxColumn();
-        col_End = new DataGridViewTextBoxColumn();
-        groupBox1.SuspendLayout();
-        ((ISupportInitialize)num_Discount).BeginInit();
-        ((ISupportInitialize)dgv_Promotion).BeginInit();
+        label4 = new Label();
+        label3 = new Label();
+        label2 = new Label();
+        groupBox2 = new GroupBox();
+        btn_createPromotion = new Button();
+        dgv_guest = new DataGridView();
+        col_PromotionCode = new DataGridViewTextBoxColumn();
+        col_Description = new DataGridViewTextBoxColumn();
+        col_DiscountPercentage = new DataGridViewTextBoxColumn();
+        col_DiscountAmount = new DataGridViewTextBoxColumn();
+        col_StartDate = new DataGridViewTextBoxColumn();
+        col_EndDate = new DataGridViewTextBoxColumn();
+        col_Status = new DataGridViewTextBoxColumn();
+        btn_refresh = new Button();
+        btn_edit = new Button();
+        btn_disablePromotion = new Button();
+        mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+        groupBox3.SuspendLayout();
+        groupBox2.SuspendLayout();
+        ((ISupportInitialize)dgv_guest).BeginInit();
         SuspendLayout();
         // 
-        // groupBox1
+        // groupBox3
         // 
-        groupBox1.Controls.Add(btn_Delete);
-        groupBox1.Controls.Add(btn_Update);
-        groupBox1.Controls.Add(btn_Add);
-        groupBox1.Controls.Add(dt_End);
-        groupBox1.Controls.Add(dt_Start);
-        groupBox1.Controls.Add(num_Discount);
-        groupBox1.Controls.Add(txt_PromotionName);
-        groupBox1.Controls.Add(txt_PromotionID);
-        groupBox1.Controls.Add(label5);
-        groupBox1.Controls.Add(label4);
-        groupBox1.Controls.Add(label3);
-        groupBox1.Controls.Add(label2);
-        groupBox1.Controls.Add(label1);
-        groupBox1.Location = new Point(12, 12);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(1120, 265);
-        groupBox1.TabIndex = 0;
-        groupBox1.TabStop = false;
-        groupBox1.Text = " ";
+        groupBox3.Controls.Add(dtp_endDate);
+        groupBox3.Controls.Add(label1);
+        groupBox3.Controls.Add(dtp_startDate);
+        groupBox3.Controls.Add(txt_promotionCode);
+        groupBox3.Controls.Add(txt_description);
+        groupBox3.Controls.Add(txt_discountValue);
+        groupBox3.Controls.Add(btn_save);
+        groupBox3.Controls.Add(btn_cancel);
+        groupBox3.Controls.Add(label6);
+        groupBox3.Controls.Add(label5);
+        groupBox3.Controls.Add(label4);
+        groupBox3.Controls.Add(label3);
+        groupBox3.Controls.Add(label2);
+        groupBox3.Location = new Point(923, 29);
+        groupBox3.Name = "groupBox3";
+        groupBox3.Size = new Size(334, 554);
+        groupBox3.TabIndex = 11;
+        groupBox3.TabStop = false;
+        // 
+        // dtp_endDate
+        // 
+        dtp_endDate.Location = new Point(20, 409);
+        dtp_endDate.Name = "dtp_endDate";
+        dtp_endDate.Size = new Size(250, 27);
+        dtp_endDate.TabIndex = 13;
         // 
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(41, 35);
+        label1.Location = new Point(20, 372);
         label1.Name = "label1";
-        label1.Size = new Size(111, 20);
-        label1.TabIndex = 0;
-        label1.Text = "Mã Khuyến Mãi";
+        label1.Size = new Size(72, 20);
+        label1.TabIndex = 12;
+        label1.Text = "Đến ngày";
         // 
-        // label2
+        // dtp_startDate
         // 
-        label2.AutoSize = true;
-        label2.Location = new Point(41, 88);
-        label2.Name = "label2";
-        label2.Size = new Size(124, 20);
-        label2.TabIndex = 1;
-        label2.Text = "Tên Chương Trình";
+        dtp_startDate.Location = new Point(20, 317);
+        dtp_startDate.Name = "dtp_startDate";
+        dtp_startDate.Size = new Size(250, 27);
+        dtp_startDate.TabIndex = 11;
         // 
-        // label3
+        // txt_promotionCode
         // 
-        label3.AutoSize = true;
-        label3.Location = new Point(41, 160);
-        label3.Name = "label3";
-        label3.Size = new Size(101, 20);
-        label3.TabIndex = 2;
-        label3.Text = "Ngày Bắt Đầu";
+        txt_promotionCode.Location = new Point(20, 90);
+        txt_promotionCode.Name = "txt_promotionCode";
+        txt_promotionCode.Size = new Size(267, 27);
+        txt_promotionCode.TabIndex = 10;
         // 
-        // label4
+        // txt_description
         // 
-        label4.AutoSize = true;
-        label4.Location = new Point(41, 122);
-        label4.Name = "label4";
-        label4.Size = new Size(56, 20);
-        label4.TabIndex = 3;
-        label4.Text = "Giảm%";
+        txt_description.Location = new Point(20, 171);
+        txt_description.Name = "txt_description";
+        txt_description.Size = new Size(267, 27);
+        txt_description.TabIndex = 9;
+        // 
+        // txt_discountValue
+        // 
+        txt_discountValue.Location = new Point(20, 239);
+        txt_discountValue.Name = "txt_discountValue";
+        txt_discountValue.Size = new Size(267, 27);
+        txt_discountValue.TabIndex = 3;
+        // 
+        // btn_save
+        // 
+        btn_save.Location = new Point(20, 459);
+        btn_save.Name = "btn_save";
+        btn_save.Size = new Size(140, 54);
+        btn_save.TabIndex = 6;
+        btn_save.Text = "Lưu";
+        btn_save.UseVisualStyleBackColor = true;
+        // 
+        // btn_cancel
+        // 
+        btn_cancel.Location = new Point(188, 459);
+        btn_cancel.Name = "btn_cancel";
+        btn_cancel.Size = new Size(140, 54);
+        btn_cancel.TabIndex = 7;
+        btn_cancel.Text = "Hủy";
+        btn_cancel.UseVisualStyleBackColor = true;
+        // 
+        // label6
+        // 
+        label6.AutoSize = true;
+        label6.Location = new Point(20, 285);
+        label6.Name = "label6";
+        label6.Size = new Size(62, 20);
+        label6.TabIndex = 7;
+        label6.Text = "Từ ngày";
         // 
         // label5
         // 
         label5.AutoSize = true;
-        label5.Location = new Point(41, 211);
+        label5.Location = new Point(20, 216);
         label5.Name = "label5";
-        label5.Size = new Size(105, 20);
-        label5.TabIndex = 4;
-        label5.Text = "Ngày Kết Thúc";
+        label5.Size = new Size(138, 20);
+        label5.TabIndex = 6;
+        label5.Text = "Giảm % / Giảm tiền";
         // 
-        // txt_PromotionID
+        // label4
         // 
-        txt_PromotionID.Location = new Point(185, 32);
-        txt_PromotionID.Name = "txt_PromotionID";
-        txt_PromotionID.Size = new Size(125, 27);
-        txt_PromotionID.TabIndex = 5;
+        label4.AutoSize = true;
+        label4.Location = new Point(20, 148);
+        label4.Name = "label4";
+        label4.Size = new Size(48, 20);
+        label4.TabIndex = 5;
+        label4.Text = "Mô tả";
         // 
-        // txt_PromotionName
+        // label3
         // 
-        txt_PromotionName.Location = new Point(171, 81);
-        txt_PromotionName.Name = "txt_PromotionName";
-        txt_PromotionName.Size = new Size(336, 27);
-        txt_PromotionName.TabIndex = 6;
+        label3.AutoSize = true;
+        label3.Location = new Point(20, 63);
+        label3.Name = "label3";
+        label3.Size = new Size(119, 20);
+        label3.TabIndex = 4;
+        label3.Text = "Mã khuyến mãi *";
         // 
-        // num_Discount
+        // label2
         // 
-        num_Discount.Location = new Point(136, 122);
-        num_Discount.Name = "num_Discount";
-        num_Discount.Size = new Size(214, 27);
-        num_Discount.TabIndex = 7;
+        label2.AutoSize = true;
+        label2.Location = new Point(20, 29);
+        label2.Name = "label2";
+        label2.Size = new Size(179, 20);
+        label2.TabIndex = 3;
+        label2.Text = "THÔNG TIN KHUYẾN MÃI";
         // 
-        // dt_Start
+        // groupBox2
         // 
-        dt_Start.Location = new Point(148, 160);
-        dt_Start.Name = "dt_Start";
-        dt_Start.Size = new Size(276, 27);
-        dt_Start.TabIndex = 8;
+        groupBox2.Controls.Add(btn_createPromotion);
+        groupBox2.Controls.Add(dgv_guest);
+        groupBox2.Controls.Add(btn_refresh);
+        groupBox2.Controls.Add(btn_edit);
+        groupBox2.Controls.Add(btn_disablePromotion);
+        groupBox2.Location = new Point(12, 12);
+        groupBox2.Name = "groupBox2";
+        groupBox2.Size = new Size(888, 616);
+        groupBox2.TabIndex = 10;
+        groupBox2.TabStop = false;
+        groupBox2.Enter += groupBox2_Enter;
         // 
-        // dt_End
+        // btn_createPromotion
         // 
-        dt_End.Location = new Point(171, 211);
-        dt_End.Name = "dt_End";
-        dt_End.Size = new Size(276, 27);
-        dt_End.TabIndex = 9;
+        btn_createPromotion.Location = new Point(24, 45);
+        btn_createPromotion.Name = "btn_createPromotion";
+        btn_createPromotion.Size = new Size(140, 54);
+        btn_createPromotion.TabIndex = 2;
+        btn_createPromotion.Text = "+ Tạo KM";
+        btn_createPromotion.UseVisualStyleBackColor = true;
         // 
-        // btn_Add
+        // dgv_guest
         // 
-        btn_Add.Location = new Point(470, 172);
-        btn_Add.Name = "btn_Add";
-        btn_Add.Size = new Size(94, 29);
-        btn_Add.TabIndex = 10;
-        btn_Add.Text = "Thêm";
-        btn_Add.UseVisualStyleBackColor = true;
+        dgv_guest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgv_guest.Columns.AddRange(new DataGridViewColumn[] { col_PromotionCode, col_Description, col_DiscountPercentage, col_DiscountAmount, col_StartDate, col_EndDate, col_Status });
+        dgv_guest.Location = new Point(4, 146);
+        dgv_guest.Margin = new Padding(1);
+        dgv_guest.Name = "dgv_guest";
+        dgv_guest.RowHeadersWidth = 51;
+        dgv_guest.Size = new Size(880, 319);
+        dgv_guest.TabIndex = 1;
+        dgv_guest.CellContentClick += dgv_Guest_CellContentClick;
         // 
-        // btn_Update
+        // col_PromotionCode
         // 
-        btn_Update.Location = new Point(589, 172);
-        btn_Update.Name = "btn_Update";
-        btn_Update.Size = new Size(94, 29);
-        btn_Update.TabIndex = 11;
-        btn_Update.Text = "Sửa";
-        btn_Update.UseVisualStyleBackColor = true;
+        col_PromotionCode.HeaderText = "Mã KM";
+        col_PromotionCode.MinimumWidth = 6;
+        col_PromotionCode.Name = "col_PromotionCode";
+        col_PromotionCode.Width = 125;
         // 
-        // btn_Delete
+        // col_Description
         // 
-        btn_Delete.Location = new Point(713, 172);
-        btn_Delete.Name = "btn_Delete";
-        btn_Delete.Size = new Size(94, 29);
-        btn_Delete.TabIndex = 12;
-        btn_Delete.Text = "Xóa";
-        btn_Delete.UseVisualStyleBackColor = true;
+        col_Description.HeaderText = "Mô tả";
+        col_Description.MinimumWidth = 6;
+        col_Description.Name = "col_Description";
+        col_Description.Width = 125;
         // 
-        // dgv_Promotion
+        // col_DiscountPercentage
         // 
-        dgv_Promotion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgv_Promotion.Columns.AddRange(new DataGridViewColumn[] { col_Promotion, col_PromotionName, col_Discount, col_Start, col_End });
-        dgv_Promotion.Location = new Point(12, 283);
-        dgv_Promotion.Name = "dgv_Promotion";
-        dgv_Promotion.RowHeadersWidth = 51;
-        dgv_Promotion.Size = new Size(731, 355);
-        dgv_Promotion.TabIndex = 1;
-        dgv_Promotion.CellContentClick += dgv_Promotion_CellContentClick;
+        col_DiscountPercentage.HeaderText = "Giảm %";
+        col_DiscountPercentage.MinimumWidth = 6;
+        col_DiscountPercentage.Name = "col_DiscountPercentage";
+        col_DiscountPercentage.Width = 125;
         // 
-        // col_Promotion
+        // col_DiscountAmount
         // 
-        col_Promotion.HeaderText = "Mã Khuyến Mãi";
-        col_Promotion.MinimumWidth = 6;
-        col_Promotion.Name = "col_Promotion";
-        col_Promotion.Width = 125;
+        col_DiscountAmount.HeaderText = "Giảm tiền";
+        col_DiscountAmount.MinimumWidth = 6;
+        col_DiscountAmount.Name = "col_DiscountAmount";
+        col_DiscountAmount.Width = 125;
         // 
-        // col_PromotionName
+        // col_StartDate
         // 
-        col_PromotionName.HeaderText = "Tên Chương Trình";
-        col_PromotionName.MinimumWidth = 6;
-        col_PromotionName.Name = "col_PromotionName";
-        col_PromotionName.Width = 125;
+        col_StartDate.HeaderText = "Từ ngày";
+        col_StartDate.MinimumWidth = 6;
+        col_StartDate.Name = "col_StartDate";
+        col_StartDate.Width = 125;
         // 
-        // col_Discount
+        // col_EndDate
         // 
-        col_Discount.HeaderText = "Giảm %";
-        col_Discount.MinimumWidth = 6;
-        col_Discount.Name = "col_Discount";
-        col_Discount.Width = 125;
+        col_EndDate.HeaderText = "Đến ngày";
+        col_EndDate.MinimumWidth = 6;
+        col_EndDate.Name = "col_EndDate";
+        col_EndDate.Width = 125;
         // 
-        // col_Start
+        // col_Status
         // 
-        col_Start.HeaderText = "Ngày Bắt Đầu";
-        col_Start.MinimumWidth = 6;
-        col_Start.Name = "col_Start";
-        col_Start.Width = 125;
+        col_Status.HeaderText = "Trạng thái";
+        col_Status.MinimumWidth = 6;
+        col_Status.Name = "col_Status";
+        col_Status.Width = 125;
         // 
-        // col_End
+        // btn_refresh
         // 
-        col_End.HeaderText = "Ngày Kết Thúc";
-        col_End.MinimumWidth = 6;
-        col_End.Name = "col_End";
-        col_End.Width = 125;
+        btn_refresh.Location = new Point(503, 45);
+        btn_refresh.Name = "btn_refresh";
+        btn_refresh.Size = new Size(140, 54);
+        btn_refresh.TabIndex = 5;
+        btn_refresh.Text = "Làm mới";
+        btn_refresh.UseVisualStyleBackColor = true;
+        // 
+        // btn_edit
+        // 
+        btn_edit.Location = new Point(180, 45);
+        btn_edit.Name = "btn_edit";
+        btn_edit.Size = new Size(140, 54);
+        btn_edit.TabIndex = 3;
+        btn_edit.Text = "Sửa";
+        btn_edit.UseVisualStyleBackColor = true;
+        // 
+        // btn_disablePromotion
+        // 
+        btn_disablePromotion.Location = new Point(338, 45);
+        btn_disablePromotion.Name = "btn_disablePromotion";
+        btn_disablePromotion.Size = new Size(140, 54);
+        btn_disablePromotion.TabIndex = 4;
+        btn_disablePromotion.Text = "Tắt KM";
+        btn_disablePromotion.UseVisualStyleBackColor = true;
+        // 
+        // mySqlCommand1
+        // 
+        mySqlCommand1.CacheAge = 0;
+        mySqlCommand1.Connection = null;
+        mySqlCommand1.EnableCaching = false;
+        mySqlCommand1.Transaction = null;
         // 
         // FormPromotion
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(1269, 637);
-        Controls.Add(dgv_Promotion);
-        Controls.Add(groupBox1);
+        Controls.Add(groupBox3);
+        Controls.Add(groupBox2);
         Name = "FormPromotion";
         Text = "FormPromotion";
         Load += FormPromotion_Load;
-        groupBox1.ResumeLayout(false);
-        groupBox1.PerformLayout();
-        ((ISupportInitialize)num_Discount).EndInit();
-        ((ISupportInitialize)dgv_Promotion).EndInit();
+        groupBox3.ResumeLayout(false);
+        groupBox3.PerformLayout();
+        groupBox2.ResumeLayout(false);
+        ((ISupportInitialize)dgv_guest).EndInit();
         ResumeLayout(false);
     }
 
     #endregion
 
-    private GroupBox groupBox1;
-    private Button btn_Delete;
-    private Button btn_Update;
-    private Button btn_Add;
-    private DateTimePicker dt_End;
-    private DateTimePicker dt_Start;
-    private NumericUpDown num_Discount;
-    private TextBox txt_PromotionName;
-    private TextBox txt_PromotionID;
+    private GroupBox groupBox3;
+    private TextBox txt_promotionCode;
+    private TextBox txt_description;
+    private TextBox txt_discountValue;
+    private Button btn_save;
+    private Button btn_cancel;
+    private Label label6;
     private Label label5;
     private Label label4;
     private Label label3;
     private Label label2;
+    private GroupBox groupBox2;
+    private DataGridView dgv_guest;
+    private Button btn_createPromotion;
+    private Button btn_refresh;
+    private Button btn_edit;
+    private Button btn_disablePromotion;
+    private DateTimePicker dtp_endDate;
     private Label label1;
-    private DataGridView dgv_Promotion;
-    private DataGridViewTextBoxColumn col_Promotion;
-    private DataGridViewTextBoxColumn col_PromotionName;
-    private DataGridViewTextBoxColumn col_Discount;
-    private DataGridViewTextBoxColumn col_Start;
-    private DataGridViewTextBoxColumn col_End;
+    private DateTimePicker dtp_startDate;
+    private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+    private DataGridViewTextBoxColumn col_PromotionCode;
+    private DataGridViewTextBoxColumn col_Description;
+    private DataGridViewTextBoxColumn col_DiscountPercentage;
+    private DataGridViewTextBoxColumn col_DiscountAmount;
+    private DataGridViewTextBoxColumn col_StartDate;
+    private DataGridViewTextBoxColumn col_EndDate;
+    private DataGridViewTextBoxColumn col_Status;
 }

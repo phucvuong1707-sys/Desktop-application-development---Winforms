@@ -32,7 +32,7 @@ partial class FormSell
     /// </summary>
     private void InitializeComponent()
     {
-        dgv_Cart = new DataGridView();
+        dgv_cart = new DataGridView();
         col_ProductName = new DataGridViewTextBoxColumn();
         col_SerialNumber = new DataGridViewTextBoxColumn();
         col_Quantity = new DataGridViewTextBoxColumn();
@@ -41,38 +41,38 @@ partial class FormSell
         col_Remove = new DataGridViewTextBoxColumn();
         backgroundWorker1 = new BackgroundWorker();
         grp_Action = new GroupBox();
-        btn_Promotion = new Button();
-        btn_Customer = new Button();
-        txt_SearchProduct = new TextBox();
+        btn_promotion = new Button();
+        btn_customer = new Button();
+        txt_searchProduct = new TextBox();
         grp_Search = new GroupBox();
-        btnTodayInvoice = new Button();
-        btn_CancelInvoice = new Button();
-        btn_Print = new Button();
-        btn_Payment = new Button();
+        btn_todayInvoice = new Button();
+        btn_cancelInvoice = new Button();
+        btn_print = new Button();
+        btn_payment = new Button();
         lbl_FinalTotal = new Label();
         lbl_Discount = new Label();
         lbl_SubTotal = new Label();
         groupBox3 = new GroupBox();
         groupBox4 = new GroupBox();
-        btn_ConfirmPayment = new Button();
-        cbo_PaymentMethod = new ComboBox();
-        ((ISupportInitialize)dgv_Cart).BeginInit();
+        btn_confirmPayment = new Button();
+        cbo_paymentMethod = new ComboBox();
+        ((ISupportInitialize)dgv_cart).BeginInit();
         grp_Action.SuspendLayout();
         grp_Search.SuspendLayout();
         groupBox3.SuspendLayout();
         groupBox4.SuspendLayout();
         SuspendLayout();
         // 
-        // dgv_Cart
+        // dgv_cart
         // 
-        dgv_Cart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgv_Cart.Columns.AddRange(new DataGridViewColumn[] { col_ProductName, col_SerialNumber, col_Quantity, col_UnitPrice, col_TotalPrice, col_Remove });
-        dgv_Cart.Location = new Point(12, 227);
-        dgv_Cart.Name = "dgv_Cart";
-        dgv_Cart.RowHeadersWidth = 51;
-        dgv_Cart.Size = new Size(812, 198);
-        dgv_Cart.TabIndex = 4;
-        dgv_Cart.CellContentClick += dgv_Cart_CellContentClick;
+        dgv_cart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgv_cart.Columns.AddRange(new DataGridViewColumn[] { col_ProductName, col_SerialNumber, col_Quantity, col_UnitPrice, col_TotalPrice, col_Remove });
+        dgv_cart.Location = new Point(12, 227);
+        dgv_cart.Name = "dgv_cart";
+        dgv_cart.RowHeadersWidth = 51;
+        dgv_cart.Size = new Size(812, 198);
+        dgv_cart.TabIndex = 4;
+        dgv_cart.CellContentClick += dgv_Cart_CellContentClick;
         // 
         // col_ProductName
         // 
@@ -118,88 +118,90 @@ partial class FormSell
         // 
         // grp_Action
         // 
-        grp_Action.Controls.Add(btn_Promotion);
-        grp_Action.Controls.Add(btn_Customer);
-        grp_Action.Controls.Add(txt_SearchProduct);
+        grp_Action.Controls.Add(btn_promotion);
+        grp_Action.Controls.Add(btn_customer);
+        grp_Action.Controls.Add(txt_searchProduct);
         grp_Action.Location = new Point(12, 108);
         grp_Action.Name = "grp_Action";
         grp_Action.Size = new Size(713, 100);
         grp_Action.TabIndex = 5;
         grp_Action.TabStop = false;
+        grp_Action.Enter += grp_Action_Enter;
         // 
-        // btn_Promotion
+        // btn_promotion
         // 
-        btn_Promotion.Location = new Point(531, 29);
-        btn_Promotion.Name = "btn_Promotion";
-        btn_Promotion.Size = new Size(164, 51);
-        btn_Promotion.TabIndex = 2;
-        btn_Promotion.Text = "Mã KM";
-        btn_Promotion.UseVisualStyleBackColor = true;
-        btn_Promotion.Click += btn_Promotion_Click;
+        btn_promotion.Location = new Point(531, 29);
+        btn_promotion.Name = "btn_promotion";
+        btn_promotion.Size = new Size(164, 51);
+        btn_promotion.TabIndex = 2;
+        btn_promotion.Text = "Mã KM";
+        btn_promotion.UseVisualStyleBackColor = true;
+        btn_promotion.Click += btn_Promotion_Click;
         // 
-        // btn_Customer
+        // btn_customer
         // 
-        btn_Customer.Location = new Point(329, 29);
-        btn_Customer.Name = "btn_Customer";
-        btn_Customer.Size = new Size(164, 51);
-        btn_Customer.TabIndex = 1;
-        btn_Customer.Text = " Khách Hàng";
-        btn_Customer.UseVisualStyleBackColor = true;
+        btn_customer.Location = new Point(329, 29);
+        btn_customer.Name = "btn_customer";
+        btn_customer.Size = new Size(164, 51);
+        btn_customer.TabIndex = 1;
+        btn_customer.Text = " Khách Hàng";
+        btn_customer.UseVisualStyleBackColor = true;
         // 
-        // txt_SearchProduct
+        // txt_searchProduct
         // 
-        txt_SearchProduct.Location = new Point(29, 41);
-        txt_SearchProduct.Name = "txt_SearchProduct";
-        txt_SearchProduct.Size = new Size(279, 27);
-        txt_SearchProduct.TabIndex = 0;
+        txt_searchProduct.Location = new Point(29, 41);
+        txt_searchProduct.Name = "txt_searchProduct";
+        txt_searchProduct.Size = new Size(279, 27);
+        txt_searchProduct.TabIndex = 0;
         // 
         // grp_Search
         // 
-        grp_Search.Controls.Add(btnTodayInvoice);
-        grp_Search.Controls.Add(btn_CancelInvoice);
-        grp_Search.Controls.Add(btn_Print);
-        grp_Search.Controls.Add(btn_Payment);
+        grp_Search.Controls.Add(btn_todayInvoice);
+        grp_Search.Controls.Add(btn_cancelInvoice);
+        grp_Search.Controls.Add(btn_print);
+        grp_Search.Controls.Add(btn_payment);
         grp_Search.Location = new Point(12, 6);
         grp_Search.Name = "grp_Search";
         grp_Search.Size = new Size(713, 96);
         grp_Search.TabIndex = 6;
         grp_Search.TabStop = false;
         // 
-        // btnTodayInvoice
+        // btn_todayInvoice
         // 
-        btnTodayInvoice.Location = new Point(513, 29);
-        btnTodayInvoice.Name = "btnTodayInvoice";
-        btnTodayInvoice.Size = new Size(161, 42);
-        btnTodayInvoice.TabIndex = 13;
-        btnTodayInvoice.Text = "Hóa Đơn Hôm Nay";
-        btnTodayInvoice.UseVisualStyleBackColor = true;
+        btn_todayInvoice.Location = new Point(513, 29);
+        btn_todayInvoice.Name = "btn_todayInvoice";
+        btn_todayInvoice.Size = new Size(161, 42);
+        btn_todayInvoice.TabIndex = 13;
+        btn_todayInvoice.Text = "Hóa Đơn Hôm Nay";
+        btn_todayInvoice.UseVisualStyleBackColor = true;
         // 
-        // btn_CancelInvoice
+        // btn_cancelInvoice
         // 
-        btn_CancelInvoice.Location = new Point(329, 29);
-        btn_CancelInvoice.Name = "btn_CancelInvoice";
-        btn_CancelInvoice.Size = new Size(153, 42);
-        btn_CancelInvoice.TabIndex = 12;
-        btn_CancelInvoice.Text = "Hủy Hóa Đơn";
-        btn_CancelInvoice.UseVisualStyleBackColor = true;
+        btn_cancelInvoice.Location = new Point(329, 29);
+        btn_cancelInvoice.Name = "btn_cancelInvoice";
+        btn_cancelInvoice.Size = new Size(153, 42);
+        btn_cancelInvoice.TabIndex = 12;
+        btn_cancelInvoice.Text = "Hủy Hóa Đơn";
+        btn_cancelInvoice.UseVisualStyleBackColor = true;
         // 
-        // btn_Print
+        // btn_print
         // 
-        btn_Print.Location = new Point(174, 29);
-        btn_Print.Name = "btn_Print";
-        btn_Print.Size = new Size(134, 42);
-        btn_Print.TabIndex = 11;
-        btn_Print.Text = "In Hóa Đơn";
-        btn_Print.UseVisualStyleBackColor = true;
+        btn_print.Location = new Point(174, 29);
+        btn_print.Name = "btn_print";
+        btn_print.Size = new Size(134, 42);
+        btn_print.TabIndex = 11;
+        btn_print.Text = "In Hóa Đơn";
+        btn_print.UseVisualStyleBackColor = true;
+        btn_print.Click += btn_Print_Click_1;
         // 
-        // btn_Payment
+        // btn_payment
         // 
-        btn_Payment.Location = new Point(18, 29);
-        btn_Payment.Name = "btn_Payment";
-        btn_Payment.Size = new Size(132, 42);
-        btn_Payment.TabIndex = 10;
-        btn_Payment.Text = "Thanh Toán";
-        btn_Payment.UseVisualStyleBackColor = true;
+        btn_payment.Location = new Point(18, 29);
+        btn_payment.Name = "btn_payment";
+        btn_payment.Size = new Size(132, 42);
+        btn_payment.TabIndex = 10;
+        btn_payment.Text = "Thanh Toán";
+        btn_payment.UseVisualStyleBackColor = true;
         // 
         // lbl_FinalTotal
         // 
@@ -241,8 +243,8 @@ partial class FormSell
         // 
         // groupBox4
         // 
-        groupBox4.Controls.Add(btn_ConfirmPayment);
-        groupBox4.Controls.Add(cbo_PaymentMethod);
+        groupBox4.Controls.Add(btn_confirmPayment);
+        groupBox4.Controls.Add(cbo_paymentMethod);
         groupBox4.Location = new Point(12, 574);
         groupBox4.Name = "groupBox4";
         groupBox4.Size = new Size(812, 164);
@@ -250,23 +252,23 @@ partial class FormSell
         groupBox4.TabStop = false;
         groupBox4.Text = "groupBox4";
         // 
-        // btn_ConfirmPayment
+        // btn_confirmPayment
         // 
-        btn_ConfirmPayment.Location = new Point(387, 37);
-        btn_ConfirmPayment.Name = "btn_ConfirmPayment";
-        btn_ConfirmPayment.Size = new Size(164, 51);
-        btn_ConfirmPayment.TabIndex = 3;
-        btn_ConfirmPayment.Text = "Xác Nhận Thanh Toán";
-        btn_ConfirmPayment.UseVisualStyleBackColor = true;
+        btn_confirmPayment.Location = new Point(387, 37);
+        btn_confirmPayment.Name = "btn_confirmPayment";
+        btn_confirmPayment.Size = new Size(164, 51);
+        btn_confirmPayment.TabIndex = 3;
+        btn_confirmPayment.Text = "Xác Nhận Thanh Toán";
+        btn_confirmPayment.UseVisualStyleBackColor = true;
         // 
-        // cbo_PaymentMethod
+        // cbo_paymentMethod
         // 
-        cbo_PaymentMethod.FormattingEnabled = true;
-        cbo_PaymentMethod.Items.AddRange(new object[] { "Cash", "Banking", "Momo", "ZaloPay", "Credit Card" });
-        cbo_PaymentMethod.Location = new Point(18, 49);
-        cbo_PaymentMethod.Name = "cbo_PaymentMethod";
-        cbo_PaymentMethod.Size = new Size(309, 28);
-        cbo_PaymentMethod.TabIndex = 0;
+        cbo_paymentMethod.FormattingEnabled = true;
+        cbo_paymentMethod.Items.AddRange(new object[] { "Cash", "Banking", "Momo", "ZaloPay", "Credit Card" });
+        cbo_paymentMethod.Location = new Point(18, 49);
+        cbo_paymentMethod.Name = "cbo_paymentMethod";
+        cbo_paymentMethod.Size = new Size(309, 28);
+        cbo_paymentMethod.TabIndex = 0;
         // 
         // FormSell
         // 
@@ -277,10 +279,10 @@ partial class FormSell
         Controls.Add(groupBox3);
         Controls.Add(grp_Search);
         Controls.Add(grp_Action);
-        Controls.Add(dgv_Cart);
+        Controls.Add(dgv_cart);
         Name = "FormSell";
         Text = "FormSell";
-        ((ISupportInitialize)dgv_Cart).EndInit();
+        ((ISupportInitialize)dgv_cart).EndInit();
         grp_Action.ResumeLayout(false);
         grp_Action.PerformLayout();
         grp_Search.ResumeLayout(false);
@@ -291,20 +293,20 @@ partial class FormSell
     }
 
     #endregion
-    private DataGridView dgv_Cart;
+    private DataGridView dgv_cart;
     private BackgroundWorker backgroundWorker1;
     private GroupBox grp_Action;
     private GroupBox grp_Search;
     private Label lbl_FinalTotal;
     private Label lbl_Discount;
     private Label lbl_SubTotal;
-    private Button btn_Print;
-    private Button btn_Payment;
-    private TextBox txt_SearchProduct;
-    private Button btnTodayInvoice;
-    private Button btn_CancelInvoice;
-    private Button btn_Promotion;
-    private Button btn_Customer;
+    private Button btn_print;
+    private Button btn_payment;
+    private TextBox txt_searchProduct;
+    private Button btn_todayInvoice;
+    private Button btn_cancelInvoice;
+    private Button btn_promotion;
+    private Button btn_customer;
     private DataGridViewTextBoxColumn col_ProductName;
     private DataGridViewTextBoxColumn col_SerialNumber;
     private DataGridViewTextBoxColumn col_Quantity;
@@ -313,6 +315,6 @@ partial class FormSell
     private DataGridViewTextBoxColumn col_Remove;
     private GroupBox groupBox3;
     private GroupBox groupBox4;
-    private ComboBox cbo_PaymentMethod;
-    private Button btn_ConfirmPayment;
+    private ComboBox cbo_paymentMethod;
+    private Button btn_confirmPayment;
 }
