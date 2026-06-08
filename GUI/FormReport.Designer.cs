@@ -81,9 +81,9 @@ partial class FormReport
         // 
         // btn_excelOut
         // 
-        btn_excelOut.Location = new System.Drawing.Point(874, 14);
+        btn_excelOut.Location = new System.Drawing.Point(196, 14);
         btn_excelOut.Name = "btn_excelOut";
-        btn_excelOut.Size = new System.Drawing.Size(802, 68);
+        btn_excelOut.Size = new System.Drawing.Size(160, 68);
         btn_excelOut.TabIndex = 1;
         btn_excelOut.Text = "📤Xuất Excel";
         btn_excelOut.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@ partial class FormReport
         // 
         btn_showReport.Location = new System.Drawing.Point(18, 14);
         btn_showReport.Name = "btn_showReport";
-        btn_showReport.Size = new System.Drawing.Size(850, 68);
+        btn_showReport.Size = new System.Drawing.Size(163, 68);
         btn_showReport.TabIndex = 0;
         btn_showReport.Text = "📊Xem báo cáo";
         btn_showReport.UseVisualStyleBackColor = true;
@@ -196,15 +196,15 @@ partial class FormReport
         cbb_dayFill.Items.AddRange(new object[] { "Hôm nay", "", "Hôm qua", "", "7 ngày qua", "", "Tháng này", "", "Tùy chỉnh" });
         cbb_dayFill.Location = new System.Drawing.Point(18, 31);
         cbb_dayFill.Name = "cbb_dayFill";
-        cbb_dayFill.Size = new System.Drawing.Size(1658, 49);
+        cbb_dayFill.Size = new System.Drawing.Size(480, 28);
         cbb_dayFill.TabIndex = 3;
         // 
         // dtp_from
         // 
         dtp_from.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-        dtp_from.Location = new System.Drawing.Point(18, 101);
+        dtp_from.Location = new System.Drawing.Point(25, 104);
         dtp_from.Name = "dtp_from";
-        dtp_from.Size = new System.Drawing.Size(1658, 47);
+        dtp_from.Size = new System.Drawing.Size(180, 27);
         dtp_from.TabIndex = 4;
         // 
         // label1
@@ -219,9 +219,9 @@ partial class FormReport
         // dtp_to
         // 
         dtp_to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-        dtp_to.Location = new System.Drawing.Point(12, 194);
+        dtp_to.Location = new System.Drawing.Point(25, 185);
         dtp_to.Name = "dtp_to";
-        dtp_to.Size = new System.Drawing.Size(1664, 47);
+        dtp_to.Size = new System.Drawing.Size(180, 27);
         dtp_to.TabIndex = 6;
         // 
         // panel3
@@ -296,9 +296,9 @@ partial class FormReport
         pnl_footer.Controls.Add(lbl_footerRight);
         pnl_footer.Controls.Add(lbl_footerLeft);
         pnl_footer.Dock = System.Windows.Forms.DockStyle.Bottom;
-        pnl_footer.Location = new System.Drawing.Point(0, 1099);
+        pnl_footer.Location = new System.Drawing.Point(0, 594);
         pnl_footer.Name = "pnl_footer";
-        pnl_footer.Size = new System.Drawing.Size(1688, 53);
+        pnl_footer.Size = new System.Drawing.Size(1343, 53);
         pnl_footer.TabIndex = 8;
         // 
         // lbl_footerRight
@@ -332,9 +332,9 @@ partial class FormReport
         // 
         // FormReport
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(1688, 1152);
+        ClientSize = new System.Drawing.Size(1343, 647);
         Controls.Add(groupBox1);
         Controls.Add(pnl_footer);
         Controls.Add(dgv_listInvoices);

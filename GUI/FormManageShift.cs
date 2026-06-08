@@ -7,13 +7,10 @@ namespace GUI;
 
 public partial class FormManageShift : Form
 {
-    private bool _isShiftOpen = true;
+    private bool _isShiftOpen = false; // Mặc định có thể để false, sau này check DB xem ca có đang mở không
 
-    private List<ShiftRecord> _shiftList = new List<ShiftRecord>
-    {
-        new ShiftRecord { MaCa = "CA001", NhanVien = "Minh Triều", MoLuc = "08:00", DongLuc = "—",     TienDau = 500000, TienCuoi = 0,          ChenhLech = 0,      TrangThai = "Đang mở" },
-        new ShiftRecord { MaCa = "CA000", NhanVien = "Minh Triều", MoLuc = "08:00", DongLuc = "17:00", TienDau = 500000, TienCuoi = 146200000,  ChenhLech = 500000, TrangThai = "Đã chốt" },
-    };
+    // Khởi tạo danh sách trống. Sau này bạn gán dữ liệu từ DB vào đây rồi gọi LoadTable()
+    private List<ShiftRecord> _shiftList = new List<ShiftRecord>();
 
     public FormManageShift()
     {
@@ -23,6 +20,7 @@ public partial class FormManageShift : Form
 
     private void LoadData()
     {
+        // Gắn dữ liệu thật vào _shiftList ở đây (Ví dụ: _shiftList = ShiftBUS.GetAllShifts(); )
         UpdateCards();
         LoadTable();
         UpdateFooter();
@@ -32,10 +30,12 @@ public partial class FormManageShift : Form
     {
         lbl_resStatus.Text              = _isShiftOpen ? "Đang mở" : "Đã đóng";
         lbl_resStatus.ForeColor         = _isShiftOpen ? Color.FromArgb(0, 140, 0) : Color.Red;
-        lbl_resTime.Text    = "08:00";
-        lbl_resMoney.Text  = "500,000";
-        lbl_resActivity.Text  = "12";
-        lbl_resRevenue.Text = "145,200,000";
+        
+        // Trả về số 0 và giá trị mặc định, chờ dữ liệu thật
+        lbl_resTime.Text        = "--:--";
+        lbl_resMoney.Text       = "0";
+        lbl_resActivity.Text    = "0";
+        lbl_resRevenue.Text     = "0";
         lbl_resRevenue.ForeColor = Color.FromArgb(0, 102, 204);
     }
 
@@ -48,6 +48,7 @@ public partial class FormManageShift : Form
         dgv_listShift.SelectionMode      = DataGridViewSelectionMode.FullRowSelect;
         dgv_listShift.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 248, 255);
 
+        // Vòng lặp này sẽ đổ dữ liệu thật khi _shiftList có phần tử
         foreach (var s in _shiftList)
         {
             int i = dgv_listShift.Rows.Add(
@@ -72,8 +73,9 @@ public partial class FormManageShift : Form
 
     private void UpdateFooter()
     {
-        lbl_footerLeft.Text  = "Ca hiện tại: CA001 | Minh Triều";
-        lbl_footerRight.Text = "Mở lúc: 08:00 01/06/2024";
+        // Chờ dữ liệu thật
+        lbl_footerLeft.Text  = "Ca hiện tại: -- | --";
+        lbl_footerRight.Text = "Mở lúc: --";
     }
 
     private void btn_moCa_Click(object sender, EventArgs e)

@@ -196,7 +196,6 @@ partial class FormManageShift
         lbl_resStatus.Name = "lbl_resStatus";
         lbl_resStatus.Size = new System.Drawing.Size(370, 46);
         lbl_resStatus.TabIndex = 0;
-        lbl_resStatus.Text = "Đang mở";
         lbl_resStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // panel2
@@ -225,7 +224,6 @@ partial class FormManageShift
         lbl_resTime.Name = "lbl_resTime";
         lbl_resTime.Size = new System.Drawing.Size(342, 46);
         lbl_resTime.TabIndex = 0;
-        lbl_resTime.Text = "7:00";
         lbl_resTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // panel3
@@ -254,7 +252,6 @@ partial class FormManageShift
         lbl_resMoney.Name = "lbl_resMoney";
         lbl_resMoney.Size = new System.Drawing.Size(368, 46);
         lbl_resMoney.TabIndex = 0;
-        lbl_resMoney.Text = "1.000.000";
         lbl_resMoney.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         lbl_resMoney.Click += lbl_tienDaucaTitle_Click;
         // 
@@ -284,7 +281,6 @@ partial class FormManageShift
         lbl_resActivity.Name = "lbl_resActivity";
         lbl_resActivity.Size = new System.Drawing.Size(323, 46);
         lbl_resActivity.TabIndex = 0;
-        lbl_resActivity.Text = "10";
         lbl_resActivity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // panel5
@@ -313,7 +309,6 @@ partial class FormManageShift
         lbl_resRevenue.Name = "lbl_resRevenue";
         lbl_resRevenue.Size = new System.Drawing.Size(331, 45);
         lbl_resRevenue.TabIndex = 0;
-        lbl_resRevenue.Text = "50.000.000";
         lbl_resRevenue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
         // 
         // pnl_footer
@@ -369,7 +364,7 @@ partial class FormManageShift
         // 
         // FormManageShift
         // 
-        AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+        AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(1804, 989);
         Controls.Add(groupBox1);
