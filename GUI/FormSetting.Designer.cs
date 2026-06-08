@@ -15,252 +15,264 @@ namespace GUI
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
         private void InitializeComponent()
         {
-            this.gb_DatabaseConfig = new System.Windows.Forms.GroupBox();
-            this.lbl_Server = new System.Windows.Forms.Label();
-            this.txt_Server = new System.Windows.Forms.TextBox();
-            this.lbl_Database = new System.Windows.Forms.Label();
-            this.txt_Database = new System.Windows.Forms.TextBox();
-            this.lbl_User = new System.Windows.Forms.Label();
-            this.txt_User = new System.Windows.Forms.TextBox();
-            this.lbl_Password = new System.Windows.Forms.Label();
-            this.txt_Password = new System.Windows.Forms.TextBox();
-            this.btn_TestConnection = new System.Windows.Forms.Button();
-            this.btn_SaveDatabase = new System.Windows.Forms.Button();
-
-            this.gb_PrinterConfig = new System.Windows.Forms.GroupBox();
-            this.lbl_PrinterName = new System.Windows.Forms.Label();
-            this.cb_PrinterList = new System.Windows.Forms.ComboBox();
-            this.lbl_PaperSize = new System.Windows.Forms.Label();
-            this.cb_PaperSize = new System.Windows.Forms.ComboBox();
-            this.btn_PrintTest = new System.Windows.Forms.Button();
-            this.btn_SavePrinter = new System.Windows.Forms.Button();
-
-            this.gb_DatabaseConfig.SuspendLayout();
-            this.gb_PrinterConfig.SuspendLayout();
-            this.SuspendLayout();
-
+            gb_DatabaseConfig = new System.Windows.Forms.GroupBox();
+            btn_saveDatabase = new System.Windows.Forms.Button();
+            btn_testConnection = new System.Windows.Forms.Button();
+            txt_password = new System.Windows.Forms.TextBox();
+            lbl_Password = new System.Windows.Forms.Label();
+            txt_user = new System.Windows.Forms.TextBox();
+            lbl_User = new System.Windows.Forms.Label();
+            txt_database = new System.Windows.Forms.TextBox();
+            lbl_Database = new System.Windows.Forms.Label();
+            txt_server = new System.Windows.Forms.TextBox();
+            lbl_Server = new System.Windows.Forms.Label();
+            gb_PrinterConfig = new System.Windows.Forms.GroupBox();
+            btn_savePrinter = new System.Windows.Forms.Button();
+            btn_printTest = new System.Windows.Forms.Button();
+            cbb_paperSize = new System.Windows.Forms.ComboBox();
+            lbl_PaperSize = new System.Windows.Forms.Label();
+            cbb_printerList = new System.Windows.Forms.ComboBox();
+            lbl_PrinterName = new System.Windows.Forms.Label();
+            gb_DatabaseConfig.SuspendLayout();
+            gb_PrinterConfig.SuspendLayout();
+            SuspendLayout();
             // 
             // gb_DatabaseConfig
             // 
-            this.gb_DatabaseConfig.Controls.Add(this.btn_SaveDatabase);
-            this.gb_DatabaseConfig.Controls.Add(this.btn_TestConnection);
-            this.gb_DatabaseConfig.Controls.Add(this.txt_Password);
-            this.gb_DatabaseConfig.Controls.Add(this.lbl_Password);
-            this.gb_DatabaseConfig.Controls.Add(this.txt_User);
-            this.gb_DatabaseConfig.Controls.Add(this.lbl_User);
-            this.gb_DatabaseConfig.Controls.Add(this.txt_Database);
-            this.gb_DatabaseConfig.Controls.Add(this.lbl_Database);
-            this.gb_DatabaseConfig.Controls.Add(this.txt_Server);
-            this.gb_DatabaseConfig.Controls.Add(this.lbl_Server);
-            this.gb_DatabaseConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gb_DatabaseConfig.Location = new System.Drawing.Point(12, 12);
-            this.gb_DatabaseConfig.Name = "gb_DatabaseConfig";
-            this.gb_DatabaseConfig.Size = new System.Drawing.Size(360, 320);
-            this.gb_DatabaseConfig.TabIndex = 0;
-            this.gb_DatabaseConfig.TabStop = false;
-            this.gb_DatabaseConfig.Text = "Cấu Hình Chuỗi Kết Nối Máy Chủ";
+            gb_DatabaseConfig.Controls.Add(btn_saveDatabase);
+            gb_DatabaseConfig.Controls.Add(btn_testConnection);
+            gb_DatabaseConfig.Controls.Add(txt_password);
+            gb_DatabaseConfig.Controls.Add(lbl_Password);
+            gb_DatabaseConfig.Controls.Add(txt_user);
+            gb_DatabaseConfig.Controls.Add(lbl_User);
+            gb_DatabaseConfig.Controls.Add(txt_database);
+            gb_DatabaseConfig.Controls.Add(lbl_Database);
+            gb_DatabaseConfig.Controls.Add(txt_server);
+            gb_DatabaseConfig.Controls.Add(lbl_Server);
+            gb_DatabaseConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            gb_DatabaseConfig.Location = new System.Drawing.Point(12, 12);
+            gb_DatabaseConfig.Name = "gb_DatabaseConfig";
+            gb_DatabaseConfig.Size = new System.Drawing.Size(790, 789);
+            gb_DatabaseConfig.TabIndex = 0;
+            gb_DatabaseConfig.TabStop = false;
+            gb_DatabaseConfig.Text = "Cấu Hình Chuỗi Kết Nối Máy Chủ";
             // 
-            // lbl_Server
+            // btn_saveDatabase
             // 
-            this.lbl_Server.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_Server.Location = new System.Drawing.Point(15, 35);
-            this.lbl_Server.Name = "lbl_Server";
-            this.lbl_Server.Size = new System.Drawing.Size(100, 25);
-            this.lbl_Server.Text = "Tên máy chủ:";
+            btn_saveDatabase.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            btn_saveDatabase.Location = new System.Drawing.Point(0, 660);
+            btn_saveDatabase.Name = "btn_saveDatabase";
+            btn_saveDatabase.Size = new System.Drawing.Size(778, 54);
+            btn_saveDatabase.TabIndex = 6;
+            btn_saveDatabase.Text = "Lưu Cấu Hình";
+            btn_saveDatabase.UseVisualStyleBackColor = true;
+            btn_saveDatabase.Click += btn_SaveDatabase_Click;
             // 
-            // txt_Server
+            // btn_testConnection
             // 
-            this.txt_Server.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txt_Server.Location = new System.Drawing.Point(120, 32);
-            this.txt_Server.Name = "txt_Server";
-            this.txt_Server.Size = new System.Drawing.Size(220, 29);
-            this.txt_Server.TabIndex = 1;
+            btn_testConnection.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            btn_testConnection.Location = new System.Drawing.Point(0, 553);
+            btn_testConnection.Name = "btn_testConnection";
+            btn_testConnection.Size = new System.Drawing.Size(778, 57);
+            btn_testConnection.TabIndex = 5;
+            btn_testConnection.Text = "Kiểm Tra Kết Nối";
+            btn_testConnection.UseVisualStyleBackColor = true;
+            btn_testConnection.Click += btn_TestConnection_Click;
             // 
-            // lbl_Database
+            // txt_password
             // 
-            this.lbl_Database.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_Database.Location = new System.Drawing.Point(15, 80);
-            this.lbl_Database.Name = "lbl_Database";
-            this.lbl_Database.Size = new System.Drawing.Size(100, 25);
-            this.lbl_Database.Text = "Cơ sở dữ liệu:";
-            // 
-            // txt_Database
-            // 
-            this.txt_Database.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txt_Database.Location = new System.Drawing.Point(120, 77);
-            this.txt_Database.Name = "txt_Database";
-            this.txt_Database.Size = new System.Drawing.Size(220, 29);
-            this.txt_Database.TabIndex = 2;
-            // 
-            // lbl_User
-            // 
-            this.lbl_User.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_User.Location = new System.Drawing.Point(15, 125);
-            this.lbl_User.Name = "lbl_User";
-            this.lbl_User.Size = new System.Drawing.Size(100, 25);
-            this.lbl_User.Text = "Tài khoản:";
-            // 
-            // txt_User
-            // 
-            this.txt_User.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txt_User.Location = new System.Drawing.Point(120, 122);
-            this.txt_User.Name = "txt_User";
-            this.txt_User.Size = new System.Drawing.Size(220, 29);
-            this.txt_User.TabIndex = 3;
+            txt_password.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            txt_password.Location = new System.Drawing.Point(235, 266);
+            txt_password.Name = "txt_password";
+            txt_password.PasswordChar = '*';
+            txt_password.Size = new System.Drawing.Size(549, 50);
+            txt_password.TabIndex = 4;
             // 
             // lbl_Password
             // 
-            this.lbl_Password.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_Password.Location = new System.Drawing.Point(15, 170);
-            this.lbl_Password.Name = "lbl_Password";
-            this.lbl_Password.Size = new System.Drawing.Size(100, 25);
-            this.lbl_Password.Text = "Mật khẩu:";
+            lbl_Password.BackColor = System.Drawing.SystemColors.ControlLight;
+            lbl_Password.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            lbl_Password.Location = new System.Drawing.Point(6, 266);
+            lbl_Password.Name = "lbl_Password";
+            lbl_Password.Size = new System.Drawing.Size(212, 50);
+            lbl_Password.TabIndex = 7;
+            lbl_Password.Text = "Mật khẩu:";
             // 
-            // txt_Password
+            // txt_user
             // 
-            this.txt_Password.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.txt_Password.Location = new System.Drawing.Point(120, 167);
-            this.txt_Password.Name = "txt_Password";
-            this.txt_Password.PasswordChar = '*';
-            this.txt_Password.Size = new System.Drawing.Size(220, 29);
-            this.txt_Password.TabIndex = 4;
+            txt_user.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            txt_user.Location = new System.Drawing.Point(235, 196);
+            txt_user.Name = "txt_user";
+            txt_user.Size = new System.Drawing.Size(549, 50);
+            txt_user.TabIndex = 3;
             // 
-            // btn_TestConnection
+            // lbl_User
             // 
-            this.btn_TestConnection.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btn_TestConnection.Location = new System.Drawing.Point(20, 240);
-            this.btn_TestConnection.Name = "btn_TestConnection";
-            this.btn_TestConnection.Size = new System.Drawing.Size(140, 40);
-            this.btn_TestConnection.TabIndex = 5;
-            this.btn_TestConnection.Text = "Kiểm Tra Kết Nối";
-            this.btn_TestConnection.UseVisualStyleBackColor = true;
-            this.btn_TestConnection.Click += new System.EventHandler(this.btn_TestConnection_Click);
+            lbl_User.BackColor = System.Drawing.SystemColors.ControlLight;
+            lbl_User.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            lbl_User.Location = new System.Drawing.Point(6, 196);
+            lbl_User.Name = "lbl_User";
+            lbl_User.Size = new System.Drawing.Size(223, 50);
+            lbl_User.TabIndex = 8;
+            lbl_User.Text = "Tài khoản:";
             // 
-            // btn_SaveDatabase
+            // txt_database
             // 
-            this.btn_SaveDatabase.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btn_SaveDatabase.Location = new System.Drawing.Point(200, 240);
-            this.btn_SaveDatabase.Name = "btn_SaveDatabase";
-            this.btn_SaveDatabase.Size = new System.Drawing.Size(140, 40);
-            this.btn_SaveDatabase.TabIndex = 6;
-            this.btn_SaveDatabase.Text = "Lưu Cấu Hình";
-            this.btn_SaveDatabase.UseVisualStyleBackColor = true;
-            this.btn_SaveDatabase.Click += new System.EventHandler(this.btn_SaveDatabase_Click);
+            txt_database.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            txt_database.Location = new System.Drawing.Point(235, 121);
+            txt_database.Name = "txt_database";
+            txt_database.Size = new System.Drawing.Size(549, 50);
+            txt_database.TabIndex = 2;
+            // 
+            // lbl_Database
+            // 
+            lbl_Database.BackColor = System.Drawing.SystemColors.ControlLight;
+            lbl_Database.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            lbl_Database.Location = new System.Drawing.Point(6, 121);
+            lbl_Database.Name = "lbl_Database";
+            lbl_Database.Size = new System.Drawing.Size(223, 50);
+            lbl_Database.TabIndex = 9;
+            lbl_Database.Text = "Cơ sở dữ liệu:";
+            // 
+            // txt_server
+            // 
+            txt_server.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            txt_server.Location = new System.Drawing.Point(238, 51);
+            txt_server.Name = "txt_server";
+            txt_server.Size = new System.Drawing.Size(546, 50);
+            txt_server.TabIndex = 1;
+            // 
+            // lbl_Server
+            // 
+            lbl_Server.BackColor = System.Drawing.SystemColors.ControlLight;
+            lbl_Server.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            lbl_Server.Location = new System.Drawing.Point(6, 48);
+            lbl_Server.Name = "lbl_Server";
+            lbl_Server.Size = new System.Drawing.Size(212, 51);
+            lbl_Server.TabIndex = 10;
+            lbl_Server.Text = "Tên máy chủ:";
             // 
             // gb_PrinterConfig
             // 
-            this.gb_PrinterConfig.Controls.Add(this.btn_SavePrinter);
-            this.gb_PrinterConfig.Controls.Add(this.btn_PrintTest);
-            this.gb_PrinterConfig.Controls.Add(this.cb_PaperSize);
-            this.gb_PrinterConfig.Controls.Add(this.lbl_PaperSize);
-            this.gb_PrinterConfig.Controls.Add(this.cb_PrinterList);
-            this.gb_PrinterConfig.Controls.Add(this.lbl_PrinterName);
-            this.gb_PrinterConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gb_PrinterConfig.Location = new System.Drawing.Point(390, 12);
-            this.gb_PrinterConfig.Name = "gb_PrinterConfig";
-            this.gb_PrinterConfig.Size = new System.Drawing.Size(360, 320);
-            this.gb_PrinterConfig.TabIndex = 7;
-            this.gb_PrinterConfig.TabStop = false;
-            this.gb_PrinterConfig.Text = "Cấu Hình Máy In Hóa Đơn";
+            gb_PrinterConfig.Controls.Add(btn_savePrinter);
+            gb_PrinterConfig.Controls.Add(btn_printTest);
+            gb_PrinterConfig.Controls.Add(cbb_paperSize);
+            gb_PrinterConfig.Controls.Add(lbl_PaperSize);
+            gb_PrinterConfig.Controls.Add(cbb_printerList);
+            gb_PrinterConfig.Controls.Add(lbl_PrinterName);
+            gb_PrinterConfig.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            gb_PrinterConfig.Location = new System.Drawing.Point(808, 12);
+            gb_PrinterConfig.Name = "gb_PrinterConfig";
+            gb_PrinterConfig.Size = new System.Drawing.Size(752, 789);
+            gb_PrinterConfig.TabIndex = 7;
+            gb_PrinterConfig.TabStop = false;
+            gb_PrinterConfig.Text = "Cấu Hình Máy In Hóa Đơn";
             // 
-            // lbl_PrinterName
+            // btn_savePrinter
             // 
-            this.lbl_PrinterName.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_PrinterName.Location = new System.Drawing.Point(15, 35);
-            this.lbl_PrinterName.Name = "lbl_PrinterName";
-            this.lbl_PrinterName.Size = new System.Drawing.Size(100, 25);
-            this.lbl_PrinterName.Text = "Chọn máy in:";
+            btn_savePrinter.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            btn_savePrinter.Location = new System.Drawing.Point(6, 660);
+            btn_savePrinter.Name = "btn_savePrinter";
+            btn_savePrinter.Size = new System.Drawing.Size(740, 54);
+            btn_savePrinter.TabIndex = 11;
+            btn_savePrinter.Text = "Lưu Máy In";
+            btn_savePrinter.UseVisualStyleBackColor = true;
+            btn_savePrinter.Click += btn_SavePrinter_Click;
             // 
-            // cb_PrinterList
+            // btn_printTest
             // 
-            this.cb_PrinterList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_PrinterList.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.cb_PrinterList.Location = new System.Drawing.Point(120, 32);
-            this.cb_PrinterList.Name = "cb_PrinterList";
-            this.cb_PrinterList.Size = new System.Drawing.Size(220, 29);
-            this.cb_PrinterList.TabIndex = 8;
+            btn_printTest.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            btn_printTest.Location = new System.Drawing.Point(6, 553);
+            btn_printTest.Name = "btn_printTest";
+            btn_printTest.Size = new System.Drawing.Size(740, 57);
+            btn_printTest.TabIndex = 10;
+            btn_printTest.Text = "In Thử (Test)";
+            btn_printTest.UseVisualStyleBackColor = true;
+            btn_printTest.Click += btn_PrintTest_Click;
+            // 
+            // cbb_paperSize
+            // 
+            cbb_paperSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbb_paperSize.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            cbb_paperSize.Location = new System.Drawing.Point(6, 266);
+            cbb_paperSize.Name = "cbb_paperSize";
+            cbb_paperSize.Size = new System.Drawing.Size(740, 53);
+            cbb_paperSize.TabIndex = 9;
             // 
             // lbl_PaperSize
             // 
-            this.lbl_PaperSize.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_PaperSize.Location = new System.Drawing.Point(15, 80);
-            this.lbl_PaperSize.Name = "lbl_PaperSize";
-            this.lbl_PaperSize.Size = new System.Drawing.Size(100, 25);
-            this.lbl_PaperSize.Text = "Khổ giấy:";
+            lbl_PaperSize.BackColor = System.Drawing.SystemColors.ControlLight;
+            lbl_PaperSize.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            lbl_PaperSize.Location = new System.Drawing.Point(6, 199);
+            lbl_PaperSize.Name = "lbl_PaperSize";
+            lbl_PaperSize.Size = new System.Drawing.Size(220, 50);
+            lbl_PaperSize.TabIndex = 12;
+            lbl_PaperSize.Text = "Khổ giấy:";
             // 
-            // cb_PaperSize
+            // cbb_printerList
             // 
-            this.cb_PaperSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_PaperSize.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.cb_PaperSize.Location = new System.Drawing.Point(120, 77);
-            this.cb_PaperSize.Name = "cb_PaperSize";
-            this.cb_PaperSize.Size = new System.Drawing.Size(220, 29);
-            this.cb_PaperSize.TabIndex = 9;
+            cbb_printerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            cbb_printerList.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            cbb_printerList.Location = new System.Drawing.Point(6, 121);
+            cbb_printerList.Name = "cbb_printerList";
+            cbb_printerList.Size = new System.Drawing.Size(740, 53);
+            cbb_printerList.TabIndex = 8;
             // 
-            // btn_PrintTest
+            // lbl_PrinterName
             // 
-            this.btn_PrintTest.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btn_PrintTest.Location = new System.Drawing.Point(20, 240);
-            this.btn_PrintTest.Name = "btn_PrintTest";
-            this.btn_PrintTest.Size = new System.Drawing.Size(140, 40);
-            this.btn_PrintTest.TabIndex = 10;
-            this.btn_PrintTest.Text = "In Thử (Test)";
-            this.btn_PrintTest.UseVisualStyleBackColor = true;
-            this.btn_PrintTest.Click += new System.EventHandler(this.btn_PrintTest_Click);
-            // 
-            // btn_SavePrinter
-            // 
-            this.btn_SavePrinter.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.btn_SavePrinter.Location = new System.Drawing.Point(200, 240);
-            this.btn_SavePrinter.Name = "btn_SavePrinter";
-            this.btn_SavePrinter.Size = new System.Drawing.Size(140, 40);
-            this.btn_SavePrinter.TabIndex = 11;
-            this.btn_SavePrinter.Text = "Lưu Máy In";
-            this.btn_SavePrinter.UseVisualStyleBackColor = true;
-            this.btn_SavePrinter.Click += new System.EventHandler(this.btn_SavePrinter_Click);
+            lbl_PrinterName.BackColor = System.Drawing.SystemColors.ControlLight;
+            lbl_PrinterName.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            lbl_PrinterName.Location = new System.Drawing.Point(6, 54);
+            lbl_PrinterName.Name = "lbl_PrinterName";
+            lbl_PrinterName.Size = new System.Drawing.Size(220, 50);
+            lbl_PrinterName.TabIndex = 13;
+            lbl_PrinterName.Text = "Chọn máy in:";
             // 
             // FormSetting
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 351);
-            this.Controls.Add(this.gb_PrinterConfig);
-            this.Controls.Add(this.gb_DatabaseConfig);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "FormSetting";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Phân Hệ Cấu Hình Hệ Thống - Quyền Admin (IT)";
-            this.Load += new System.EventHandler(this.FormSetting_Load);
-            this.gb_DatabaseConfig.ResumeLayout(false);
-            this.gb_DatabaseConfig.PerformLayout();
-            this.gb_PrinterConfig.ResumeLayout(false);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1572, 813);
+            Controls.Add(gb_PrinterConfig);
+            Controls.Add(gb_DatabaseConfig);
+            Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Phân Hệ Cấu Hình Hệ Thống - Quyền Admin (IT)";
+            Load += FormSetting_Load;
+            gb_DatabaseConfig.ResumeLayout(false);
+            gb_DatabaseConfig.PerformLayout();
+            gb_PrinterConfig.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox gb_DatabaseConfig;
         private System.Windows.Forms.Label lbl_Server;
-        private System.Windows.Forms.TextBox txt_Server;
+        private System.Windows.Forms.TextBox txt_server;
         private System.Windows.Forms.Label lbl_Database;
-        private System.Windows.Forms.TextBox txt_Database;
+        private System.Windows.Forms.TextBox txt_database;
         private System.Windows.Forms.Label lbl_User;
-        private System.Windows.Forms.TextBox txt_User;
+        private System.Windows.Forms.TextBox txt_user;
         private System.Windows.Forms.Label lbl_Password;
-        private System.Windows.Forms.TextBox txt_Password;
-        private System.Windows.Forms.Button btn_TestConnection;
-        private System.Windows.Forms.Button btn_SaveDatabase;
+        private System.Windows.Forms.TextBox txt_password;
+        private System.Windows.Forms.Button btn_testConnection;
+        private System.Windows.Forms.Button btn_saveDatabase;
 
         private System.Windows.Forms.GroupBox gb_PrinterConfig;
         private System.Windows.Forms.Label lbl_PrinterName;
-        private System.Windows.Forms.ComboBox cb_PrinterList;
+        private System.Windows.Forms.ComboBox cbb_printerList;
         private System.Windows.Forms.Label lbl_PaperSize;
-        private System.Windows.Forms.ComboBox cb_PaperSize;
-        private System.Windows.Forms.Button btn_PrintTest;
-        private System.Windows.Forms.Button btn_SavePrinter;
+        private System.Windows.Forms.ComboBox cbb_paperSize;
+        private System.Windows.Forms.Button btn_printTest;
+        private System.Windows.Forms.Button btn_savePrinter;
     }
 }

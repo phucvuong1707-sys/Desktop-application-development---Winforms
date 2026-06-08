@@ -32,37 +32,37 @@ partial class FormGuest
     private void InitializeComponent()
     {
         mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-        dgv_guest = new DataGridView();
-        col_Phone = new DataGridViewTextBoxColumn();
-        col_Name = new DataGridViewTextBoxColumn();
-        col_Type = new DataGridViewTextBoxColumn();
-        col_Point = new DataGridViewTextBoxColumn();
-        col_Total = new DataGridViewTextBoxColumn();
-        col_Date = new DataGridViewTextBoxColumn();
-        btn_addCustomer = new Button();
-        btn_edit = new Button();
-        btn_purchaseHistory = new Button();
-        btn_refresh = new Button();
-        groupBox1 = new GroupBox();
-        groupBox2 = new GroupBox();
-        txt_search = new TextBox();
-        label1 = new Label();
-        groupBox3 = new GroupBox();
-        txt_phoneNumber = new TextBox();
-        txt_fullName = new TextBox();
-        txt_address = new TextBox();
-        cbo_customerType = new ComboBox();
-        btn_save = new Button();
-        btn_cancel = new Button();
-        label6 = new Label();
-        label5 = new Label();
-        label4 = new Label();
-        label3 = new Label();
-        label2 = new Label();
-        ((ISupportInitialize)dgv_guest).BeginInit();
-        groupBox1.SuspendLayout();
+        dgv_guest = new System.Windows.Forms.DataGridView();
+        col_Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        col_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        col_Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        col_Point = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        col_Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        col_Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+        btn_addCustomer = new System.Windows.Forms.Button();
+        btn_edit = new System.Windows.Forms.Button();
+        btn_purchaseHistory = new System.Windows.Forms.Button();
+        btn_refresh = new System.Windows.Forms.Button();
+        groupBox2 = new System.Windows.Forms.GroupBox();
+        txt_search = new System.Windows.Forms.TextBox();
+        groupBox3 = new System.Windows.Forms.GroupBox();
+        txt_phoneNumber = new System.Windows.Forms.TextBox();
+        txt_fullName = new System.Windows.Forms.TextBox();
+        txt_address = new System.Windows.Forms.TextBox();
+        cbo_customerType = new System.Windows.Forms.ComboBox();
+        btn_save = new System.Windows.Forms.Button();
+        btn_cancel = new System.Windows.Forms.Button();
+        pnl_top = new System.Windows.Forms.Panel();
+        groupBox1 = new System.Windows.Forms.GroupBox();
+        label1 = new System.Windows.Forms.Label();
+        label2 = new System.Windows.Forms.Label();
+        label3 = new System.Windows.Forms.Label();
+        label7 = new System.Windows.Forms.Label();
+        ((System.ComponentModel.ISupportInitialize)dgv_guest).BeginInit();
         groupBox2.SuspendLayout();
         groupBox3.SuspendLayout();
+        pnl_top.SuspendLayout();
+        groupBox1.SuspendLayout();
         SuspendLayout();
         // 
         // mySqlCommand1
@@ -74,13 +74,13 @@ partial class FormGuest
         // 
         // dgv_guest
         // 
-        dgv_guest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        dgv_guest.Columns.AddRange(new DataGridViewColumn[] { col_Phone, col_Name, col_Type, col_Point, col_Total, col_Date });
-        dgv_guest.Location = new Point(8, 65);
-        dgv_guest.Margin = new Padding(1);
+        dgv_guest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dgv_guest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { col_Phone, col_Name, col_Type, col_Point, col_Total, col_Date });
+        dgv_guest.Location = new System.Drawing.Point(11, 26);
+        dgv_guest.Margin = new System.Windows.Forms.Padding(1);
         dgv_guest.Name = "dgv_guest";
         dgv_guest.RowHeadersWidth = 51;
-        dgv_guest.Size = new Size(752, 319);
+        dgv_guest.Size = new System.Drawing.Size(1049, 775);
         dgv_guest.TabIndex = 1;
         dgv_guest.CellContentClick += dgv_guest_CellContentClick;
         // 
@@ -128,18 +128,18 @@ partial class FormGuest
         // 
         // btn_addCustomer
         // 
-        btn_addCustomer.Location = new Point(19, 43);
+        btn_addCustomer.Location = new System.Drawing.Point(11, 17);
         btn_addCustomer.Name = "btn_addCustomer";
-        btn_addCustomer.Size = new Size(140, 54);
+        btn_addCustomer.Size = new System.Drawing.Size(455, 54);
         btn_addCustomer.TabIndex = 2;
         btn_addCustomer.Text = "Thêm KH";
         btn_addCustomer.UseVisualStyleBackColor = true;
         // 
         // btn_edit
         // 
-        btn_edit.Location = new Point(175, 43);
+        btn_edit.Location = new System.Drawing.Point(472, 17);
         btn_edit.Name = "btn_edit";
-        btn_edit.Size = new Size(140, 54);
+        btn_edit.Size = new System.Drawing.Size(428, 54);
         btn_edit.TabIndex = 3;
         btn_edit.Text = "Sửa";
         btn_edit.UseVisualStyleBackColor = true;
@@ -147,221 +147,209 @@ partial class FormGuest
         // 
         // btn_purchaseHistory
         // 
-        btn_purchaseHistory.Location = new Point(333, 43);
+        btn_purchaseHistory.Location = new System.Drawing.Point(906, 17);
         btn_purchaseHistory.Name = "btn_purchaseHistory";
-        btn_purchaseHistory.Size = new Size(140, 54);
+        btn_purchaseHistory.Size = new System.Drawing.Size(412, 54);
         btn_purchaseHistory.TabIndex = 4;
         btn_purchaseHistory.Text = "Lịch sử mua";
         btn_purchaseHistory.UseVisualStyleBackColor = true;
         // 
         // btn_refresh
         // 
-        btn_refresh.Location = new Point(498, 43);
+        btn_refresh.Location = new System.Drawing.Point(1324, 17);
         btn_refresh.Name = "btn_refresh";
-        btn_refresh.Size = new Size(140, 54);
+        btn_refresh.Size = new System.Drawing.Size(420, 54);
         btn_refresh.TabIndex = 5;
         btn_refresh.Text = "Làm mới";
         btn_refresh.UseVisualStyleBackColor = true;
         // 
-        // groupBox1
-        // 
-        groupBox1.Controls.Add(btn_addCustomer);
-        groupBox1.Controls.Add(btn_refresh);
-        groupBox1.Controls.Add(btn_edit);
-        groupBox1.Controls.Add(btn_purchaseHistory);
-        groupBox1.Location = new Point(12, 12);
-        groupBox1.Name = "groupBox1";
-        groupBox1.Size = new Size(659, 131);
-        groupBox1.TabIndex = 6;
-        groupBox1.TabStop = false;
-        // 
         // groupBox2
         // 
-        groupBox2.Controls.Add(txt_search);
-        groupBox2.Controls.Add(label1);
         groupBox2.Controls.Add(dgv_guest);
-        groupBox2.Location = new Point(12, 149);
+        groupBox2.Location = new System.Drawing.Point(1, 161);
         groupBox2.Name = "groupBox2";
-        groupBox2.Size = new Size(764, 549);
+        groupBox2.Size = new System.Drawing.Size(1064, 808);
         groupBox2.TabIndex = 7;
         groupBox2.TabStop = false;
         // 
         // txt_search
         // 
-        txt_search.Location = new Point(106, 34);
+        txt_search.Location = new System.Drawing.Point(11, 23);
         txt_search.Name = "txt_search";
-        txt_search.Size = new Size(311, 27);
+        txt_search.Size = new System.Drawing.Size(1733, 47);
         txt_search.TabIndex = 2;
         txt_search.Text = "🔍 Tìm theo SĐT, tên khách hàng...";
         // 
-        // label1
-        // 
-        label1.AutoSize = true;
-        label1.Location = new Point(28, 34);
-        label1.Name = "label1";
-        label1.Size = new Size(72, 20);
-        label1.TabIndex = 0;
-        label1.Text = "Tìm Kiếm";
-        // 
         // groupBox3
         // 
+        groupBox3.Controls.Add(label7);
+        groupBox3.Controls.Add(label3);
+        groupBox3.Controls.Add(label2);
+        groupBox3.Controls.Add(label1);
         groupBox3.Controls.Add(txt_phoneNumber);
         groupBox3.Controls.Add(txt_fullName);
         groupBox3.Controls.Add(txt_address);
         groupBox3.Controls.Add(cbo_customerType);
         groupBox3.Controls.Add(btn_save);
         groupBox3.Controls.Add(btn_cancel);
-        groupBox3.Controls.Add(label6);
-        groupBox3.Controls.Add(label5);
-        groupBox3.Controls.Add(label4);
-        groupBox3.Controls.Add(label3);
-        groupBox3.Controls.Add(label2);
-        groupBox3.Location = new Point(795, 26);
+        groupBox3.Location = new System.Drawing.Point(1071, 187);
         groupBox3.Name = "groupBox3";
-        groupBox3.Size = new Size(334, 554);
+        groupBox3.Size = new System.Drawing.Size(688, 782);
         groupBox3.TabIndex = 8;
         groupBox3.TabStop = false;
+        groupBox3.Text = "THÔNG TIN KHÁCH HÀNG";
         // 
         // txt_phoneNumber
         // 
-        txt_phoneNumber.Location = new Point(20, 90);
+        txt_phoneNumber.Location = new System.Drawing.Point(20, 98);
         txt_phoneNumber.Name = "txt_phoneNumber";
-        txt_phoneNumber.Size = new Size(267, 27);
+        txt_phoneNumber.Size = new System.Drawing.Size(654, 47);
         txt_phoneNumber.TabIndex = 10;
         // 
         // txt_fullName
         // 
-        txt_fullName.Location = new Point(20, 171);
+        txt_fullName.Location = new System.Drawing.Point(20, 213);
         txt_fullName.Name = "txt_fullName";
-        txt_fullName.Size = new Size(267, 27);
+        txt_fullName.Size = new System.Drawing.Size(654, 47);
         txt_fullName.TabIndex = 9;
         // 
         // txt_address
         // 
-        txt_address.Location = new Point(20, 239);
+        txt_address.Location = new System.Drawing.Point(20, 334);
         txt_address.Name = "txt_address";
-        txt_address.Size = new Size(267, 27);
+        txt_address.Size = new System.Drawing.Size(654, 47);
         txt_address.TabIndex = 3;
         // 
         // cbo_customerType
         // 
         cbo_customerType.FormattingEnabled = true;
         cbo_customerType.Items.AddRange(new object[] { "Thường", "Thân thiết", "VIP" });
-        cbo_customerType.Location = new Point(20, 328);
+        cbo_customerType.Location = new System.Drawing.Point(20, 456);
         cbo_customerType.Name = "cbo_customerType";
-        cbo_customerType.Size = new Size(246, 28);
+        cbo_customerType.Size = new System.Drawing.Size(654, 49);
         cbo_customerType.TabIndex = 8;
         // 
         // btn_save
         // 
-        btn_save.Location = new Point(20, 459);
+        btn_save.Location = new System.Drawing.Point(20, 557);
         btn_save.Name = "btn_save";
-        btn_save.Size = new Size(140, 54);
+        btn_save.Size = new System.Drawing.Size(654, 54);
         btn_save.TabIndex = 6;
         btn_save.Text = "Lưu";
         btn_save.UseVisualStyleBackColor = true;
         // 
         // btn_cancel
         // 
-        btn_cancel.Location = new Point(188, 459);
+        btn_cancel.Location = new System.Drawing.Point(20, 633);
         btn_cancel.Name = "btn_cancel";
-        btn_cancel.Size = new Size(140, 54);
+        btn_cancel.Size = new System.Drawing.Size(654, 54);
         btn_cancel.TabIndex = 7;
         btn_cancel.Text = "Hủy";
         btn_cancel.UseVisualStyleBackColor = true;
         // 
-        // label6
+        // pnl_top
         // 
-        label6.AutoSize = true;
-        label6.Location = new Point(20, 285);
-        label6.Name = "label6";
-        label6.Size = new Size(81, 20);
-        label6.TabIndex = 7;
-        label6.Text = "Loại Khách";
+        pnl_top.Controls.Add(btn_refresh);
+        pnl_top.Controls.Add(btn_addCustomer);
+        pnl_top.Controls.Add(btn_purchaseHistory);
+        pnl_top.Controls.Add(btn_edit);
+        pnl_top.Location = new System.Drawing.Point(1, -5);
+        pnl_top.Name = "pnl_top";
+        pnl_top.Size = new System.Drawing.Size(1758, 84);
+        pnl_top.TabIndex = 9;
         // 
-        // label5
+        // groupBox1
         // 
-        label5.AutoSize = true;
-        label5.Location = new Point(20, 216);
-        label5.Name = "label5";
-        label5.Size = new Size(57, 20);
-        label5.TabIndex = 6;
-        label5.Text = "Địa Chỉ";
+        groupBox1.Controls.Add(txt_search);
+        groupBox1.Location = new System.Drawing.Point(1, 85);
+        groupBox1.Name = "groupBox1";
+        groupBox1.Size = new System.Drawing.Size(1758, 76);
+        groupBox1.TabIndex = 10;
+        groupBox1.TabStop = false;
         // 
-        // label4
+        // label1
         // 
-        label4.AutoSize = true;
-        label4.Location = new Point(20, 148);
-        label4.Name = "label4";
-        label4.Size = new Size(56, 20);
-        label4.TabIndex = 5;
-        label4.Text = "Họ Tên";
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(20, 63);
-        label3.Name = "label3";
-        label3.Size = new Size(36, 20);
-        label3.TabIndex = 4;
-        label3.Text = "SĐT";
+        label1.Location = new System.Drawing.Point(20, 52);
+        label1.Name = "label1";
+        label1.Size = new System.Drawing.Size(117, 43);
+        label1.TabIndex = 11;
+        label1.Text = "SĐT:";
         // 
         // label2
         // 
-        label2.AutoSize = true;
-        label2.Location = new Point(20, 29);
+        label2.Location = new System.Drawing.Point(20, 405);
         label2.Name = "label2";
-        label2.Size = new Size(187, 20);
-        label2.TabIndex = 3;
-        label2.Text = "THÔNG TIN KHÁCH HÀNG";
+        label2.Size = new System.Drawing.Size(246, 48);
+        label2.TabIndex = 12;
+        label2.Text = "Loại Khách:";
+        // 
+        // label3
+        // 
+        label3.Location = new System.Drawing.Point(20, 285);
+        label3.Name = "label3";
+        label3.Size = new System.Drawing.Size(177, 46);
+        label3.TabIndex = 13;
+        label3.Text = "Địa Chỉ:";
+        // 
+        // label7
+        // 
+        label7.Location = new System.Drawing.Point(20, 164);
+        label7.Name = "label7";
+        label7.Size = new System.Drawing.Size(152, 46);
+        label7.TabIndex = 14;
+        label7.Text = "Họ Tên:";
         // 
         // FormGuest
         // 
-        AutoScaleDimensions = new SizeF(8F, 20F);
-        AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(1320, 690);
+        AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
+        AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+        ClientSize = new System.Drawing.Size(1757, 972);
+        Controls.Add(groupBox1);
+        Controls.Add(pnl_top);
         Controls.Add(groupBox3);
         Controls.Add(groupBox2);
-        Controls.Add(groupBox1);
-        Name = "FormGuest";
+        Margin = new System.Windows.Forms.Padding(6);
         Text = "FormGuest";
         Load += FormGuest_Load;
-        ((ISupportInitialize)dgv_guest).EndInit();
-        groupBox1.ResumeLayout(false);
+        ((System.ComponentModel.ISupportInitialize)dgv_guest).EndInit();
         groupBox2.ResumeLayout(false);
-        groupBox2.PerformLayout();
         groupBox3.ResumeLayout(false);
         groupBox3.PerformLayout();
+        pnl_top.ResumeLayout(false);
+        groupBox1.ResumeLayout(false);
+        groupBox1.PerformLayout();
         ResumeLayout(false);
     }
 
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.Label label7;
+
+    private System.Windows.Forms.GroupBox groupBox1;
+
+    private System.Windows.Forms.Panel pnl_top;
+
     #endregion
     private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-    private DataGridView dgv_guest;
-    private Button btn_addCustomer;
-    private Button btn_edit;
-    private Button btn_purchaseHistory;
-    private Button btn_refresh;
-    private GroupBox groupBox1;
-    private GroupBox groupBox2;
-    private Label label1;
-    private GroupBox groupBox3;
+    private System.Windows.Forms.DataGridView dgv_guest;
+    private System.Windows.Forms.Button btn_addCustomer;
+    private System.Windows.Forms.Button btn_edit;
+    private System.Windows.Forms.Button btn_purchaseHistory;
+    private System.Windows.Forms.Button btn_refresh;
+    private System.Windows.Forms.GroupBox groupBox2;
+    private System.Windows.Forms.GroupBox groupBox3;
     private DataGridViewTextBoxColumn col_Phone;
     private DataGridViewTextBoxColumn col_Name;
     private DataGridViewTextBoxColumn col_Type;
     private DataGridViewTextBoxColumn col_Point;
     private DataGridViewTextBoxColumn col_Total;
     private DataGridViewTextBoxColumn col_Date;
-    private TextBox txt_search;
-    private Label label3;
-    private Label label2;
-    private Label label4;
-    private TextBox txt_phoneNumber;
-    private TextBox txt_fullName;
-    private TextBox txt_address;
-    private ComboBox cbo_customerType;
-    private Button btn_save;
-    private Button btn_cancel;
-    private Label label6;
-    private Label label5;
+    private System.Windows.Forms.TextBox txt_search;
+    private System.Windows.Forms.Label label3;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.TextBox txt_phoneNumber;
+    private System.Windows.Forms.TextBox txt_fullName;
+    private System.Windows.Forms.TextBox txt_address;
+    private System.Windows.Forms.ComboBox cbo_customerType;
+    private System.Windows.Forms.Button btn_save;
+    private System.Windows.Forms.Button btn_cancel;
 }

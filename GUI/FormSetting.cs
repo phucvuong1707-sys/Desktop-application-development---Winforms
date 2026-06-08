@@ -24,49 +24,49 @@ namespace GUI
         private void LoadCurrentDatabaseConfig()
         {
             // Điền dữ liệu cấu hình mặc định (hoặc đọc từ file cấu hình cục bộ)
-            txt_Server.Text = @".\SQLEXPRESS";
-            txt_Database.Text = "Management_DB";
-            txt_User.Text = "sa";
-            txt_Password.Text = "123456";
+            txt_server.Text = @".\SQLEXPRESS";
+            txt_database.Text = "Management_DB";
+            txt_user.Text = "sa";
+            txt_password.Text = "123456";
         }
 
         // Quét toàn bộ máy in đang được cài đặt trong hệ điều hành Windows
         private void LoadSystemPrinters()
         {
-            cb_PrinterList.Items.Clear();
+            cbb_printerList.Items.Clear();
 
             try
             {
                 foreach (string printer in PrinterSettings.InstalledPrinters)
                 {
-                    cb_PrinterList.Items.Add(printer);
+                    cbb_printerList.Items.Add(printer);
                 }
 
-                if (cb_PrinterList.Items.Count > 0)
+                if (cbb_printerList.Items.Count > 0)
                 {
-                    cb_PrinterList.SelectedIndex = 0;
+                    cbb_printerList.SelectedIndex = 0;
                 }
                 else
                 {
-                    cb_PrinterList.Items.Add("Không tìm thấy máy in");
-                    cb_PrinterList.SelectedIndex = 0;
+                    cbb_printerList.Items.Add("Không tìm thấy máy in");
+                    cbb_printerList.SelectedIndex = 0;
                 }
             }
             catch (Exception)
             {
-                cb_PrinterList.Items.Add("Lỗi quét phần cứng máy in");
-                cb_PrinterList.SelectedIndex = 0;
+                cbb_printerList.Items.Add("Lỗi quét phần cứng máy in");
+                cbb_printerList.SelectedIndex = 0;
             }
         }
 
         // Đổ dữ liệu các loại khổ giấy máy in hóa đơn thông dụng (K80, K57)
         private void LoadPaperSizes()
         {
-            cb_PaperSize.Items.Clear();
-            cb_PaperSize.Items.Add("K80 (80mm - Chuyên dụng Hóa đơn)");
-            cb_PaperSize.Items.Add("K57 (57mm - Máy in nhỏ/Cầm tay)");
-            cb_PaperSize.Items.Add("A5 (Khổ nửa trang văn phòng)");
-            cb_PaperSize.SelectedIndex = 0;
+            cbb_paperSize.Items.Clear();
+            cbb_paperSize.Items.Add("K80 (80mm - Chuyên dụng Hóa đơn)");
+            cbb_paperSize.Items.Add("K57 (57mm - Máy in nhỏ/Cầm tay)");
+            cbb_paperSize.Items.Add("A5 (Khổ nửa trang văn phòng)");
+            cbb_paperSize.SelectedIndex = 0;
         }
 
         // 2. Kiểm soát các nghiệp vụ tương tác cấu hình Database
@@ -74,10 +74,10 @@ namespace GUI
         // Thử nghiệm cấu trúc chuỗi kết nối SQL Server
         private void btn_TestConnection_Click(object sender, EventArgs e)
         {
-            string server = txt_Server.Text.Trim();
-            string database = txt_Database.Text.Trim();
-            string user = txt_User.Text.Trim();
-            string password = txt_Password.Text;
+            string server = txt_server.Text.Trim();
+            string database = txt_database.Text.Trim();
+            string user = txt_user.Text.Trim();
+            string password = txt_password.Text;
 
             if (string.IsNullOrEmpty(server) || string.IsNullOrEmpty(database))
             {
@@ -95,7 +95,7 @@ namespace GUI
         // Thực thi ghi đè cấu hình chuỗi kết nối hệ thống
         private void btn_SaveDatabase_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txt_Server.Text.Trim()) || string.IsNullOrEmpty(txt_Database.Text.Trim()))
+            if (string.IsNullOrEmpty(txt_server.Text.Trim()) || string.IsNullOrEmpty(txt_database.Text.Trim()))
             {
                 MessageBox.Show("Dữ liệu cấu hình không hợp lệ. Vui lòng kiểm tra lại!", "Lỗi lưu cấu hình", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -109,8 +109,8 @@ namespace GUI
         // Ra lệnh in thử nghiệm một trang hóa đơn mẫu để kiểm tra căn lề phần cứng
         private void btn_PrintTest_Click(object sender, EventArgs e)
         {
-            string selectedPrinter = cb_PrinterList.SelectedItem?.ToString() ?? string.Empty;
-            string selectedPaper = cb_PaperSize.SelectedItem?.ToString() ?? string.Empty;
+            string selectedPrinter = cbb_printerList.SelectedItem?.ToString() ?? string.Empty;
+            string selectedPaper = cbb_paperSize.SelectedItem?.ToString() ?? string.Empty;
 
             if (selectedPrinter == "Không tìm thấy máy in" || selectedPrinter == "Lỗi quét phần cứng máy in" || string.IsNullOrEmpty(selectedPrinter))
             {
@@ -150,9 +150,9 @@ namespace GUI
             float offsetY = 30;
 
             g.DrawString("--- HOÁ ĐƠN IN THỬ HỆ THỐNG ---", fontTitle, brush, startX, startY);
-            g.DrawString($"Thiết bị in: {cb_PrinterList.SelectedItem}", fontBody, brush, startX, startY + offsetY);
+            g.DrawString($"Thiết bị in: {cbb_printerList.SelectedItem}", fontBody, brush, startX, startY + offsetY);
             offsetY += 25;
-            g.DrawString($"Cấu hình khổ giấy: {cb_PaperSize.SelectedItem}", fontBody, brush, startX, startY + offsetY);
+            g.DrawString($"Cấu hình khổ giấy: {cbb_paperSize.SelectedItem}", fontBody, brush, startX, startY + offsetY);
             offsetY += 25;
             g.DrawString($"Thời gian kiểm tra: {DateTime.Now:dd/MM/yyyy HH:mm:ss}", fontBody, brush, startX, startY + offsetY);
             offsetY += 35;
@@ -162,7 +162,7 @@ namespace GUI
         // Ghi lại thông số cấu hình máy in mặc định cho hệ thống bán hàng
         private void btn_SavePrinter_Click(object sender, EventArgs e)
         {
-            string printerName = cb_PrinterList.SelectedItem?.ToString() ?? "Default";
+            string printerName = cbb_printerList.SelectedItem?.ToString() ?? "Default";
             MessageBox.Show($"Thiết lập máy in '{printerName}' làm thiết bị in hóa đơn mặc định thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
