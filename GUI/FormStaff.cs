@@ -73,7 +73,7 @@ namespace GUI
                     e.FormattingApplied = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 if (e.Value is int roleId)
                 {
@@ -150,7 +150,8 @@ namespace GUI
         {
             if (_selectedUserID == -1)
             {
-                grp_StaffDetails.Enabled = isEnabled;
+                MessageBox.Show("Vui lòng chọn nhân viên cần sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             _isAdding = false;
             SetInputState(true);
