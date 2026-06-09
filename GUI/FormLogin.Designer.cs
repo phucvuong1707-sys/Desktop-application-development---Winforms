@@ -31,12 +31,12 @@ partial class FormLogin
     {
         label1 = new System.Windows.Forms.Label();
         groupBox1 = new System.Windows.Forms.GroupBox();
-        label2 = new System.Windows.Forms.Label();
-        label3 = new System.Windows.Forms.Label();
-        txt_username = new System.Windows.Forms.TextBox();
-        txt_password = new System.Windows.Forms.TextBox();
-        btn_login = new System.Windows.Forms.Button();
         lbl_error = new System.Windows.Forms.Label();
+        btn_login = new System.Windows.Forms.Button();
+        txt_password = new System.Windows.Forms.TextBox();
+        txt_username = new System.Windows.Forms.TextBox();
+        label3 = new System.Windows.Forms.Label();
+        label2 = new System.Windows.Forms.Label();
         groupBox1.SuspendLayout();
         SuspendLayout();
         // 
@@ -63,14 +63,40 @@ partial class FormLogin
         groupBox1.TabIndex = 1;
         groupBox1.TabStop = false;
         // 
-        // label2
+        // lbl_error
         // 
-        label2.BackColor = System.Drawing.SystemColors.ControlDark;
-        label2.Location = new System.Drawing.Point(6, 432);
-        label2.Name = "label2";
-        label2.Size = new System.Drawing.Size(234, 47);
-        label2.TabIndex = 1;
-        label2.Text = "Mật khẩu";
+        lbl_error.BackColor = System.Drawing.SystemColors.ControlDark;
+        lbl_error.Location = new System.Drawing.Point(6, 193);
+        lbl_error.Name = "lbl_error";
+        lbl_error.Size = new System.Drawing.Size(846, 94);
+        lbl_error.TabIndex = 6;
+        // 
+        // btn_login
+        // 
+        btn_login.Location = new System.Drawing.Point(6, 552);
+        btn_login.Name = "btn_login";
+        btn_login.Size = new System.Drawing.Size(846, 125);
+        btn_login.TabIndex = 5;
+        btn_login.Text = "Đăng nhập";
+        btn_login.UseVisualStyleBackColor = true;
+        btn_login.Click += btn_login_Click;
+        // 
+        // txt_password
+        // 
+        txt_password.Location = new System.Drawing.Point(246, 432);
+        txt_password.Name = "txt_password";
+        txt_password.Size = new System.Drawing.Size(606, 47);
+        txt_password.TabIndex = 4;
+        txt_password.UseSystemPasswordChar = true;
+        txt_password.KeyDown += txt_password_KeyDown;
+        // 
+        // txt_username
+        // 
+        txt_username.Location = new System.Drawing.Point(246, 341);
+        txt_username.Name = "txt_username";
+        txt_username.Size = new System.Drawing.Size(606, 47);
+        txt_username.TabIndex = 3;
+        txt_username.KeyDown += txt_username_KeyDown;
         // 
         // label3
         // 
@@ -81,37 +107,14 @@ partial class FormLogin
         label3.TabIndex = 2;
         label3.Text = "Tên đăng nhập";
         // 
-        // txt_username
+        // label2
         // 
-        txt_username.Location = new System.Drawing.Point(246, 341);
-        txt_username.Name = "txt_username";
-        txt_username.Size = new System.Drawing.Size(606, 47);
-        txt_username.TabIndex = 3;
-        // 
-        // txt_password
-        // 
-        txt_password.Location = new System.Drawing.Point(246, 432);
-        txt_password.Name = "txt_password";
-        txt_password.Size = new System.Drawing.Size(606, 47);
-        txt_password.TabIndex = 4;
-        txt_password.UseSystemPasswordChar = true;
-        // 
-        // btn_login
-        // 
-        btn_login.Location = new System.Drawing.Point(6, 552);
-        btn_login.Name = "btn_login";
-        btn_login.Size = new System.Drawing.Size(846, 125);
-        btn_login.TabIndex = 5;
-        btn_login.Text = "Đăng nhập";
-        btn_login.UseVisualStyleBackColor = true;
-        // 
-        // lbl_error
-        // 
-        lbl_error.BackColor = System.Drawing.SystemColors.ControlDark;
-        lbl_error.Location = new System.Drawing.Point(6, 193);
-        lbl_error.Name = "lbl_error";
-        lbl_error.Size = new System.Drawing.Size(846, 94);
-        lbl_error.TabIndex = 6;
+        label2.BackColor = System.Drawing.SystemColors.ControlDark;
+        label2.Location = new System.Drawing.Point(6, 432);
+        label2.Name = "label2";
+        label2.Size = new System.Drawing.Size(234, 47);
+        label2.TabIndex = 1;
+        label2.Text = "Mật khẩu";
         // 
         // FormLogin
         // 

@@ -270,5 +270,7 @@ namespace GUI
                 txt_categorySearch.ForeColor = Color.Gray;
             }
         }
+
+   
     }
 }
