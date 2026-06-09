@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging; // Add this if not present
-using System.IO;          // Cần thiết để xử lý đường dẫn Path
+using System.IO;          
 using System.Linq;
 using System.Windows.Forms;
 using BUS;
 using DTO;
-using ImageMagick;        // Thư viện giải mã WebP, AVIF
 
 namespace GUI
 {
@@ -102,7 +100,7 @@ namespace GUI
         // 4. Kiểm soát các sự kiện tương tác trên lưới dữ liệu (DataGridView)
 
         // Nhận diện sự kiện chuyển đổi danh mục và cập nhật luồng lọc
-        private void dgv_CategoryFilter_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_categoryFilter_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -120,7 +118,7 @@ namespace GUI
         }
 
         // Ghi nhận khóa chính của bản ghi khi người dùng thiết lập tiêu điểm VÀ LOAD ẢNH
-        private void dgv_ProductList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_productList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
@@ -131,54 +129,14 @@ namespace GUI
                 }
                 UpdateBottomStatus();
 
-                // Lấy đối tượng DTO từ dòng được chọn để truyền ImagePath
-                var selectedProduct = dgv_productList.Rows[e.RowIndex].DataBoundItem as ProductsDTO;
-                if (selectedProduct != null)
-                {
-                    HienThiAnhSanPham(selectedProduct.ImagePath);
-                }
+              
             }
         }
 
-        // HÀM MỚI: Xử lý giải mã ảnh WebP/AVIF bằng Magick.NET
-        private void HienThiAnhSanPham(string imagePath)
-        {
-            // Dọn bộ nhớ ảnh cũ nếu có
-            if (pic_productImage.Image != null)
-            {
-                pic_productImage.Image.Dispose();
-                pic_productImage.Image = null;
-            }
-
-            if (string.IsNullOrWhiteSpace(imagePath)) return;
-
-            // Kết hợp thư mục chạy ứng dụng (net9.0-windows) với đường dẫn tương đối trong DB
-            string fullPath = Path.Combine(Application.StartupPath, imagePath);
-
-            if (File.Exists(fullPath))
-            {
-                try
-                {
-                    // Magick.NET không có ToBitmap, cần chuyển đổi thủ công
-                    using (var magickImage = new MagickImage(fullPath))
-                    {
-                        using (var memoryStream = new MemoryStream())
-                        {
-                            magickImage.Write(memoryStream, MagickFormat.Bmp);
-                            memoryStream.Position = 0;
-                            pic_productImage.Image = new Bitmap(memoryStream);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Lỗi khi load ảnh: {ex.Message}");
-                }
-            }
-        }
+       
 
         // Can thiệp vào quá trình kết xuất đồ họa (render) để định dạng chuỗi tiền tệ
-        private void dgv_ProductList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dgv_productList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.Value == null) return;
 
@@ -193,7 +151,7 @@ namespace GUI
         }
 
         // Kích hoạt lại chu trình lọc dữ liệu khi tiêu chí trạng thái thay đổi
-        private void cb_StatusFilter_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbb_statusFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyFilters();
         }
@@ -201,13 +159,13 @@ namespace GUI
         // 5. Kiểm soát các thao tác chức năng chính của Form (CRUD)
 
         // Khởi tạo phiên giao dịch bổ sung bản ghi sản phẩm mới
-        private void btn_ProductAdd_Click(object sender, EventArgs e)
+        private void btn_productAdd_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Vui lòng thực thi luồng chuyển trang thêm sản phẩm tại đây.", "Tiến trình hệ thống", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Khởi tạo phiên giao dịch cập nhật thông tin cho bản ghi đang được chọn
-        private void btn_ProductEdit_Click(object sender, EventArgs e)
+        private void btn_productEdit_Click(object sender, EventArgs e)
         {
             if (_selectedProductID == -1)
             {
@@ -218,7 +176,7 @@ namespace GUI
         }
 
         // Thực thi tiến trình loại bỏ bản ghi ra khỏi cơ sở dữ liệu
-        private void btn_ProductDelete_Click(object sender, EventArgs e)
+        private void btn_productDelete_Click(object sender, EventArgs e)
         {
             if (_selectedProductID == -1)
             {
@@ -243,13 +201,13 @@ namespace GUI
         }
 
         // Điều hướng luồng công việc sang phân hệ quản trị danh mục
-        private void btn_Category_Click(object sender, EventArgs e)
+        private void btn_category_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Đang chuyển hướng sang phân hệ Quản lý danh mục...", "Điều hướng hệ thống");
         }
 
         // Hủy bỏ các bộ lọc cục bộ và đồng bộ hóa lại toàn bộ tập dữ liệu
-        private void btn_ProductRefresh_Click(object sender, EventArgs e)
+        private void btn_productRefresh_Click(object sender, EventArgs e)
         {
             cbb_statusFilter.SelectedIndex = 0;
             _selectedCategoryID = -1;

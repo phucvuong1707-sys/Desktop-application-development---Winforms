@@ -10,7 +10,7 @@ namespace GUI
 {
     public partial class FormCategory : Form
     {
-        //1.Khai báo đối tượng giao tiếp với tầng BUS và các biến lưu trữ trạng thái
+        // 1. Khai báo đối tượng giao tiếp với tầng BUS và các biến lưu trữ trạng thái
         private readonly CategoriesBUS _categoryBUS = new CategoriesBUS();
         private List<CategoriesDTO> _originalList = new List<CategoriesDTO>();
 
@@ -22,14 +22,24 @@ namespace GUI
             InitializeComponent();
         }
 
-        //2.Thiết lập trạng thái mặc định khi khởi tạo Form
+        // 2. Thiết lập trạng thái mặc định khi khởi tạo Form
         private void FormCategory_Load(object sender, EventArgs e)
         {
+            // Khởi tạo các giá trị cho ComboBox Trạng thái
+            if (cbb_categoryStatus.Items.Count == 0)
+            {
+                cbb_categoryStatus.Items.AddRange(new object[] { "Hoạt động", "Ngừng" });
+            }
+
             LoadData();
             SetInputState(false);
+
+            // Thiết lập Placeholder cho ô tìm kiếm
+            txt_categorySearch.Text = "Tìm danh mục...";
+            txt_categorySearch.ForeColor = Color.Gray;
         }
 
-        //3. Truy xuất toàn bộ dữ liệu từ cơ sở dữ liệu và liên kết với DataGridView
+        // 3. Truy xuất toàn bộ dữ liệu từ cơ sở dữ liệu và liên kết với DataGridView
         private void LoadData()
         {
             _originalList = _categoryBUS.GetAll() ?? new List<CategoriesDTO>();
@@ -46,7 +56,7 @@ namespace GUI
             UpdateStatusStrip("Không");
         }
 
-        //4. Định dạng lại nội dung và màu sắc hiển thị của lưới dữ liệu dựa trên giá trị thô
+        // 4. Định dạng lại nội dung và màu sắc hiển thị của lưới dữ liệu
         private void dgv_listCategory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgv_listCategory.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
@@ -66,7 +76,7 @@ namespace GUI
             }
         }
 
-        //5.Trích xuất dữ liệu từ dòng được chọn và gán vào các điều khiển nhập liệu
+        // 5. Trích xuất dữ liệu từ dòng được chọn và gán vào các điều khiển nhập liệu
         private void dgv_listCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && !_isAdding)
@@ -84,7 +94,7 @@ namespace GUI
             }
         }
 
-        //6.Kiểm soát trạng thái kích hoạt của các điều khiển dựa trên ngữ cảnh thao tác
+        // 6. Kiểm soát trạng thái kích hoạt của các điều khiển
         private void SetInputState(bool isEnabled)
         {
             txt_categoryName.Enabled = isEnabled;
@@ -100,7 +110,7 @@ namespace GUI
             dgv_listCategory.Enabled = !isEnabled;
         }
 
-        //7. Làm sạch toàn bộ dữ liệu trên các trường nhập liệu
+        // 7. Làm sạch toàn bộ dữ liệu trên các trường nhập liệu
         private void ClearInputs()
         {
             txt_categoryName.Clear();
@@ -108,13 +118,13 @@ namespace GUI
             cbb_categoryStatus.SelectedIndex = -1;
         }
 
-        //8.Cập nhật thông tin thống kê trên thanh trạng thái (StatusStrip)
+        // 8. Cập nhật thông tin thống kê trên thanh trạng thái
         private void UpdateStatusStrip(string currentSelection)
         {
             lbl_statusSummary.Text = $"Tổng: {_originalList.Count} danh mục | Đang chọn: {currentSelection}";
         }
 
-        //9.Xử lý sự kiện khởi tạo phiên thêm mới danh mục
+        // 9. Xử lý sự kiện thêm mới
         private void btn_categoryAdd_Click(object sender, EventArgs e)
         {
             _isAdding = true;
@@ -124,7 +134,7 @@ namespace GUI
             txt_categoryName.Focus();
         }
 
-        //10. Xử lý sự kiện khởi tạo phiên chỉnh sửa danh mục hiện tại
+        // 10. Xử lý sự kiện chỉnh sửa
         private void btn_categoryEdit_Click(object sender, EventArgs e)
         {
             if (_selectedCategoryID == -1)
@@ -136,7 +146,7 @@ namespace GUI
             SetInputState(true);
         }
 
-        //11. Xử lý thao tác xóa bản ghi khỏi hệ thống
+        // 11. Xử lý thao tác xóa
         private void btn_categoryDelete_Click(object sender, EventArgs e)
         {
             if (_selectedCategoryID == -1)
@@ -161,7 +171,7 @@ namespace GUI
             }
         }
 
-        //12. Tải lại dữ liệu và khôi phục giao diện về trạng thái ban đầu
+        // 12. Tải lại dữ liệu
         private void btn_categoryRefresh_Click(object sender, EventArgs e)
         {
             LoadData();
@@ -171,15 +181,18 @@ namespace GUI
             txt_categorySearch.ForeColor = Color.Gray;
         }
 
-        //13 Hủy bỏ thao tác hiện tại và khóa các trường nhập liệu
+        // 13. Hủy bỏ thao tác
         private void btn_categoryCancel_Click(object sender, EventArgs e)
         {
             _isAdding = false;
             ClearInputs();
             SetInputState(false);
+            _selectedCategoryID = -1;
+            dgv_listCategory.ClearSelection();
+            UpdateStatusStrip("Không");
         }
 
-        //14. Kiểm tra tính hợp lệ của dữ liệu và thực thi lưu trữ vào cơ sở dữ liệu
+        // 14. Lưu dữ liệu
         private void btn_categorySave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_categoryName.Text))
@@ -219,7 +232,7 @@ namespace GUI
             }
         }
 
-        //15. Bộ lọc dữ liệu cục bộ hỗ trợ tìm kiếm linh hoạt (không thực thi truy vấn tới cơ sở dữ liệu)
+        // 15. Tìm kiếm (chạy bộ lọc cục bộ)
         private void txt_categorySearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = txt_categorySearch.Text.Trim().ToLower();
@@ -240,7 +253,7 @@ namespace GUI
             }
         }
 
-        //16. Quản lý hiệu ứng văn bản gợi ý (placeholder) khi điều khiển nhận tiêu điểm
+        // 16. Hiệu ứng Placeholder (Enter)
         private void txt_categorySearch_Enter(object sender, EventArgs e)
         {
             if (txt_categorySearch.Text == "Tìm danh mục...")
@@ -250,7 +263,7 @@ namespace GUI
             }
         }
 
-        //17. Quản lý hiệu ứng văn bản gợi ý (placeholder) khi điều khiển mất tiêu điểm
+        // 17. Hiệu ứng Placeholder (Leave)
         private void txt_categorySearch_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_categorySearch.Text))
@@ -259,7 +272,5 @@ namespace GUI
                 txt_categorySearch.ForeColor = Color.Gray;
             }
         }
-
-   
     }
 }

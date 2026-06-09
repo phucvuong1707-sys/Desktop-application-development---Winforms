@@ -17,283 +17,293 @@ namespace GUI
 
         private void InitializeComponent()
         {
-            pnl_topBar = new System.Windows.Forms.Panel();
-            btn_categoryRefresh = new System.Windows.Forms.Button();
-            btn_categoryDelete = new System.Windows.Forms.Button();
-            btn_categoryEdit = new System.Windows.Forms.Button();
-            btn_categoryAdd = new System.Windows.Forms.Button();
-            pnl_status = new System.Windows.Forms.Panel();
-            lbl_statusSummary = new System.Windows.Forms.Label();
-            pnl_left = new System.Windows.Forms.Panel();
-            dgv_listCategory = new System.Windows.Forms.DataGridView();
-            txt_categorySearch = new System.Windows.Forms.TextBox();
-            lbl_search = new System.Windows.Forms.Label();
-            pnl_details = new System.Windows.Forms.Panel();
-            btn_categoryCancel = new System.Windows.Forms.Button();
-            btn_categorySave = new System.Windows.Forms.Button();
-            cbb_categoryStatus = new System.Windows.Forms.ComboBox();
-            lbl_categoryStatus = new System.Windows.Forms.Label();
-            txt_categoryDesc = new System.Windows.Forms.TextBox();
-            lbl_categoryDesc = new System.Windows.Forms.Label();
-            txt_categoryName = new System.Windows.Forms.TextBox();
-            lbl_categoryName = new System.Windows.Forms.Label();
-            lbl_detailsTitle = new System.Windows.Forms.Label();
-            
-            pnl_topBar.SuspendLayout();
-            pnl_status.SuspendLayout();
-            pnl_left.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_listCategory).BeginInit();
-            pnl_details.SuspendLayout();
-            SuspendLayout();
+            this.grp_actions = new System.Windows.Forms.GroupBox();
+            this.btn_categoryRefresh = new System.Windows.Forms.Button();
+            this.btn_categoryDelete = new System.Windows.Forms.Button();
+            this.btn_categoryEdit = new System.Windows.Forms.Button();
+            this.btn_categoryAdd = new System.Windows.Forms.Button();
+            this.grp_status = new System.Windows.Forms.GroupBox();
+            this.lbl_statusSummary = new System.Windows.Forms.Label();
+            this.grp_categoryDetails = new System.Windows.Forms.GroupBox();
+            this.btn_categoryCancel = new System.Windows.Forms.Button();
+            this.btn_categorySave = new System.Windows.Forms.Button();
+            this.cbb_categoryStatus = new System.Windows.Forms.ComboBox();
+            this.lbl_categoryStatus = new System.Windows.Forms.Label();
+            this.txt_categoryDesc = new System.Windows.Forms.TextBox();
+            this.lbl_categoryDesc = new System.Windows.Forms.Label();
+            this.txt_categoryName = new System.Windows.Forms.TextBox();
+            this.lbl_categoryName = new System.Windows.Forms.Label();
+            this.grp_categoryList = new System.Windows.Forms.GroupBox();
+            this.dgv_listCategory = new System.Windows.Forms.DataGridView();
+            this.txt_categorySearch = new System.Windows.Forms.TextBox();
+            this.lbl_searchTitle = new System.Windows.Forms.Label();
+            this.grp_actions.SuspendLayout();
+            this.grp_status.SuspendLayout();
+            this.grp_categoryDetails.SuspendLayout();
+            this.grp_categoryList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_listCategory)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // grp_actions
+            // 
+            this.grp_actions.Controls.Add(this.btn_categoryRefresh);
+            this.grp_actions.Controls.Add(this.btn_categoryDelete);
+            this.grp_actions.Controls.Add(this.btn_categoryEdit);
+            this.grp_actions.Controls.Add(this.btn_categoryAdd);
+            this.grp_actions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.grp_actions.Location = new System.Drawing.Point(0, 0);
+            this.grp_actions.Name = "grp_actions";
+            this.grp_actions.Size = new System.Drawing.Size(900, 60);
+            this.grp_actions.TabIndex = 0;
+            this.grp_actions.TabStop = false;
+            // 
+            // btn_categoryRefresh
+            // 
+            this.btn_categoryRefresh.Location = new System.Drawing.Point(312, 20);
+            this.btn_categoryRefresh.Name = "btn_categoryRefresh";
+            this.btn_categoryRefresh.Size = new System.Drawing.Size(90, 30);
+            this.btn_categoryRefresh.TabIndex = 3;
+            this.btn_categoryRefresh.Text = "Làm mới";
+            this.btn_categoryRefresh.UseVisualStyleBackColor = true;
+            this.btn_categoryRefresh.Click += new System.EventHandler(this.btn_categoryRefresh_Click);
+            // 
+            // btn_categoryDelete
+            // 
+            this.btn_categoryDelete.Location = new System.Drawing.Point(216, 20);
+            this.btn_categoryDelete.Name = "btn_categoryDelete";
+            this.btn_categoryDelete.Size = new System.Drawing.Size(90, 30);
+            this.btn_categoryDelete.TabIndex = 2;
+            this.btn_categoryDelete.Text = "Xóa";
+            this.btn_categoryDelete.UseVisualStyleBackColor = true;
+            this.btn_categoryDelete.Click += new System.EventHandler(this.btn_categoryDelete_Click);
+            // 
+            // btn_categoryEdit
+            // 
+            this.btn_categoryEdit.Location = new System.Drawing.Point(120, 20);
+            this.btn_categoryEdit.Name = "btn_categoryEdit";
+            this.btn_categoryEdit.Size = new System.Drawing.Size(90, 30);
+            this.btn_categoryEdit.TabIndex = 1;
+            this.btn_categoryEdit.Text = "Sửa";
+            this.btn_categoryEdit.UseVisualStyleBackColor = true;
+            this.btn_categoryEdit.Click += new System.EventHandler(this.btn_categoryEdit_Click);
+            // 
+            // btn_categoryAdd
+            // 
+            this.btn_categoryAdd.Location = new System.Drawing.Point(24, 20);
+            this.btn_categoryAdd.Name = "btn_categoryAdd";
+            this.btn_categoryAdd.Size = new System.Drawing.Size(90, 30);
+            this.btn_categoryAdd.TabIndex = 0;
+            this.btn_categoryAdd.Text = "+ Thêm";
+            this.btn_categoryAdd.UseVisualStyleBackColor = true;
+            this.btn_categoryAdd.Click += new System.EventHandler(this.btn_categoryAdd_Click);
+            // 
+            // grp_status
+            // 
+            this.grp_status.Controls.Add(this.lbl_statusSummary);
+            this.grp_status.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grp_status.Location = new System.Drawing.Point(0, 460);
+            this.grp_status.Name = "grp_status";
+            this.grp_status.Size = new System.Drawing.Size(900, 40);
+            this.grp_status.TabIndex = 1;
+            this.grp_status.TabStop = false;
+            // 
+            // lbl_statusSummary
+            // 
+            this.lbl_statusSummary.AutoSize = true;
+            this.lbl_statusSummary.Location = new System.Drawing.Point(12, 16);
+            this.lbl_statusSummary.Name = "lbl_statusSummary";
+            this.lbl_statusSummary.Size = new System.Drawing.Size(209, 15);
+            this.lbl_statusSummary.TabIndex = 0;
+            this.lbl_statusSummary.Text = "Tổng: 0 danh mục | Đang chọn: Không";
+            // 
+            // grp_categoryDetails
+            // 
+            this.grp_categoryDetails.Controls.Add(this.btn_categoryCancel);
+            this.grp_categoryDetails.Controls.Add(this.btn_categorySave);
+            this.grp_categoryDetails.Controls.Add(this.cbb_categoryStatus);
+            this.grp_categoryDetails.Controls.Add(this.lbl_categoryStatus);
+            this.grp_categoryDetails.Controls.Add(this.txt_categoryDesc);
+            this.grp_categoryDetails.Controls.Add(this.lbl_categoryDesc);
+            this.grp_categoryDetails.Controls.Add(this.txt_categoryName);
+            this.grp_categoryDetails.Controls.Add(this.lbl_categoryName);
+            this.grp_categoryDetails.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grp_categoryDetails.Location = new System.Drawing.Point(600, 60);
+            this.grp_categoryDetails.Name = "grp_categoryDetails";
+            this.grp_categoryDetails.Size = new System.Drawing.Size(300, 400);
+            this.grp_categoryDetails.TabIndex = 2;
+            this.grp_categoryDetails.TabStop = false;
+            this.grp_categoryDetails.Text = "Thông tin danh mục";
+            // 
+            // btn_categoryCancel
+            // 
+            this.btn_categoryCancel.Location = new System.Drawing.Point(160, 240);
+            this.btn_categoryCancel.Name = "btn_categoryCancel";
+            this.btn_categoryCancel.Size = new System.Drawing.Size(100, 30);
+            this.btn_categoryCancel.TabIndex = 7;
+            this.btn_categoryCancel.Text = "Hủy";
+            this.btn_categoryCancel.UseVisualStyleBackColor = true;
+            this.btn_categoryCancel.Click += new System.EventHandler(this.btn_categoryCancel_Click);
+            // 
+            // btn_categorySave
+            // 
+            this.btn_categorySave.Location = new System.Drawing.Point(40, 240);
+            this.btn_categorySave.Name = "btn_categorySave";
+            this.btn_categorySave.Size = new System.Drawing.Size(100, 30);
+            this.btn_categorySave.TabIndex = 6;
+            this.btn_categorySave.Text = "Lưu";
+            this.btn_categorySave.UseVisualStyleBackColor = true;
+            this.btn_categorySave.Click += new System.EventHandler(this.btn_categorySave_Click);
+            // 
+            // cbb_categoryStatus
+            // 
+            this.cbb_categoryStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_categoryStatus.FormattingEnabled = true;
+            this.cbb_categoryStatus.Location = new System.Drawing.Point(20, 180);
+            this.cbb_categoryStatus.Name = "cbb_categoryStatus";
+            this.cbb_categoryStatus.Size = new System.Drawing.Size(260, 23);
+            this.cbb_categoryStatus.TabIndex = 5;
+            // 
+            // lbl_categoryStatus
+            // 
+            this.lbl_categoryStatus.AutoSize = true;
+            this.lbl_categoryStatus.Location = new System.Drawing.Point(17, 162);
+            this.lbl_categoryStatus.Name = "lbl_categoryStatus";
+            this.lbl_categoryStatus.Size = new System.Drawing.Size(62, 15);
+            this.lbl_categoryStatus.TabIndex = 4;
+            this.lbl_categoryStatus.Text = "Trạng thái:";
+            // 
+            // txt_categoryDesc
+            // 
+            this.txt_categoryDesc.Location = new System.Drawing.Point(20, 100);
+            this.txt_categoryDesc.Multiline = true;
+            this.txt_categoryDesc.Name = "txt_categoryDesc";
+            this.txt_categoryDesc.Size = new System.Drawing.Size(260, 50);
+            this.txt_categoryDesc.TabIndex = 3;
+            // 
+            // lbl_categoryDesc
+            // 
+            this.lbl_categoryDesc.AutoSize = true;
+            this.lbl_categoryDesc.Location = new System.Drawing.Point(17, 82);
+            this.lbl_categoryDesc.Name = "lbl_categoryDesc";
+            this.lbl_categoryDesc.Size = new System.Drawing.Size(41, 15);
+            this.lbl_categoryDesc.TabIndex = 2;
+            this.lbl_categoryDesc.Text = "Mô tả:";
+            // 
+            // txt_categoryName
+            // 
+            this.txt_categoryName.Location = new System.Drawing.Point(20, 48);
+            this.txt_categoryName.Name = "txt_categoryName";
+            this.txt_categoryName.Size = new System.Drawing.Size(260, 23);
+            this.txt_categoryName.TabIndex = 1;
+            // 
+            // lbl_categoryName
+            // 
+            this.lbl_categoryName.AutoSize = true;
+            this.lbl_categoryName.Location = new System.Drawing.Point(17, 30);
+            this.lbl_categoryName.Name = "lbl_categoryName";
+            this.lbl_categoryName.Size = new System.Drawing.Size(92, 15);
+            this.lbl_categoryName.TabIndex = 0;
+            this.lbl_categoryName.Text = "Tên danh mục *:";
+            // 
+            // grp_categoryList
+            // 
+            this.grp_categoryList.Controls.Add(this.dgv_listCategory);
+            this.grp_categoryList.Controls.Add(this.txt_categorySearch);
+            this.grp_categoryList.Controls.Add(this.lbl_searchTitle);
+            this.grp_categoryList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grp_categoryList.Location = new System.Drawing.Point(0, 60);
+            this.grp_categoryList.Name = "grp_categoryList";
+            this.grp_categoryList.Padding = new System.Windows.Forms.Padding(10);
+            this.grp_categoryList.Size = new System.Drawing.Size(600, 400);
+            this.grp_categoryList.TabIndex = 3;
+            this.grp_categoryList.TabStop = false;
+            this.grp_categoryList.Text = "Danh sách danh mục";
+            // 
+            // dgv_listCategory
+            // 
+            this.dgv_listCategory.AllowUserToAddRows = false;
+            this.dgv_listCategory.AllowUserToDeleteRows = false;
+            this.dgv_listCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_listCategory.BackgroundColor = System.Drawing.Color.White;
+            this.dgv_listCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_listCategory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_listCategory.Location = new System.Drawing.Point(10, 68);
+            this.dgv_listCategory.Name = "dgv_listCategory";
+            this.dgv_listCategory.ReadOnly = true;
+            this.dgv_listCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_listCategory.Size = new System.Drawing.Size(580, 322);
+            this.dgv_listCategory.TabIndex = 2;
+            this.dgv_listCategory.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_listCategory_CellClick);
+            this.dgv_listCategory.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgv_listCategory_CellFormatting);
+            // 
+            // txt_categorySearch
+            // 
+            this.txt_categorySearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txt_categorySearch.Location = new System.Drawing.Point(10, 45);
+            this.txt_categorySearch.Name = "txt_categorySearch";
+            this.txt_categorySearch.Size = new System.Drawing.Size(580, 23);
+            this.txt_categorySearch.TabIndex = 1;
+            this.txt_categorySearch.TextChanged += new System.EventHandler(this.txt_categorySearch_TextChanged);
+            this.txt_categorySearch.Enter += new System.EventHandler(this.txt_categorySearch_Enter);
+            this.txt_categorySearch.Leave += new System.EventHandler(this.txt_categorySearch_Leave);
+            // 
+            // lbl_searchTitle
+            // 
+            this.lbl_searchTitle.AutoSize = true;
+            this.lbl_searchTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_searchTitle.Location = new System.Drawing.Point(10, 26);
+            this.lbl_searchTitle.Name = "lbl_searchTitle";
+            this.lbl_searchTitle.Padding = new System.Windows.Forms.Padding(0, 0, 0, 4);
+            this.lbl_searchTitle.Size = new System.Drawing.Size(115, 19);
+            this.lbl_searchTitle.TabIndex = 0;
+            this.lbl_searchTitle.Text = "Tìm kiếm danh mục:";
+            // 
+            // FormCategory
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(900, 500);
+            this.Controls.Add(this.grp_categoryList);
+            this.Controls.Add(this.grp_categoryDetails);
+            this.Controls.Add(this.grp_status);
+            this.Controls.Add(this.grp_actions);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Name = "FormCategory";
+            this.Text = "Quản lý danh mục sản phẩm";
+            this.Load += new System.EventHandler(this.FormCategory_Load);
+            this.grp_actions.ResumeLayout(false);
+            this.grp_status.ResumeLayout(false);
+            this.grp_status.PerformLayout();
+            this.grp_categoryDetails.ResumeLayout(false);
+            this.grp_categoryDetails.PerformLayout();
+            this.grp_categoryList.ResumeLayout(false);
+            this.grp_categoryList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_listCategory)).EndInit();
+            this.ResumeLayout(false);
 
-            // ========== pnl_topBar ==========
-            pnl_topBar.Controls.Add(btn_categoryRefresh);
-            pnl_topBar.Controls.Add(btn_categoryDelete);
-            pnl_topBar.Controls.Add(btn_categoryEdit);
-            pnl_topBar.Controls.Add(btn_categoryAdd);
-            pnl_topBar.Dock = System.Windows.Forms.DockStyle.Top;
-            pnl_topBar.Location = new System.Drawing.Point(0, 0);
-            pnl_topBar.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            pnl_topBar.Name = "pnl_topBar";
-            pnl_topBar.Size = new System.Drawing.Size(1587, 102);
-            pnl_topBar.TabIndex = 0;
-
-            // ========== btn_categoryAdd ==========
-            btn_categoryAdd.Location = new System.Drawing.Point(12, 12);
-            btn_categoryAdd.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            btn_categoryAdd.Name = "btn_categoryAdd";
-            btn_categoryAdd.Size = new System.Drawing.Size(375, 63);
-            btn_categoryAdd.TabIndex = 0;
-            btn_categoryAdd.Text = "➕ Thêm";
-            btn_categoryAdd.UseVisualStyleBackColor = true;
-            btn_categoryAdd.Click += btn_categoryAdd_Click;
-
-            // ========== btn_categoryEdit ==========
-            btn_categoryEdit.Location = new System.Drawing.Point(393, 12);
-            btn_categoryEdit.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            btn_categoryEdit.Name = "btn_categoryEdit";
-            btn_categoryEdit.Size = new System.Drawing.Size(402, 63);
-            btn_categoryEdit.TabIndex = 1;
-            btn_categoryEdit.Text = "✏️ Sửa";
-            btn_categoryEdit.UseVisualStyleBackColor = true;
-            btn_categoryEdit.Click += btn_categoryEdit_Click;
-
-            // ========== btn_categoryDelete ==========
-            btn_categoryDelete.Location = new System.Drawing.Point(801, 12);
-            btn_categoryDelete.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            btn_categoryDelete.Name = "btn_categoryDelete";
-            btn_categoryDelete.Size = new System.Drawing.Size(421, 63);
-            btn_categoryDelete.TabIndex = 2;
-            btn_categoryDelete.Text = "🗑️ Xóa";
-            btn_categoryDelete.UseVisualStyleBackColor = true;
-            btn_categoryDelete.Click += btn_categoryDelete_Click;
-
-            // ========== btn_categoryRefresh ==========
-            btn_categoryRefresh.Location = new System.Drawing.Point(1228, 12);
-            btn_categoryRefresh.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            btn_categoryRefresh.Name = "btn_categoryRefresh";
-            btn_categoryRefresh.Size = new System.Drawing.Size(347, 63);
-            btn_categoryRefresh.TabIndex = 3;
-            btn_categoryRefresh.Text = "🔄 Làm mới";
-            btn_categoryRefresh.UseVisualStyleBackColor = true;
-            btn_categoryRefresh.Click += btn_categoryRefresh_Click;
-
-            // ========== pnl_status ==========
-            pnl_status.Controls.Add(lbl_statusSummary);
-            pnl_status.Dock = System.Windows.Forms.DockStyle.Bottom;
-            pnl_status.Location = new System.Drawing.Point(0, 848);
-            pnl_status.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            pnl_status.Name = "pnl_status";
-            pnl_status.Size = new System.Drawing.Size(1587, 102);
-            pnl_status.TabIndex = 1;
-
-            // ========== lbl_statusSummary ==========
-            lbl_statusSummary.AutoSize = true;
-            lbl_statusSummary.Location = new System.Drawing.Point(26, 30);
-            lbl_statusSummary.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            lbl_statusSummary.Name = "lbl_statusSummary";
-            lbl_statusSummary.Size = new System.Drawing.Size(528, 41);
-            lbl_statusSummary.TabIndex = 0;
-            lbl_statusSummary.Text = "Tổng: 0 danh mục | Đang chọn: Không";
-
-            // ========== pnl_left ==========
-            pnl_left.Controls.Add(dgv_listCategory);
-            pnl_left.Controls.Add(lbl_search);
-            pnl_left.Controls.Add(txt_categorySearch);
-            pnl_left.Dock = System.Windows.Forms.DockStyle.Left;
-            pnl_left.Location = new System.Drawing.Point(0, 102);
-            pnl_left.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            pnl_left.Name = "pnl_left";
-            pnl_left.Size = new System.Drawing.Size(640, 746);
-            pnl_left.TabIndex = 2;
-
-            // ========== lbl_search ==========
-            lbl_search.Location = new System.Drawing.Point(6, 6);
-            lbl_search.Name = "lbl_search";
-            lbl_search.Size = new System.Drawing.Size(628, 46);
-            lbl_search.TabIndex = 2;
-            lbl_search.Text = "🔍 Tìm kiếm danh mục:";
-
-            // ========== txt_categorySearch ==========
-            txt_categorySearch.Location = new System.Drawing.Point(6, 55);
-            txt_categorySearch.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            txt_categorySearch.Name = "txt_categorySearch";
-            txt_categorySearch.Size = new System.Drawing.Size(628, 47);
-            txt_categorySearch.TabIndex = 1;
-            txt_categorySearch.Text = "Tìm danh mục...";
-            txt_categorySearch.ForeColor = System.Drawing.Color.Gray;
-            txt_categorySearch.TextChanged += txt_categorySearch_TextChanged;
-            txt_categorySearch.Enter += txt_categorySearch_Enter;
-            txt_categorySearch.Leave += txt_categorySearch_Leave;
-
-            // ========== dgv_listCategory ==========
-            dgv_listCategory.ColumnHeadersHeight = 58;
-            dgv_listCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgv_listCategory.Location = new System.Drawing.Point(6, 110);
-            dgv_listCategory.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            dgv_listCategory.Name = "dgv_listCategory";
-            dgv_listCategory.RowHeadersWidth = 102;
-            dgv_listCategory.Size = new System.Drawing.Size(628, 620);
-            dgv_listCategory.TabIndex = 0;
-            dgv_listCategory.CellClick += dgv_listCategory_CellClick;
-            dgv_listCategory.CellFormatting += dgv_listCategory_CellFormatting;
-
-            // ========== pnl_details ==========
-            pnl_details.Controls.Add(btn_categoryCancel);
-            pnl_details.Controls.Add(btn_categorySave);
-            pnl_details.Controls.Add(cbb_categoryStatus);
-            pnl_details.Controls.Add(lbl_categoryStatus);
-            pnl_details.Controls.Add(txt_categoryDesc);
-            pnl_details.Controls.Add(lbl_categoryDesc);
-            pnl_details.Controls.Add(txt_categoryName);
-            pnl_details.Controls.Add(lbl_categoryName);
-            pnl_details.Controls.Add(lbl_detailsTitle);
-            pnl_details.Dock = System.Windows.Forms.DockStyle.Fill;
-            pnl_details.Location = new System.Drawing.Point(640, 102);
-            pnl_details.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            pnl_details.Name = "pnl_details";
-            pnl_details.Padding = new System.Windows.Forms.Padding(6);
-            pnl_details.Size = new System.Drawing.Size(947, 746);
-            pnl_details.TabIndex = 3;
-
-            // ========== lbl_detailsTitle ==========
-            lbl_detailsTitle.Location = new System.Drawing.Point(6, 12);
-            lbl_detailsTitle.Name = "lbl_detailsTitle";
-            lbl_detailsTitle.Size = new System.Drawing.Size(935, 46);
-            lbl_detailsTitle.TabIndex = 0;
-            lbl_detailsTitle.Text = "📋 Thông tin danh mục";
-            lbl_detailsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-
-            // ========== lbl_categoryName ==========
-            lbl_categoryName.Location = new System.Drawing.Point(6, 73);
-            lbl_categoryName.Name = "lbl_categoryName";
-            lbl_categoryName.Size = new System.Drawing.Size(314, 46);
-            lbl_categoryName.TabIndex = 1;
-            lbl_categoryName.Text = "Tên danh mục *:";
-
-            // ========== txt_categoryName ==========
-            txt_categoryName.Location = new System.Drawing.Point(6, 122);
-            txt_categoryName.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            txt_categoryName.Name = "txt_categoryName";
-            txt_categoryName.Size = new System.Drawing.Size(929, 47);
-            txt_categoryName.TabIndex = 2;
-
-            // ========== lbl_categoryDesc ==========
-            lbl_categoryDesc.Location = new System.Drawing.Point(6, 184);
-            lbl_categoryDesc.Name = "lbl_categoryDesc";
-            lbl_categoryDesc.Size = new System.Drawing.Size(314, 46);
-            lbl_categoryDesc.TabIndex = 3;
-            lbl_categoryDesc.Text = "Mô tả:";
-
-            // ========== txt_categoryDesc ==========
-            txt_categoryDesc.Location = new System.Drawing.Point(6, 233);
-            txt_categoryDesc.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            txt_categoryDesc.Name = "txt_categoryDesc";
-            txt_categoryDesc.Size = new System.Drawing.Size(929, 47);
-            txt_categoryDesc.TabIndex = 4;
-
-            // ========== lbl_categoryStatus ==========
-            lbl_categoryStatus.Location = new System.Drawing.Point(6, 295);
-            lbl_categoryStatus.Name = "lbl_categoryStatus";
-            lbl_categoryStatus.Size = new System.Drawing.Size(314, 46);
-            lbl_categoryStatus.TabIndex = 5;
-            lbl_categoryStatus.Text = "Trạng thái:";
-
-            // ========== cbb_categoryStatus ==========
-            cbb_categoryStatus.FormattingEnabled = true;
-            cbb_categoryStatus.Items.AddRange(new object[] { "Hoạt động", "Ngừng" });
-            cbb_categoryStatus.Location = new System.Drawing.Point(6, 344);
-            cbb_categoryStatus.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            cbb_categoryStatus.Name = "cbb_categoryStatus";
-            cbb_categoryStatus.Size = new System.Drawing.Size(929, 49);
-            cbb_categoryStatus.TabIndex = 6;
-
-            // ========== btn_categorySave ==========
-            btn_categorySave.Location = new System.Drawing.Point(6, 635);
-            btn_categorySave.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            btn_categorySave.Name = "btn_categorySave";
-            btn_categorySave.Size = new System.Drawing.Size(466, 64);
-            btn_categorySave.TabIndex = 7;
-            btn_categorySave.Text = "💾 Lưu";
-            btn_categorySave.UseVisualStyleBackColor = true;
-            btn_categorySave.Click += btn_categorySave_Click;
-
-            // ========== btn_categoryCancel ==========
-            btn_categoryCancel.Location = new System.Drawing.Point(478, 635);
-            btn_categoryCancel.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            btn_categoryCancel.Name = "btn_categoryCancel";
-            btn_categoryCancel.Size = new System.Drawing.Size(457, 64);
-            btn_categoryCancel.TabIndex = 8;
-            btn_categoryCancel.Text = "❌ Hủy";
-            btn_categoryCancel.UseVisualStyleBackColor = true;
-            btn_categoryCancel.Click += btn_categoryCancel_Click;
-
-            // ========== FormCategory ==========
-            AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1587, 950);
-            Controls.Add(pnl_details);
-            Controls.Add(pnl_left);
-            Controls.Add(pnl_topBar);
-            Controls.Add(pnl_status);
-            Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
-            Name = "FormCategory";
-            Text = "Quản lý danh mục sản phẩm";
-            Load += FormCategory_Load;
-            
-            pnl_topBar.ResumeLayout(false);
-            pnl_status.ResumeLayout(false);
-            pnl_status.PerformLayout();
-            pnl_left.ResumeLayout(false);
-            pnl_left.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgv_listCategory).EndInit();
-            pnl_details.ResumeLayout(false);
-            pnl_details.PerformLayout();
-            ResumeLayout(false);
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnl_topBar;
-        private System.Windows.Forms.Button btn_categoryAdd;
-        private System.Windows.Forms.Button btn_categoryEdit;
-        private System.Windows.Forms.Button btn_categoryDelete;
+        private System.Windows.Forms.GroupBox grp_actions;
         private System.Windows.Forms.Button btn_categoryRefresh;
-        private System.Windows.Forms.Panel pnl_status;
+        private System.Windows.Forms.Button btn_categoryDelete;
+        private System.Windows.Forms.Button btn_categoryEdit;
+        private System.Windows.Forms.Button btn_categoryAdd;
+        private System.Windows.Forms.GroupBox grp_status;
         private System.Windows.Forms.Label lbl_statusSummary;
-        private System.Windows.Forms.Panel pnl_left;
-        private System.Windows.Forms.DataGridView dgv_listCategory;
-        private System.Windows.Forms.TextBox txt_categorySearch;
-        private System.Windows.Forms.Label lbl_search;
-        private System.Windows.Forms.Panel pnl_details;
-        private System.Windows.Forms.Label lbl_detailsTitle;
-        private System.Windows.Forms.Label lbl_categoryName;
+        private System.Windows.Forms.GroupBox grp_categoryDetails;
+        private System.Windows.Forms.GroupBox grp_categoryList;
         private System.Windows.Forms.TextBox txt_categoryName;
-        private System.Windows.Forms.Label lbl_categoryDesc;
+        private System.Windows.Forms.Label lbl_categoryName;
         private System.Windows.Forms.TextBox txt_categoryDesc;
-        private System.Windows.Forms.Label lbl_categoryStatus;
+        private System.Windows.Forms.Label lbl_categoryDesc;
         private System.Windows.Forms.ComboBox cbb_categoryStatus;
-        private System.Windows.Forms.Button btn_categorySave;
+        private System.Windows.Forms.Label lbl_categoryStatus;
         private System.Windows.Forms.Button btn_categoryCancel;
+        private System.Windows.Forms.Button btn_categorySave;
+        private System.Windows.Forms.Label lbl_searchTitle;
+        private System.Windows.Forms.TextBox txt_categorySearch;
+        private System.Windows.Forms.DataGridView dgv_listCategory;
     }
 }
