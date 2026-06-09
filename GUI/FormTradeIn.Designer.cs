@@ -73,6 +73,7 @@ partial class FormTradeIn
         // 
         // txt_phone
         // 
+        txt_phone.BackColor = System.Drawing.Color.White;
         txt_phone.Location = new System.Drawing.Point(349, 157);
         txt_phone.Name = "txt_phone";
         txt_phone.ReadOnly = true;
@@ -89,6 +90,7 @@ partial class FormTradeIn
         // 
         // txt_customerName
         // 
+        txt_customerName.BackColor = System.Drawing.Color.White;
         txt_customerName.Location = new System.Drawing.Point(6, 157);
         txt_customerName.Name = "txt_customerName";
         txt_customerName.ReadOnly = true;
@@ -241,7 +243,7 @@ partial class FormTradeIn
         Controls.Add(groupBox2);
         Controls.Add(dgv_invoiceDetails);
         Controls.Add(groupBox1);
-        Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+        Margin = new System.Windows.Forms.Padding(6);
         Text = "Đổi trả sản phẩm";
         groupBox1.ResumeLayout(false);
         groupBox1.PerformLayout();

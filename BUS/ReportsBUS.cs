@@ -26,5 +26,32 @@ namespace BUS
 
             return (revenue, revenue - cost);
         }
+
+        /// <summary>Lấy tóm tắt báo cáo trong khoảng thời gian (doanh thu, lợi nhuận, số hóa đơn, số sản phẩm, số bảo hành).</summary>
+        public (decimal revenue, decimal profit, int invoiceCount, int productCount, int warrantyCount) GetSummaryByRange(DateTime from, DateTime to)
+        {
+            var invoices = _invoiceDAL.GetByDateRange(from, to);
+            decimal revenue = 0, cost = 0;
+            int productCount = 0;
+
+            foreach (var inv in invoices)
+            {
+                revenue += inv.FinalAmount;
+                var details = _detailDAL.GetByInvoice(inv.InvoiceID);
+                cost += details.Sum(d => d.CostPrice * d.Quantity);
+                productCount += details.Sum(d => d.Quantity);
+            }
+
+            // TODO: Lấy số bảo hành từ WarrantyDAL nếu cần
+            int warrantyCount = 0;
+
+            return (revenue, revenue - cost, invoices.Count, productCount, warrantyCount);
+        }
+
+        /// <summary>Lấy danh sách hóa đơn trong khoảng thời gian.</summary>
+        public List<SalesInvoicesDTO> GetInvoicesByRange(DateTime from, DateTime to)
+        {
+            return _invoiceDAL.GetByDateRange(from, to);
+        }
     }
 }

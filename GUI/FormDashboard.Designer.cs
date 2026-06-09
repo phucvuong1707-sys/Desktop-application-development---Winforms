@@ -238,12 +238,14 @@ namespace GUI
             tsBtn_sell.Name = "tsBtn_sell";
             tsBtn_sell.Size = new System.Drawing.Size(146, 49);
             tsBtn_sell.Text = "Bán hàng";
+            tsBtn_sell.Click += tsBtn_sell_Click;
             // 
             // tsBtn_guest
             // 
             tsBtn_guest.Name = "tsBtn_guest";
             tsBtn_guest.Size = new System.Drawing.Size(177, 49);
             tsBtn_guest.Text = "Khách hàng";
+            tsBtn_guest.Click += tsBtn_guest_Click;
             // 
             // tsSep1
             // 
@@ -255,12 +257,14 @@ namespace GUI
             tsBtn_product.Name = "tsBtn_product";
             tsBtn_product.Size = new System.Drawing.Size(154, 49);
             tsBtn_product.Text = "Sản phẩm";
+            tsBtn_product.Click += tsBtn_product_Click;
             // 
             // tsBtn_warehouse
             // 
             tsBtn_warehouse.Name = "tsBtn_warehouse";
             tsBtn_warehouse.Size = new System.Drawing.Size(152, 49);
             tsBtn_warehouse.Text = "Nhập kho";
+            tsBtn_warehouse.Click += tsBtn_warehouse_Click;
             // 
             // tsSep2
             // 
@@ -272,6 +276,7 @@ namespace GUI
             tsBtn_guarantee.Name = "tsBtn_guarantee";
             tsBtn_guarantee.Size = new System.Drawing.Size(111, 49);
             tsBtn_guarantee.Text = "Đổi trả";
+            tsBtn_guarantee.Click += tsBtn_guarantee_Click;
             // 
             // tsSep3
             // 
@@ -283,6 +288,7 @@ namespace GUI
             tsBtn_report.Name = "tsBtn_report";
             tsBtn_report.Size = new System.Drawing.Size(127, 49);
             tsBtn_report.Text = "Báo cáo";
+            tsBtn_report.Click += tsBtn_report_Click;
             // 
             // tsSep4
             // 

@@ -56,7 +56,7 @@ public partial class FormReport : Form
         // Căn chỉnh bộ lọc trong groupBox1
         groupBox1.Dock = DockStyle.Top;
         groupBox1.Height = 180;
-        
+
         // Sắp xếp các control trong groupBox1 cho gọn gàng
         cbb_dayFill.Location = new Point(12, 25);
         dtp_from.Location = new Point(170, 25);
@@ -77,7 +77,7 @@ public partial class FormReport : Form
             cards[i].Height = 100;
             cards[i].Location = new Point(10 + i * cardWidth, 10);
             cards[i].Anchor = AnchorStyles.Top | AnchorStyles.Left;
-            
+
             // Tinh chỉnh giao diện giống card
             if (cards[i] is Label lbl)
             {
@@ -106,9 +106,9 @@ public partial class FormReport : Form
     {
         var invoices = _reportsBus.GetInvoicesByRange(from, to);
         var reportList = new List<object>();
-        
+
         // Load một lần để dùng chung (tối ưu hơn là query trong loop)
-        var allProducts = _productsBus.GetAll(); 
+        var allProducts = _productsBus.GetAll();
         var allCustomers = _customersBus.GetAll();
         var salesBus = new SalesBUS();
 
@@ -116,11 +116,12 @@ public partial class FormReport : Form
         {
             // Lấy chi tiết hóa đơn từ BUS
             var details = salesBus.GetInvoiceDetails(inv.InvoiceID);
-            
+
             var customer = allCustomers.FirstOrDefault(c => c.CustomerID == inv.CustomerID);
 
             decimal totalCost = details.Sum(d => d.CostPrice * d.Quantity);
-            string productSummary = string.Join(", ", details.Select(d => {
+            string productSummary = string.Join(", ", details.Select(d =>
+            {
                 var product = allProducts.FirstOrDefault(p => p.ProductID == d.ProductID);
                 return product != null ? product.ProductName : "Sản phẩm";
             }).ToArray());
@@ -143,7 +144,7 @@ public partial class FormReport : Form
 
     private void UpdateCards(decimal revenue, decimal profit, int invoiceCount, int productCount, int warrantyCount)
     {
-        if (lbl_doanhThu != null) lbl_doanhThu.Text = $"{revenue:N0} đ\nDoanh thu";
+        if (lbl_outCome != null) lbl_outCome.Text = $"{revenue:N0} đ\nDoanh thu";
         if (lbl_grossProfit != null) lbl_grossProfit.Text = $"{profit:N0} đ\nLợi nhuận gộp";
         if (lbl_invoiceNum != null) lbl_invoiceNum.Text = $"{invoiceCount}\nHóa đơn đã xuất";
         if (lbl_productSold != null) lbl_productSold.Text = $"{productCount}\nSản phẩm bán ra";
@@ -153,7 +154,7 @@ public partial class FormReport : Form
     private void LoadTable(System.Collections.Generic.List<object> data)
     {
         if (dgv_listInvoices == null) return;
-        
+
         dgv_listInvoices.Rows.Clear();
         foreach (dynamic item in data)
         {
@@ -189,16 +190,17 @@ public partial class FormReport : Form
 
     private void UpdateFooter(DateTime from, DateTime to)
     {
-        if (lbl_footerLeft != null) 
+        if (lbl_footerLeft != null)
+        {
             lbl_footerLeft.Text = $"Báo cáo từ ngày: {from:dd/MM/yyyy} đến {to:dd/MM/yyyy}";
-        
-        lbl_footerLeft.BackColor = Color.Transparent;
-        lbl_footerRight.BackColor = Color.Transparent;
-        lbl_footerLeft.ForeColor = Color.Black;
-        lbl_footerRight.ForeColor = Color.Black;
+            lbl_footerLeft.BackColor = Color.Transparent;
+            lbl_footerLeft.ForeColor = Color.Black;
+        }
 
         if (lbl_footerRight != null)
         {
+            lbl_footerRight.BackColor = Color.Transparent;
+            lbl_footerRight.ForeColor = Color.Black;
             // Tính tỉ lệ lợi nhuận nếu cần
         }
     }
@@ -237,8 +239,8 @@ public partial class FormReport : Form
                         headerCell.Value = dgv_listInvoices.Columns[i].HeaderText;
                         headerCell.Style.Font.Bold = true;
                         headerCell.Style.Fill.BackgroundColor = XLColor.LightGray;
-                        headerCell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin; // Kẻ khung tiêu đề
-                        headerCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; // Căn giữa tiêu đề
+                        headerCell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                        headerCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
                     }
 
                     // 2. Đổ dữ liệu THỰC TẾ từ các hàng của DataGridView vào Excel
@@ -252,25 +254,22 @@ public partial class FormReport : Form
                         {
                             var cellValue = row.Cells[j].Value?.ToString() ?? "";
                             var excelCell = worksheet.Cell(excelRowIndex, j + 1);
-                            
-                            // Kẻ khung mỏng cho từng ô dữ liệu
+
                             excelCell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
 
-                            // Lấy tên Header để nhận diện cột tiền
                             string headerText = dgv_listInvoices.Columns[j].HeaderText.ToLower();
                             string columnName = dgv_listInvoices.Columns[j].Name.ToLower();
 
-                            // Tự động ép kiểu Số nếu cột có chữ "tiền", "giá", "tổng" để Excel dùng được hàm SUM()
                             if (headerText.Contains("tiền") || headerText.Contains("giá") || columnName.Contains("tien"))
                             {
                                 if (decimal.TryParse(cellValue, out decimal moneyValue))
                                 {
                                     excelCell.Value = moneyValue;
-                                    excelCell.Style.NumberFormat.Format = "#,##0\" đ\""; // Thêm dấu phẩy hàng nghìn
+                                    excelCell.Style.NumberFormat.Format = "#,##0\" đ\"";
                                 }
                                 else
                                 {
-                                    excelCell.Value = cellValue; // Nếu không phải số (bị lỗi chữ) thì in bình thường
+                                    excelCell.Value = cellValue;
                                 }
                             }
                             else
@@ -281,12 +280,9 @@ public partial class FormReport : Form
                         excelRowIndex++;
                     }
 
-                    // Căn chỉnh độ rộng tự động cho các cột Excel đẹp mắt
                     worksheet.Columns().AdjustToContents();
-
-                    // 3. Lưu file thực tế vào máy tính
                     workbook.SaveAs(saveDialog_Excel.FileName);
-                    
+
                     MessageBox.Show("Xuất báo cáo Excel thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -302,11 +298,6 @@ public partial class FormReport : Form
 
     private void FormReport_Load(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
-    }
-
-    private void FormReport_Load_1(object sender, EventArgs e)
-    {
-        throw new System.NotImplementedException();
+        // Stub method - actual loading is done in constructor via LoadReport()
     }
 }

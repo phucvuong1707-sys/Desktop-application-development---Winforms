@@ -37,5 +37,14 @@ namespace DAL
                     "SELECT * FROM SalesInvoices WHERE InvoiceCode=@code", new { code });
             }
         }
+
+        public List<SalesInvoicesDTO> GetByDateRange(DateTime from, DateTime to)
+        {
+            using (IDbConnection db = DatabaseHelper.GetConnection())
+            {
+                string query = "SELECT * FROM SalesInvoices WHERE SaleDate >= @from AND SaleDate <= @to";
+                return db.Query<SalesInvoicesDTO>(query, new { from, to }).AsList();
+            }
+        }
     }
 }

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using BUS;
 using DAL;
 using DTO;
 
@@ -9,8 +11,13 @@ namespace BUS
         private readonly ShiftsDAL _dal = new ShiftsDAL();
         private readonly SalesInvoicesDAL _invoiceDAL = new SalesInvoicesDAL();
 
-        public ShiftsDTO GetOpenShift(int userID) =>
+        public ShiftsDTO? GetOpenShift(int userID) =>
             _dal.GetOpenShiftByUser(userID);
+
+        public List<ShiftsDTO> GetAllShifts()
+        {
+            return _dal.GetAllShifts();
+        }
 
         public (bool success, string error) OpenShift(decimal openingCash)
         {
@@ -29,7 +36,7 @@ namespace BUS
             if (id <= 0) return (false, "Mở ca thất bại.");
 
             CurrentUser.ShiftID = id;
-            return (true, null);
+            return (true, null!);
         }
 
         public (bool success, string error) CloseShift(decimal actualCash, string note)

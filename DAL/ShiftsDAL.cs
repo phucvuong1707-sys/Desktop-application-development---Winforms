@@ -1,6 +1,7 @@
 using System.Data;
 using Dapper;
 using DTO;
+using System.Collections.Generic;
 
 namespace DAL
 {
@@ -35,6 +36,14 @@ namespace DAL
             {
                 return db.QueryFirstOrDefault<ShiftsDTO>(
                     "SELECT * FROM Shifts WHERE UserID=@userID AND Status='Đang mở'", new { userID });
+            }
+        }
+
+        public List<ShiftsDTO> GetAllShifts()
+        {
+            using (IDbConnection db = DatabaseHelper.GetConnection())
+            {
+                return db.Query<ShiftsDTO>("SELECT * FROM Shifts ORDER BY StartTime DESC").AsList();
             }
         }
     }

@@ -10,7 +10,7 @@ namespace GUI;
 public partial class FormManageShift : Form
 {
     private ShiftsBUS _shiftsBus = new ShiftsBUS();
-    private ShiftsDTO _currentShift = null;
+    private ShiftsDTO? _currentShift = null;
     private bool _isShiftOpen => _currentShift != null;
 
     private List<ShiftsDTO> _shiftList = new List<ShiftsDTO>();
@@ -81,7 +81,7 @@ public partial class FormManageShift : Form
         
         if (_isShiftOpen)
         {
-            lbl_resTime.Text = _currentShift.StartTime.ToString("HH:mm");
+            lbl_resTime.Text = _currentShift!.StartTime.ToString("HH:mm");
             lbl_resMoney.Text = string.Format("{0:N0}", _currentShift.OpeningCash);
             
             var (revenue, profit) = new ReportsBUS().GetDailySummary(CurrentUser.UserID, DateTime.Today);
@@ -136,7 +136,7 @@ public partial class FormManageShift : Form
     {
         if (_isShiftOpen)
         {
-            lbl_footerLeft.Text = $"Ca hiện tại: {_currentShift.ShiftCode} | {CurrentUser.FullName}";
+            lbl_footerLeft.Text = $"Ca hiện tại: {_currentShift!.ShiftCode} | {CurrentUser.FullName}";
             lbl_footerRight.Text = $"Mở lúc: {_currentShift.StartTime:HH:mm dd/MM}";
         }
         else
@@ -179,7 +179,7 @@ public partial class FormManageShift : Form
         if (MessageBox.Show("Bạn có chắc muốn chốt ca?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
         {
             // Tạm thời fix cứng số tiền thực tế
-            var result = _shiftsBus.CloseShift(_currentShift.OpeningCash, "Chốt ca tự động");
+            var result = _shiftsBus.CloseShift(_currentShift!.OpeningCash, "Chốt ca tự động");
             if (result.success)
             {
                 LoadData();
