@@ -195,3 +195,4 @@ C:\Users\MinhTrieu\RiderProjects\Desktop-application-development---Winforms\GUI\
 C:\Users\MinhTrieu\RiderProjects\Desktop-application-development---Winforms\GUI\bin\Debug\net9.0-windows\runtimes\win-arm64\native\Magick.Native-Q8-arm64.dll
 C:\Users\MinhTrieu\RiderProjects\Desktop-application-development---Winforms\GUI\bin\Debug\net9.0-windows\runtimes\win-x64\native\Magick.Native-Q8-x64.dll
 C:\Users\MinhTrieu\RiderProjects\Desktop-application-development---Winforms\GUI\bin\Debug\net9.0-windows\runtimes\win-x86\native\Magick.Native-Q8-x86.dll
+C:\Users\MinhTrieu\RiderProjects\Desktop-application-development---Winforms\GUI\obj\Debug\net9.0-windows\GUI.FormCategory.resources

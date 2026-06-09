@@ -33,23 +33,23 @@ namespace GUI
         private void LoadData()
         {
             _originalList = _categoryBUS.GetAll() ?? new List<CategoriesDTO>();
-            dgv_categoryList.DataSource = _originalList;
+            dgv_listCategory.DataSource = _originalList;
 
             // Tùy chỉnh tiêu đề hiển thị cho các cột dữ liệu
-            if (dgv_categoryList.Columns["CategoryID"] != null) dgv_categoryList.Columns["CategoryID"].HeaderText = "Mã DM";
-            if (dgv_categoryList.Columns["CategoryName"] != null) dgv_categoryList.Columns["CategoryName"].HeaderText = "Tên danh mục";
-            if (dgv_categoryList.Columns["Description"] != null) dgv_categoryList.Columns["Description"].HeaderText = "Mô tả";
-            if (dgv_categoryList.Columns["Status"] != null) dgv_categoryList.Columns["Status"].HeaderText = "Trạng thái";
+            if (dgv_listCategory.Columns["CategoryID"] != null) dgv_listCategory.Columns["CategoryID"].HeaderText = "Mã DM";
+            if (dgv_listCategory.Columns["CategoryName"] != null) dgv_listCategory.Columns["CategoryName"].HeaderText = "Tên danh mục";
+            if (dgv_listCategory.Columns["Description"] != null) dgv_listCategory.Columns["Description"].HeaderText = "Mô tả";
+            if (dgv_listCategory.Columns["Status"] != null) dgv_listCategory.Columns["Status"].HeaderText = "Trạng thái";
 
-            dgv_categoryList.ClearSelection();
+            dgv_listCategory.ClearSelection();
             _selectedCategoryID = -1;
             UpdateStatusStrip("Không");
         }
 
         //4. Định dạng lại nội dung và màu sắc hiển thị của lưới dữ liệu dựa trên giá trị thô
-        private void dgv_CategoryList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dgv_listCategory_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgv_categoryList.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
+            if (dgv_listCategory.Columns[e.ColumnIndex].Name == "Status" && e.Value != null)
             {
                 string rawStatus = e.Value.ToString();
                 if (rawStatus == "Hoat dong")
@@ -67,11 +67,11 @@ namespace GUI
         }
 
         //5.Trích xuất dữ liệu từ dòng được chọn và gán vào các điều khiển nhập liệu
-        private void dgv_CategoryList_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_listCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && !_isAdding)
             {
-                DataGridViewRow row = dgv_categoryList.Rows[e.RowIndex];
+                DataGridViewRow row = dgv_listCategory.Rows[e.RowIndex];
 
                 _selectedCategoryID = Convert.ToInt32(row.Cells["CategoryID"].Value);
                 txt_categoryName.Text = row.Cells["CategoryName"].Value?.ToString();
@@ -97,7 +97,7 @@ namespace GUI
             btn_categoryAdd.Enabled = !isEnabled;
             btn_categoryEdit.Enabled = !isEnabled;
             btn_categoryDelete.Enabled = !isEnabled;
-            dgv_categoryList.Enabled = !isEnabled;
+            dgv_listCategory.Enabled = !isEnabled;
         }
 
         //7. Làm sạch toàn bộ dữ liệu trên các trường nhập liệu
@@ -115,7 +115,7 @@ namespace GUI
         }
 
         //9.Xử lý sự kiện khởi tạo phiên thêm mới danh mục
-        private void btn_CategoryAdd_Click(object sender, EventArgs e)
+        private void btn_categoryAdd_Click(object sender, EventArgs e)
         {
             _isAdding = true;
             ClearInputs();
@@ -125,7 +125,7 @@ namespace GUI
         }
 
         //10. Xử lý sự kiện khởi tạo phiên chỉnh sửa danh mục hiện tại
-        private void btn_CategoryEdit_Click(object sender, EventArgs e)
+        private void btn_categoryEdit_Click(object sender, EventArgs e)
         {
             if (_selectedCategoryID == -1)
             {
@@ -137,7 +137,7 @@ namespace GUI
         }
 
         //11. Xử lý thao tác xóa bản ghi khỏi hệ thống
-        private void btn_CategoryDelete_Click(object sender, EventArgs e)
+        private void btn_categoryDelete_Click(object sender, EventArgs e)
         {
             if (_selectedCategoryID == -1)
             {
@@ -152,7 +152,7 @@ namespace GUI
                 if (success)
                 {
                     MessageBox.Show("Xóa danh mục thành công!", "Thông báo");
-                    btn_CategoryRefresh_Click(null, null);
+                    btn_categoryRefresh_Click(null, null);
                 }
                 else
                 {
@@ -162,7 +162,7 @@ namespace GUI
         }
 
         //12. Tải lại dữ liệu và khôi phục giao diện về trạng thái ban đầu
-        private void btn_CategoryRefresh_Click(object sender, EventArgs e)
+        private void btn_categoryRefresh_Click(object sender, EventArgs e)
         {
             LoadData();
             ClearInputs();
@@ -172,7 +172,7 @@ namespace GUI
         }
 
         //13 Hủy bỏ thao tác hiện tại và khóa các trường nhập liệu
-        private void btn_CategoryCancel_Click(object sender, EventArgs e)
+        private void btn_categoryCancel_Click(object sender, EventArgs e)
         {
             _isAdding = false;
             ClearInputs();
@@ -180,7 +180,7 @@ namespace GUI
         }
 
         //14. Kiểm tra tính hợp lệ của dữ liệu và thực thi lưu trữ vào cơ sở dữ liệu
-        private void btn_CategorySave_Click(object sender, EventArgs e)
+        private void btn_categorySave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_categoryName.Text))
             {
@@ -211,7 +211,7 @@ namespace GUI
             if (success)
             {
                 MessageBox.Show(_isAdding ? "Thêm danh mục mới thành công!" : "Cập nhật danh mục thành công!", "Thông báo");
-                btn_CategoryRefresh_Click(null, null);
+                btn_categoryRefresh_Click(null, null);
             }
             else
             {
@@ -220,13 +220,13 @@ namespace GUI
         }
 
         //15. Bộ lọc dữ liệu cục bộ hỗ trợ tìm kiếm linh hoạt (không thực thi truy vấn tới cơ sở dữ liệu)
-        private void txt_CategorySearch_TextChanged(object sender, EventArgs e)
+        private void txt_categorySearch_TextChanged(object sender, EventArgs e)
         {
             string keyword = txt_categorySearch.Text.Trim().ToLower();
 
             if (string.IsNullOrEmpty(keyword) || txt_categorySearch.Text == "Tìm danh mục...")
             {
-                dgv_categoryList.DataSource = _originalList;
+                dgv_listCategory.DataSource = _originalList;
             }
             else
             {
@@ -236,12 +236,12 @@ namespace GUI
                     (!string.IsNullOrEmpty(c.Description) && c.Description.ToLower().Contains(keyword))
                 ).ToList();
 
-                dgv_categoryList.DataSource = filtered;
+                dgv_listCategory.DataSource = filtered;
             }
         }
 
         //16. Quản lý hiệu ứng văn bản gợi ý (placeholder) khi điều khiển nhận tiêu điểm
-        private void txt_CategorySearch_Enter(object sender, EventArgs e)
+        private void txt_categorySearch_Enter(object sender, EventArgs e)
         {
             if (txt_categorySearch.Text == "Tìm danh mục...")
             {
@@ -251,7 +251,7 @@ namespace GUI
         }
 
         //17. Quản lý hiệu ứng văn bản gợi ý (placeholder) khi điều khiển mất tiêu điểm
-        private void txt_CategorySearch_Leave(object sender, EventArgs e)
+        private void txt_categorySearch_Leave(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_categorySearch.Text))
             {
@@ -259,5 +259,7 @@ namespace GUI
                 txt_categorySearch.ForeColor = Color.Gray;
             }
         }
+
+   
     }
 }
